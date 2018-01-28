@@ -1,0 +1,76 @@
+<ion-content class="bgcolor">
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="diag" style="background: url('assets/images/yeah.png') no-repeat; background-size: contain">
+        <ion-icon class="iic" name="bookmarks" color="primary" [@bounce]='state' (@bounce.done)="animationDone()"></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+          <h2>Welcome young Descartes</h2>
+          <p>Whether it's circles, parabola, ellipses, We have it covered in this tutorial! What are you waiting for? Let's start learning!
+          </p>
+      </div>
+      
+    </ion-slide>
+    
+    <ion-slide>
+      <div class="diag" style="background: url('assets/images/yeah.png') no-repeat; background-size: contain">
+        <ion-icon class="iic" name="icon-parabola" color="primary" [@bounce]='state'></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+          <h2>Graphing Conic Sections</h2>
+          <p>Having a hard time graphing? Worry no more, AGtuts got your back! With its graphing feature,
+            just input the formula then see the graph.</p>
+      </div>
+      
+    </ion-slide>
+    
+    <ion-slide>
+      <div class="diag" style="background: url('assets/images/yeah.png') no-repeat; background-size: contain">
+        <ion-icon class="iic" name="icon-math" color="primary" [@bounce]='state'></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+          <h2>Solving Conic Sections</h2>
+          <p>If you believe that simply having a calculator isn't enough for conic sections, then here's for you!
+            Input the given then easily solve for the missing values!</p>
+      </div>
+     
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/images/yeah.png') no-repeat; background-size: contain">
+        <ion-icon class="iic" name="medal" color="primary" [@bounce]='state'></ion-icon>
+      </div>
+      <div [@bounce]='state'> 
+        <h2>Test your Knowledge</h2>
+        <p>After learning everything, do you want to test your knowledge? Then take the test and discover the missing descartes in you!
+          Go on and tap the button below.
+        </p>
+      </div>
+     
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/images/yeah.png') no-repeat; background-size: contain">
+        <ion-icon class="iic" name="book" color="primary" [@bounce]='state'></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+        <h2>How-tos</h2>
+        <p>If you're confused about anything in this app, here's the manual for you. Enjoy!</p>
+      </div>
+     
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/images/yeah.png') no-repeat; background-size: contain">
+        <ion-icon class="iic" name="person" color="primary" [@bounce]='state'></ion-icon>
+      </div>
+      <div [@bounce]='state'>
+        <h2>About me</h2>
+        <p>Interested about this project? Tap the button below and Ask me!</p>
+      </div>
+      
+    </ion-slide>
+    
+  </ion-slides>
+  <button (click)="skip()" id="skip">{{skef}}</button>
+</ion-content>

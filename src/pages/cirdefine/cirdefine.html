@@ -1,0 +1,442 @@
+<!--
+  Generated template for the CirdefinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Defining Circle</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bgcolor">
+  <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <img src="assets/images/Circle_radians.gif" class="imagus" alt="circle">
+      </div>
+
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>
+        &emsp;In algebraic terms, a circle is the set of points (x, y) at some fixed distance (r) from some fixed point (h, k). 
+        The value of r is called the <i>"radius"</i> of the circle, and the point (h, k) is called the <i>"center"</i> of the circle.
+        Circle may also be considered a special kind of ellipse.
+        <br>&emsp;Twice the radius = <i>Diameter</i>
+        <br>&emsp;Perimeter = <i>&emsp;Circumference.</i>
+        </p>
+      </div>
+      <div text-left [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-2></ion-col>
+          <ion-col col-8><b>Note:</b></ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-2></ion-col>
+          <ion-col col-8><b>&pi; = circumference/diameter</b></ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-1></ion-col>
+          <ion-col col-10><p>This means that if diameter is 1 then circumference is 3.14, which is pi (&pi;).<br>
+            That is why circumference is 2r&pi;, since diameter = 2r.</p></ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <img src="assets/images/tutcircle.png" class="imagus" alt="circle">
+      </div>
+      <div text-justify class = "divmar" [@bounce]='state'>
+        <p>
+        &emsp;The figure above has center at C(h, k) and radius is more than 0. A point P(x, y) is on the circle if and only if
+        line PC= r. For any such point then, its coordinates should satisfy the following:
+        </p>
+      </div>
+
+      <div class="divmar" [@bounce]='state'>  
+        <ion-list>
+            <ion-item text-center class="sfont">
+              PC = r
+            </ion-item>
+            <ion-item text-center class="sfont" (click)="aler1()">
+              &radic;(x-h)<sup>2</sup> + (y-k)<sup>2</sup>=r<ion-icon class="iconsmall" name="more" item-right></ion-icon>
+            </ion-item>
+            <ion-item text-center class="sfont" (click)="aler2()">
+              (x-h)<sup>2</sup> + (y-k)<sup>2</sup> = r<sup>2</sup><ion-icon class="iconsmall" name="more" item-right></ion-icon>
+            </ion-item>
+            <ion-item text-center class="sfont">
+              <strong>(x-h)<sup>2</sup> + (y-k)<sup>2</sup> = r<sup>2</sup></strong>
+            </ion-item>
+        </ion-list>
+        
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div text-center class="divmar afont">
+          <strong>(x-h)<sup>2</sup> + (y-k)<sup>2</sup> = r<sup>2</sup></strong>
+      </div>
+      <div class="divmar sfont" text-justify [@bounce]='state' (@bounce.done)="animationDone()">
+        <p><br>
+          This is the <b>Standard Equation</b> of a circle with center at (h,k) and radius r. (aka center-radius form)
+          <br>If the center is at the origin then h=0 and k=0. &emsp;The standard equation is then,</p>
+      </div>
+      <div class="divmar sfont" text-center [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-2></ion-col>
+          <ion-col class="afont" col-8><strong>x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></strong></ion-col>
+          <ion-col col-2></ion-col>
+          </ion-row>
+      </div>
+      <div class="divmar sfont" text-justify [@bounce]='state'>
+         <p> &emsp;The standard Equation of a circle with center at (5,-6) and a radius of 6 would be,</p>
+      </div>
+      <div class="divmar sfont" text-center [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-2></ion-col>
+          <ion-col class="afont" col-8>(x-5)<sup>2</sup> + (y+6)<sup>2</sup> = 36</ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </div>
+      <div class="divmar sfont" [@bounce]='state' text-justify>
+          <p>&emsp;After expanding the standard equation, it can be written as,</p>
+      </div>
+      <div class="divmar" [@bounce]='state' text-center>
+        <ion-row no-padding>
+          <ion-col class="afont" col-12>x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0</ion-col>
+        </ion-row>
+      </div>
+      <div class="divmar sfont" [@bounce]='state' text-center>
+          <p>&emsp;This is an equation in general form.</p>
+      </div><br>
+      <div class="divmar sfont" [@bounce]='state' text-center>
+        <ion-row no-padding>
+          <ion-col class="afont" col-12><strong>Ax<sup>2</sup> + By<sup>2</sup> + Cx + Dy + E = 0, A&ne;0</strong></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+            <ion-col col-12>or</ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col  class="afont"col-12><strong>x<sup>2</sup> + y<sup>2</sup> + Cx + Dy + E = 0</strong></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+      
+    <ion-slide>
+      <div class="divmar afont" [@bounce]='state' (@bounce.done)="animationDone()">
+        <b>Using General Equation to determine Standard Equation</b>
+      </div><br>
+
+      <div class="divmar sfont" text-justify [@bounce]='state'>
+        We can determine the standard equation by completing the square of both variables of the general equation.
+        <br><b>Example&emsp; <i>x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0</i></b>
+      </div><br>
+      <div text-left class="expar divmar sfont" [@bounce]='state'>
+        <ion-list>
+          <ion-item text-center class="afont">
+              x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0
+          </ion-item>
+          <ion-item text-center class="afont" (click)="aler3()">
+              x<sup>2</sup> - 10x + y<sup>2</sup> + 12y = -25<ion-icon class="iconsmall" name="more" item-right></ion-icon>
+          </ion-item>
+          <ion-item text-left class="sfont" (click)="aler4()">
+              (x<sup>2</sup> - 10x + <i>25</i>) + (y<sup>2</sup> + 12y + <i>36</i>) = -25 <i>+ 25 + 36</i><ion-icon class="iconsmall" name="more" item-right></ion-icon>
+          </ion-item>
+          <ion-item text-center class="sfont" (click)="aler6()">
+              (Note: to complete the square of X... <ion-icon class="iconsmall" name="more" item-right></ion-icon>
+          </ion-item>
+          <ion-item text-center class="afont" (click)="aler5()">
+              (x-5)<sup>2</sup> + (y+6)<sup>2</sup> = 36<ion-icon class="iconsmall" name="more" item-right></ion-icon>
+          </ion-item>
+        </ion-list>
+      </div>
+      <button ion-button round (click)="skip()">Graphing Circles &rarr;</button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
+<!--
+<ion-content padding>
+    <div class="profile">
+        <ion-row align-items-center>
+          <ion-col col-12><div><img src="assets/images/Circle_radians.gif" class="imagus" alt="circle" width="200" height="200"></div></ion-col>
+        </ion-row>
+      </div>
+  <div text-justify>
+      &emsp;In algebraic terms, a circle is the set of points (x, y) at some fixed distance r from some fixed point (h, k). 
+  The value of r is called the <i>"radius"</i> of the circle, and the point (h, k) is called the <i>"center"</i> of the circle.
+  Circle may also be considered a special kind of ellipse.
+  <br>&emsp;Twice the radius is known as the <i>diameter.</i>
+  <br>&emsp;The perimeter around the circle is the <i>&emsp;"circumference".</i>
+  </div>
+  <div text-left>
+    <ion-row no-padding>
+      <ion-col col-2></ion-col>
+      <ion-col col-8>Note:</ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-2></ion-col>
+      <ion-col col-8><b>&pi; = circumference/diameter</b></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+    <ion-row no-padding>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>This means that if diameter is 1 then circumference is 3.14, which is pi.<br>
+        That is why circumference is 2r&pi;, since diameter = 2r.</ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+  </div>
+  <div class="profile">
+    <ion-row no-padding>
+      <ion-col col-12><div><img src="assets/images/tutcircle.png" class="imagus" alt="circle" width="230" height="200"></div></ion-col>
+    </ion-row>
+  </div>
+  <div text-justify>
+      &emsp;The figure above has center at C(h, k) and radius is more than 0. A point P(x, y) is on the circle if and only if
+      line PC= r. For any such point then, its coordinates should satisfy the following:
+  </div>
+  <div class="divstyle expar">
+    <ion-row no-padding>
+      <ion-col col-5>PC = r</ion-col>
+      <ion-col col-7></ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-5>&radic;(x-h)<sup>2</sup> + (y-k)<sup>2</sup>=r</ion-col>
+      <ion-col col-7>(using the distance formula)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-5>(x-h)<sup>2</sup> + (y-k)<sup>2</sup> = r<sup>2</sup></ion-col>
+      <ion-col col-7>(square both sides to simplify)</ion-col>
+    </ion-row>
+  </div>
+  <div text-center>
+    <ion-row no-padding>
+      <ion-col col-2></ion-col>
+      <ion-col col-8><h4><strong>(x-h)<sup>2</sup> + (y-k)<sup>2</sup> = r<sup>2</sup></strong></h4></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+  </div>
+  <div text-justify>
+    &emsp;This is the <i>Standard Equation</i> of a circle with center at (h,k) and radius r. This is also called the center-radius equation.
+    <br>If the center is at the origin then h=0 and k=0. &emsp;The standard equation is then,
+  </div><br>
+  <div text-center>
+    <ion-row no-padding>
+      <ion-col col-2></ion-col>
+      <ion-col col-8><h4><strong>x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></strong></h4></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+  </div>
+  <div text-justify>
+      &emsp;Let's say a circle has its center at (5,-6) and a radius of 6, then the standard equation would be,
+  </div>
+  <div text-center>
+    <ion-row no-padding>
+      <ion-col col-2></ion-col>
+      <ion-col col-8><h6>(x-5)<sup>2</sup> + (y+6)<sup>2</sup> = 36</h6></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+  </div>
+  <div text-justify>
+      &emsp;After expanding the standard equation, it can be written as,
+  </div>
+  <div text-center>
+    <ion-row no-padding>
+      <ion-col col-12><h6>x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0</h6></ion-col>
+    </ion-row>
+  </div>
+  <div text-justify>
+      &emsp;This is an equation in general form. If the equation is written in general form,
+  </div><br>
+  <div text-center>
+    <ion-row no-padding>
+      <ion-col col-12><h6><strong>Ax<sup>2</sup> + By<sup>2</sup> + Cx + Dy + E = 0, A&ne;0</strong></h6></ion-col>
+    </ion-row>
+    <ion-row no-padding>
+        <ion-col col-12>or</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-12><h4><strong>x<sup>2</sup> + y<sup>2</sup> + Cx + Dy + E = 0</strong></h4></ion-col>
+    </ion-row>
+  </div>
+  <div text-justify>
+    we can determine the standard equation by completing the square of both variables.
+    <br>&emsp;Let's take the previous example, <i>x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0</i>, and convert it to its standard form.
+  </div><br>
+  <div text-left class="expar">
+    <ion-row no-padding>
+      <ion-col col-6>x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0</ion-col>
+      <ion-col col-6></ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-6>x<sup>2</sup> - 10x + y<sup>2</sup> + 12y = -25</ion-col>
+      <ion-col col-6>(put the same variable beside each other and the constant on the other side)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-6>(x<sup>2</sup> - 10x + <i>25</i>) + (y<sup>2</sup> + 12y + <i>36</i>) = -25 <i>+ 25 + 36</i></ion-col>
+      <ion-col col-6>(complete the square of both variables)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-12>(Note: to complete the square of X, we have to square the half of the coeffient of X, which is 10.
+        Half of -10 is -5. Square of -5 is 25. Remember that what we add on the left side of the equation shall also be added in the right side.
+        In terms of Y, its coefficient is 12 and half of it is 6. Square of 6 is 36, so we also added 36 to both sides of the equation.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-6>(x-5)<sup>2</sup> + (y+6)<sup>2</sup> = 36</ion-col>
+      <ion-col col-6><p>(simplify the equation.)</p></ion-col>
+    </ion-row>
+  </div>
+  <h2>Examples 1:</h2>
+  <div text-justify>
+    Let's identify the standard equation of the circle satisfying the following conditions.<br>
+    &emsp;(1) center at origin, radius 4<br>
+    &emsp;(2) center at (-4,3), radius &radic;7<br>
+    &emsp;(3) center at (5,-6), tangent at y-axis<br>
+    &emsp;(4) center at (5,-6), tangent at x-axis<br>
+    &emsp;(5) it has a diameter with endpoints A(-1,4) &emsp;and B(4,2)<br>
+  </div>
+  <h2>Solutions:</h2>
+  
+  <div text-left class="expar">
+    <ion-row no-padding>
+      <ion-col col-1>(1)</ion-col>
+      <ion-col col-5>x<sup>2</sup> + y<sup>2</sup> = 16</ion-col>
+      <ion-col col-6>(just substitute the center (0,0) and radius 4.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1>(2)</ion-col>
+      <ion-col col-5>(x+4)<sup>2</sup> + (y-3)<sup>2</sup> = 7</ion-col>
+      <ion-col col-6>(just substitute the center and solve the radius.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1>(3)</ion-col>
+      <ion-col col-5>(x-5)<sup>2</sup> + (y+6)<sup>2</sup> = 25</ion-col>
+      <ion-col col-6>(if its tangent at y-axis, then (0,-6) is a point on the circle.
+        Given the center and a point, we can then compute for the radius.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1>(4)</ion-col>
+      <ion-col col-5>(x-5)<sup>2</sup> + (y+6)<sup>2</sup> = 36</ion-col>
+      <ion-col col-6>(if its tangent at x-axis, then (5,0) is a point on the circle.
+          Given the center and a point, we can then compute for the radius.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1>(5)</ion-col>
+      <ion-col col-5>[x-(3/2)]<sup>2</sup> + (y-3)<sup>2</sup> = 29/4</ion-col>
+      <ion-col col-6>(the midpoint of the diameter is the center so solve it using the midpoint formula.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-12>(Note: after using the midpoint formula on the two given points, we got the center at (3/2, 3).
+        We can then substitute the center and either point A or B to the standard formula and get the length of the radius.)
+      </ion-col>
+    </ion-row>
+  </div><br>
+
+  <h2>Examples 2:</h2>
+  <div text-justify>
+      Let's identify the center and radius of the circle with the given equation.<br>
+      &emsp;(1) x<sup>2</sup> + y<sup>2</sup> - 6x = 7<br>
+      &emsp;(2) x<sup>2</sup> + y<sup>2</sup> - 14x + 2y = -14<br>
+      &emsp;(3) 16x<sup>2</sup> + 16y<sup>2</sup> + 96x + 40y = 315<br>
+  </div>
+  <h2>Solutions:</h2>
+  <div text-left class="expar">
+    To get the center and radius, we must convert the general equation to the standard one (center-radius form).
+    <ion-row no-padding>
+      <ion-col col-1>(1)</ion-col>
+      <ion-col col-5>x<sup>2</sup> + y<sup>2</sup> - 6x = 7</ion-col>
+      <ion-col col-6>(given)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>x<sup>2</sup> - 6x + <i>9</i> + y<sup>2</sup>= 7 + <i>9</i></ion-col>
+      <ion-col col-6>(complete the square of x. you don't have to do it in y variable since the coefficient of y is 0.
+        Remember to add the same number to both sides of the equation.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>(x-3)<sup>2</sup> + (y-0)<sup>2</sup> = 16</ion-col>
+      <ion-col col-6>(simplify to the standard equation.)</ion-col>
+    </ion-row>
+    <ion-row no-padding> 
+      <ion-col col-12><h5>center(3,0) radius = 4</h5></ion-col>  
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1>(2)</ion-col>
+      <ion-col col-5>x<sup>2</sup> + y<sup>2</sup> - 14x + 2y = -14</ion-col>
+      <ion-col col-6>(given.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>x<sup>2</sup>-14x+<i>49</i>+y<sup>2</sup>+2y+<i>1</i>= -14+<i>49+1</i></ion-col>
+      <ion-col col-6>(complete the square of x and y. Remember to add the same numbers to both sides of the equation.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>(x-7)<sup>2</sup> + (y+1)<sup>2</sup> = 36</ion-col>
+      <ion-col col-6>(simplify to the standard equation.)</ion-col>
+    </ion-row>
+    <ion-row no-padding> 
+      <ion-col col-12><h5>center(7,-1) radius = 6</h5></ion-col>  
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1>(3)</ion-col>
+      <ion-col col-5>16x<sup>2</sup> + 16y<sup>2</sup> + 96x + 40y = 315</ion-col>
+      <ion-col col-6>(if its tangent at y-axis, then (0,-6) is a point on the circle.
+        Given the center and a point, we can then compute for the radius.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>16(x<sup>2</sup>+6x)+16(y<sup>2</sup>+(5/2)y) = 315</ion-col>
+      <ion-col col-6>(simplify the equation by factoring it.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-1></ion-col>
+      <ion-col col-5>16(x<sup>2</sup> + 6x + 9) +<br>16(y<sup>2</sup> + (5/2)y + (25/16)) =<br>315 + <i>144 + 25</i></ion-col>
+      <ion-col col-6>(complete the square of x and y inside the parenthesis. Don't forget to add everything to the right side.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+      <ion-col col-12>(Note: in this case, we have to multiply whatever we added inside the parenthesis to the number outside it which is 16.
+        So 9*16=144 and (25/16)*16=25. Hence, we added 144 and 25 to the right side.)
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding>
+        <ion-col col-1></ion-col>
+        <ion-col col-5>[16(x<sup>2</sup>+6x+9) + <br>
+          16(y<sup>2</sup>+(5/2)y+(25/16))]/16 = <br>484/16
+        </ion-col>
+        <ion-col col-6>(we have to simplify the equation by dividing it by 16)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+        <ion-col col-1></ion-col>
+        <ion-col col-5>(x<sup>2</sup>+6x+9)+(y<sup>2</sup>+(5/2)y+(25/16)) = 121/4</ion-col>
+        <ion-col col-6>(after diving by 16 we get the following equation.)</ion-col>
+    </ion-row>
+    <ion-row no-padding>
+        <ion-col col-1></ion-col>
+        <ion-col col-5>(x+3)<sup>2</sup>+(y-(5/4))<sup>2</sup> = 121/4</ion-col>
+        <ion-col col-6>(simplify to the standard equation.)</ion-col>
+    </ion-row>
+    
+    <ion-row no-padding> 
+      <ion-col col-12><h5>center(-3,5/4) radius = 11/2</h5></ion-col>  
+    </ion-row>
+    
+  </div><br>
+
+  <button ion-button full outline (click)="skip()">Proceed to Graphing Circles &rarr;</button>
+</ion-content>
+-->

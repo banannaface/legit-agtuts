@@ -1,0 +1,13 @@
+page-welcome {
+    #welcome{
+        background: color($colors, secondary);
+        .margintop{
+            margin-top: 30px;
+        }
+        .buttonsize{
+            width: 150px;
+            font-size: 13px;
+        }
+        
+    }
+}

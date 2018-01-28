@@ -1,0 +1,143 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Main Tutorial</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bgcolor">
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()" style="background-color:aliceblue">
+    
+    <ion-slide>
+        <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Conic Sections</h1>
+        </div>
+        <div class="divmar" [@bounce]='state'>
+        <br><p>
+          Conic sections are formed by the intersection of a plane and a cone. there are four main conic sections
+          - circle, parabola, ellipse and hyperbola.
+        </p>
+       
+        <img src="assets/images/conic_sections.gif" class="center imagus" alt="conic sections gif" width="200" height="110">
+    </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Circle</h1>
+        </div>
+        <div class="divmar" [@bounce]='state'>
+        <p>
+          A circle is the set of points in a plane that are <b>equidistant from a given point</b>, called the <i>center.</i>
+          The distance from the center to a point in the circle is called the <i>radius.</i>
+          Twice the radius is known as the <i>diameter.</i>
+        </p>
+       </div>
+       <div class="ion-canvas" [@bounce]='state'>
+            <canvas #canvas></canvas>
+        </div>
+          
+        <!--<div class="profile">
+          <ion-row align-items-center>
+            <ion-col col-6><div><img src="assets/images/circle.png" class="imagus" alt="circle" width="100" height="100"></div></ion-col>
+            <ion-col col-6><div><img src="assets/images/circlegraph.png" class="imagus" alt="circle" width="150" height="100"></div></ion-col>
+          </ion-row>
+        </div>-->
+    </ion-slide>
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Parabola</h1>
+      </div>
+      <div class="divmar" [@bounce]='state'>
+        <p>
+            A parabola is a curve where any point is at <b>an equal distance</b> from:
+            <br>
+            &ensp;&ensp;a fixed point (the <i>focus</i>), and<br>
+            &ensp;&ensp;a fixed straight line (the <i>directrix</i>)
+            
+        </p>
+        </div>
+        <div class="ion-canvas" [@bounce]='state'>
+            <canvas #canvas1></canvas>
+        </div>
+        <!--<div class="profile">
+          <ion-row align-items-center>
+            <ion-col col-6><div><img src="assets/images/parabola-soccer.gif" class="imagus" alt="parabola" width="120" height="100"></div></ion-col>
+            <ion-col col-6><div><img src="assets/images/parabola-distances.svg" class="imagus" alt="parabola" width="150" height="150"></div></ion-col>
+          </ion-row>
+        </div>-->
+    </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+         
+      <h1>Ellipse</h1>
+    </div>
+    <div class="divmar" [@bounce]='state'>  
+      <p>
+            An ellipse is the set of all points on a plane whose distance	from two fixed points F and G <b>add up to a constant.</b>
+            "F" is a focus, "G" is a focus, and together they are called <i>foci.</i> (pronounced "fo-sigh")
+        </p></div>
+        <div class="ion-canvas" [@bounce]='state'>
+            <canvas #canvas2></canvas>
+        </div>
+        <!--<div class="profile">
+          <ion-row align-items-center>
+            <ion-col col-6><div><img src="assets/images/ellipse.gif" class="imagus" alt="ellipse" width="120" height="100"></div></ion-col>
+            <ion-col col-6><div><img src="assets/images/ellipse2.png" class="imagus" alt="ellipse" width="150" height="120"></div></ion-col>
+          </ion-row>
+        </div>-->
+    </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Hyperbola</h1>
+      </div>
+      <div class="divmar" [@bounce]='state'>
+        <p>
+            A hyperbola is a curve where the distances of any point from:
+            &ensp;a fixed point (the <i>focus</i>), and
+            &ensp;a fixed straight line (the <i>directrix</i>)<b> are always in the same ratio.</b>
+            The hyperbola is an open curve (has no ends).
+        </p></div>
+        <div class="ion-canvas" [@bounce]='state'>
+            <canvas #canvas3></canvas>
+        </div>
+        <!--<div class="profile">
+          <ion-row align-items-center>
+            <ion-col col-6><div><img src="assets/images/hyperbola4.svg" class="imagus" alt="hyperbola" width="120" height="100"></div></ion-col>
+            <ion-col col-6><div><img src="assets/images/hyperbola6.svg" class="imagus" alt="hyperbola" width="150" height="120"></div></ion-col>
+          </ion-row>
+        </div>-->
+    </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Systems of Non-linear Equations</h1>
+      </div>
+      <div class="divmar" [@bounce]='state'>
+        <p>
+            A non-linear system of equations is a system in which at least one of the variables has an exponent
+            other than 1.
+        </p></div>
+        <div class="ion-canvas" [@bounce]='state'>
+            <canvas #canvas4></canvas>
+        </div>
+        <!--<div class="profile">
+          <ion-row align-items-center>
+            <ion-col col-6><div><img src="assets/images/snle2.gif" class="imagus" alt="snle" width="120" height="100"></div></ion-col>
+            <ion-col col-6><div><img src="assets/images/snle1.gif" class="imagus" alt="snle" width="150" height="120"></div></ion-col>
+          </ion-row>
+        </div> <button ion-button full outline (click)="skip()">Proceed to Circles &rarr;</button>
+        <br>-->
+        <button ion-button round (click)="skip()">Circles &rarr;</button>
+        
+    </ion-slide>
+  </ion-slides>
+
+  
+</ion-content>

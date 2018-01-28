@@ -1,0 +1,44 @@
+<!--
+  Generated template for the StanellPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ellipse Standard Form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-bounce>
+  <div text-center><h3>{{formula}}</h3></div>
+  
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary">Vertex at origin</ion-label>
+          <ion-toggle [(ngModel)]="origin" color="primary" (ionChange)="togchangeor()"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Major axis (horizontal)</ion-label>
+          <ion-toggle [(ngModel)]="major" color="primary" (ionChange)="togchangema()"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" type="number" floating>Center X (h)</ion-label>
+          <ion-input [(ngModel)]="hinput"(ionChange)="hinchange()"></ion-input>
+        </ion-item>
+        <ion-item><ion-label color="primary" type="number" floating>Center Y (k)</ion-label>
+          <ion-input [(ngModel)]="kinput" (ionChange)="kinchange()"></ion-input>
+        </ion-item>
+        <ion-item><ion-label color="primary" type="number" floating>Value of A (a)</ion-label>
+          <ion-input [(ngModel)]="ainput" (ionChange)="ainchange()"></ion-input>
+        </ion-item>
+        <ion-item><ion-label color="primary" type="number" floating>Value of B (b)</ion-label>
+          <ion-input [(ngModel)]="binput" (ionChange)="binchange()"></ion-input>
+        </ion-item>
+      </ion-list>
+          
+      <button ion-button full outline (click)="submit()">Submit &rarr;</button>
+</ion-content>

@@ -1,0 +1,184 @@
+<!--
+  Generated template for the PardefinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+    <ion-title>Defining Parabola</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bgcolor">
+
+  <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      
+      <div text-justify class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <p>  
+          Parabola is the curve formed by the set of points in a plane that are all equally distant from both a
+          given line (directrix) and a given point (focus) which is not on the directrix.
+        </p>
+        </div>
+      <div class="divmar" [@bounce]='state'>
+        <img src="assets/images/cartesian para.png" class="imagus" alt="circle" width="200" height="134">
+      </div>
+      <div text-center class="divmar" [@bounce]='state'>
+        <p>  
+          Figure 2.1. PF = PP<sub>l</sub><br>
+
+        </p>
+      </div>
+      <div text-left [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-1></ion-col>
+          <ion-col col-9><b>PF = PP<sub>l</sub></b></ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler1()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>&radic;x<sup>2</sup> + (y-c)<sup>2</sup> = y + c</ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler2()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>x<sup>2</sup> + y<sup>2</sup>- 2cy + c<sup>2</sup> = y<sup>2</sup> + 2cy + c<sup>2</sup></ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler3()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>x<sup>2</sup> = - y<sup>2</sup>+ 2cy - c<sup>2</sup> + y<sup>2</sup> + 2cy + c<sup>2</sup></ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler4()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>x<sup>2</sup> = 4cy</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div text-justify class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+      <h3>Standard Equation of Parabola (vertex at origin)</h3>
+      <p>  
+        &emsp;A parabola doesnt only open upward but also opens downward, left or right. The same solution was done and 
+        the following equations was derived for each opening of a parabola with vertex at origin.
+      </p>
+      </div>
+      <div class="divmar" [@bounce]='state'>
+        <img src="assets/images/parcol.png" class="imagus" alt="parcol" width="250" height="250">
+      </div>
+      <button ion-button small icon-only (click)="aler5()">
+          <ion-icon name="bulb"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide>
+      <div text-justify class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+      <h3>Standard Equation of Parabola (vertex at h,k)</h3>
+      <p>  
+        &emsp;There are also parabolas whose vertex does NOT lie at the origin.
+        Notice that we still have almost the same formula as the one with the vertex at origin but this time we subtracted the h from x and k from y.
+        Hence when (h,k) is (0,0) or at origin, we still have the same formula.
+      </p>
+      </div>
+      <div class="divmar" [@bounce]='state'>
+        <img src="assets/images/parcol1.png" class="imagus" alt="parcol1" width="250" height="250">
+      </div>
+      <button ion-button small icon-only (click)="aler6()">
+          <ion-icon name="bulb"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide>
+        <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+          <h3>General Equation of Parabola</h3>
+          <h4>Ax<sup>2</sup> + Cx + Dy + E = 0</h4>
+          <p>(A and C are nonzero)<br style="line-height:1"></p>
+          <h4>or<br style="line-height:1">By<sup>2</sup> + Cx + Dy + E = 0</h4>
+          <p>(B and C are nonzero)<br><br></p>
+        </div>
+        <div text-justify class="divmar" [@bounce]='state'>
+          <p>If the equation is given in general form, we can determine the standard form by completing the square in both variables.
+            <br><b>Example 1:</b> y<sup>2</sup> - 5x + 12y = -16<br><br>
+          </p>
+        </div>
+        <div text-left>
+        <ion-row no-padding (click)="aler7()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>y<sup>2</sup> + 12y = 5x - 16</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler8()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>y<sup>2</sup> + 12y + 36 = 5x - 16 + 36</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler9()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>(y + 6)<sup>2</sup> = 5x + 20</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler10()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>(y + 6)<sup>2</sup> = 5 (x + 4)</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        
+      </div>
+      <button ion-button small icon-only (click)="aler11()">
+          <ion-icon name="bulb"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide>
+        <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+          <p><b>Example 2:</b> 5x<sup>2</sup> + 30x + 24y = 51<br><br></p>
+        </div>
+        <div text-left>
+        <ion-row no-padding (click)="aler12()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>5x<sup>2</sup> + 30x = -24y + 51</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler13()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>5(x<sup>2</sup> + 6x) = -24y + 51</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler14()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>5(x<sup>2</sup> + 6x + 9) = -24y + 51 + 9(5)</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler15()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>5(x<sup>2</sup> + 3) = -24y + 96</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler16()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>5(x<sup>2</sup> + 3) = -24(y - 4)</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler17()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>(x<sup>2</sup> + 3) = -24/5 (y - 4)</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        
+      </div>
+      <button ion-button small icon-only (click)="aler18()">
+          <ion-icon name="bulb"></ion-icon>
+      </button>
+      <button ion-button round (click)="skip()">Graphing Parabolas &rarr;</button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

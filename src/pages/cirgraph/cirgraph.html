@@ -1,0 +1,50 @@
+<!--
+  Generated template for the CirgraphPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+      
+    <ion-title>Graphing Circle</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div text-center><h3>Try this!</h3></div>
+  <div class="ion-canvas" style="align-items:center">
+      <canvas #canvas></canvas>
+  </div><br>
+  <div text-left style="align-items:center">
+    <h6>Center (h) = {{rangech}}</h6>
+    <ion-range min="-15" max="15" snaps="true" [(ngModel)]="rangech" (ionChange)="changecenterh(rangech)">
+      <ion-label range-left>-15</ion-label>
+      <ion-label range-right>15</ion-label>
+    </ion-range>
+  </div>
+  <div text-left style="align-items:center">
+    <h6>Center (k) = {{rangeck}}</h6>
+    <ion-range min="-15" max="15" snaps="true" [(ngModel)]="rangeck" (ionChange)="changecenterk(rangeck)">
+      <ion-label range-left>-15</ion-label>
+      <ion-label range-right>15</ion-label>
+    </ion-range>
+  </div>
+  <div text-left style="align-items:center">
+    <h6>Radius (r) = {{ranger}}</h6>
+    <ion-range min="1" max="15" snaps="true" [(ngModel)]="ranger" (ionChange)="changeradius(ranger)">
+      <ion-label range-left>1</ion-label>
+      <ion-label range-right>15</ion-label>
+    </ion-range>
+  </div>
+
+
+</ion-content>

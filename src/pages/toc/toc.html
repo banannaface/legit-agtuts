@@ -1,0 +1,63 @@
+<!--
+  Generated template for the TocPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+      <ion-buttons left>
+          
+          <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+          
+          </button>
+          </ion-buttons>
+    <ion-title>Table of Contents</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-list-header>
+            <h2>Conic Sections</h2>
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of pages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <h3>{{p.title}}</h3>
+        </button>
+       
+        <ion-list-header>
+            <h2>Circle</h2>
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of cpages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <h3>{{p.title}}</h3>
+        </button>
+        <ion-list-header>
+            <h2>Parabola</h2>
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of ppages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <h3>{{p.title}}</h3>
+        </button>
+        <ion-list-header>
+            <h2>Ellipse</h2>
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of epages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <h3>{{p.title}}</h3>
+        </button>
+        <ion-list-header>
+            <h2>Hyperbola</h2>
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of hpages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <h3>{{p.title}}</h3>
+        </button>
+        <ion-list-header>
+            <h2>Non-linear Equations</h2>
+        </ion-list-header>
+        <button menuClose ion-item *ngFor="let p of npages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
+                <h3>{{p.title}}</h3>
+        </button>
+    </ion-list>
+</ion-content>

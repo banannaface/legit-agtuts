@@ -1,0 +1,47 @@
+<!--
+  Generated template for the StanparPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Parabola Standard Form</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <div text-center><h3>{{formula}}</h3></div>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary">Vertex at origin</ion-label>
+        <ion-toggle [(ngModel)]="origin" color="primary" (ionChange)="togchangeor()"></ion-toggle>
+      </ion-item>
+      <ion-item>
+          <ion-label color="primary">Axis of symmetry (vertical)</ion-label>
+          <ion-toggle [(ngModel)]="axis" color="primary" (ionChange)="togchangeax()"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">{{stropen}}</ion-label>
+        <ion-toggle [(ngModel)]="open" color="primary"></ion-toggle>
+    </ion-item>
+      <ion-item>
+        <ion-label color="primary" type="number" floating>Center X (h)</ion-label>
+        <ion-input [(ngModel)]="hinput"></ion-input>
+      </ion-item>
+      <ion-item><ion-label color="primary" type="number" floating>Center Y (k)</ion-label>
+        <ion-input [(ngModel)]="kinput"></ion-input>
+      </ion-item>
+      <ion-item><ion-label color="primary" type="number" floating>Value of C (c)</ion-label>
+        <ion-input [(ngModel)]="cinput"></ion-input>
+      </ion-item>
+    </ion-list>
+        
+    <button ion-button full outline (click)="submit()">Submit &rarr;</button>
+
+</ion-content>

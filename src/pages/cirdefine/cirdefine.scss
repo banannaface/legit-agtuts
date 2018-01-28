@@ -1,0 +1,90 @@
+page-cirdefine {
+    .imagus{
+        margin: auto;
+        border: 1px solid;
+        display: block;
+        border-color: #de691a;
+        width: 150px;
+        height: 150px;
+  }
+    .divstyle{
+       margin: 0px;
+       text-align: right;
+       align-items: flex-start;
+    }
+   .expar{
+    font-size: 11px;
+    }
+    .bgcolor{
+        background-color: #424141;
+    }
+    .whity{
+        background-color: #ffffff;
+    }
+    .divmar{
+        margin: 0px 10px 0px 10px;
+    }
+    h1{
+        color: #de691a;
+        font-size: 1.5em;
+    }
+
+    p{
+        display: block;
+        margin: 0 auto;
+        font-size: 13px;
+    }
+    ion-col{
+        display: block;
+        margin: 0 auto;
+        font-size: 13px;
+    }
+
+    ion-label{
+        margin: 0px 0px 0px 0px;
+    }
+    .swiper-pagination-bullet-active{
+        background: #de691a;
+    }
+    .item {
+        min-height: 3rem !important;
+    }
+    .swiper-pagination{
+        bottom: 2% !important;
+    }
+    .alert-button-font-size{
+        font-size: 15px;
+    }
+    .sfont{
+        font-size: 13px;
+    }
+    .afont{
+        font-size: 15px;
+    }
+    
+      .no-padding{
+          padding: 0px 0px 0px 0px;
+      }
+     
+     .list-md-margin-top{
+        margin-top: 0px !important;
+     }
+     .list-md-margin-bottom{
+        margin-bottom: 0px !important;
+     }
+     .list-ios-margin-top{
+        margin-top: 0px !important;
+     }
+     .list-ios-margin-bottom{
+        margin-bottom: 0px !important;
+     }
+     .label-md-margin-top{
+        margin-top: 0px;
+     }
+     .label-md-margin-bottom{
+         margin-bottom: 0px;
+     }
+    .iconsmall{
+        font-size: 20px;
+    }
+}

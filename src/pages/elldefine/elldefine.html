@@ -1,0 +1,150 @@
+<!--
+  Generated template for the ElldefinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+    <ion-title>Defining Ellipse</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bgcolor">
+  <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <img src="assets/images/ellipse.gif" class="imagus" alt="ellipse" width="200" height="150">
+      </div>
+
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>
+        &emsp;An ellipse is the set of all points on a plane whose distance	from two fixed points F<sub>1</sub> and F<sub>2</sub> <b>add up to a constant.</b>
+        Both points are focus, and together they are called <i>foci.</i>
+        </p>
+      </div><br>
+
+      <div text-justify class="divmar">
+        <img src="assets/images/ellipse2.png" class="imagus2" alt="ellipse">
+        <p>
+          &emsp;Given are two points on the x-axis, F<sub>1</sub>(-c, 0) and F<sub>2</sub>(c, 0), the foci, both c
+          units away from their center (0, 0). See Figure above. Let P(x, y) be a point on
+          the ellipse. Let the common sum of the distances be 2a. Thus, we have <b>PF1 + PF2 = 2a</b>
+        </p>
+      </div>
+      
+    </ion-slide>
+
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+      <h3>Formula Derivation</h3>
+      </div>
+
+      <div text-left [@bounce]='state'>
+        <ion-row no-padding (click)="aler()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10><b>PF<sub>l</sub> = 2a - PF<sub>2</sub></b></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler1()">
+          <ion-col col-1></ion-col>
+          
+             <!-- &radic;((x+c)<sup>2</sup> + y<sup>2</sup>) = 2a - &radic;((x-c)<sup>2</sup> + y<sup>2</sup>)-->
+              <ion-col col-10>
+                &radic;<span style="text-decoration:overline">
+                (x + c)<span style="font-size: 10px;vertical-align:+23%;">2</span> +
+                y<span style="font-size: 10px;vertical-align:+23%;">2</span>&nbsp;</span>
+                = 2a - 
+                &radic;<span style="text-decoration:overline">
+                (x - c)<span style="font-size: 10px;vertical-align:+23%;">2</span> +
+                y<span style="font-size: 10px;vertical-align:+23%;">2</span>&nbsp;</span>
+              </ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler2()">
+          <!-- x<sup>2</sup>+2cx+c<sup>2</sup>+y<sup>2</sup> = 4a<sup>2</sup>-4a&radic;((x-c)<sup>2</sup>+y<sup>2</sup>) +x<sup>2</sup>-2cx+c<sup>2</sup>+y<sup>2</sup> -->
+          <ion-col col-1></ion-col>
+          <ion-col col-10>x<sup>2</sup> + 2cx + c<sup>2</sup> + y<sup>2</sup> =<br>4a<sup>2</sup>-4a
+            &radic;<span style="text-decoration:overline">
+            (x - c)<span style="font-size: 10px;vertical-align:+23%;">2</span> +
+            y<span style="font-size: 10px;vertical-align:+23%;">2</span>&nbsp;</span>
+
+            + x<sup>2</sup> - 2cx + c<sup>2</sup> + y<sup>2</sup>
+          </ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler3()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>4cx = 4a<sup>2</sup> - 
+            4a&radic;<span style="text-decoration:overline">
+            (x - c)<span style="font-size: 10px;vertical-align:+23%;">2</span> +
+            y<span style="font-size: 10px;vertical-align:+23%;">2</span>&nbsp;</span></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler4()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>4a&radic;<span style="text-decoration:overline">
+              (x - c)<span style="font-size: 10px;vertical-align:+23%;">2</span> +
+              y<span style="font-size: 10px;vertical-align:+23%;">2</span>&nbsp;</span>
+               = 4a<sup>2</sup> - 4cx</ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler5()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>a&radic;<span style="text-decoration:overline">
+              (x - c)<span style="font-size: 10px;vertical-align:+23%;">2</span> +
+              y<span style="font-size: 10px;vertical-align:+23%;">2</span>&nbsp;</span>
+               = a<sup>2</sup> - cx</ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+
+        <ion-row no-padding (click)="aler6()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>a<sup>2</sup>[x<sup>2</sup> - 2cx + c<sup>2</sup> + y<sup>2</sup>] = a<sup>4</sup> - 2a<sup>2</sup>cx + c<sup>2</sup>x<sup>2</sup></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler7()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>a<sup>2</sup>x<sup>2</sup>-2a<sup>2</sup>cx+a<sup>2</sup>c<sup>2</sup>+a<sup>2</sup>y<sup>2</sup> = a<sup>4</sup>-2a<sup>2</sup>cx+c<sup>2</sup>x<sup>2</sup></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler8()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>a<sup>2</sup>x<sup>2</sup> + a<sup>2</sup>c<sup>2</sup> + a<sup>2</sup>y<sup>2</sup> = a<sup>4</sup> + c<sup>2</sup>x<sup>2</sup></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler9()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>a<sup>2</sup>x<sup>2</sup> - c<sup>2</sup>x<sup>2</sup> + a<sup>2</sup>y<sup>2</sup> = a<sup>4</sup> - a<sup>2</sup>c<sup>2</sup></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler10()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>(a<sup>2</sup> - c<sup>2</sup>)x<sup>2</sup> + a<sup>2</sup>y<sup>2</sup> = a<sup>2</sup>(a<sup>2</sup> - c<sup>2</sup>)</ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler11()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10>b<sup>2</sup>x<sup>2</sup> + a<sup>2</sup>y<sup>2</sup> = a<sup>2</sup>b<sup>2</sup></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler12()">
+          <ion-col col-1></ion-col>
+          <ion-col col-10><b><sup>x<sup>2</sup></sup>&frasl;<sub>a<sup>2</sup></sub> + <sup>y<sup>2</sup></sup>&frasl;<sub>b<sup>2</sup></sub> = 1</b></ion-col>
+          <ion-col col-1><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row> 
+      </div>
+      <button ion-button small icon-only (click)="aler13()">
+        <ion-icon name="bulb"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

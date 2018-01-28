@@ -1,0 +1,307 @@
+<!--
+  Generated template for the CirsolvePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+    <ion-title>Solving Circle</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bgcolor">
+  <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h3>Problem 1</h3>
+      </div>
+
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>
+        &emsp;A street with two lanes, each 10 ft wide, goes through a
+        semicircular tunnel with radius 12 ft. How high is the tunnel at the edge of each
+        lane?
+        <br>Upon analyzing, the problem should look like this.<br>
+        </p>
+      </div>
+      <div text-center class="divmar" [@bounce]='state'>
+        <img src="assets/images/cirsolv1.png" class="imagus" alt="circle solve" width="200" height="200">
+      <p>Figure 1<br>
+        We draw a coordinate system with origin at the middle of the highway,
+        as shown above.
+      </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+       <h3>Solution 1</h3>
+       <p>
+        In Figure 1, we can see that a right triangle was formed.
+      </p>
+      <ul>
+          <li>Its hypothenuse as the radius of the circle which is 12.</li>
+          <li>One leg of the triangle is 10ft as given by the problem.</li>  
+          <li>Find the other leg using the pythagorean theorem.</li>
+      </ul>
+    </div>
+      <div text-left class = "divmar" [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-5>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></ion-col>
+          <ion-col col-7><b>pythagorean theorem</b></ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>10<sup>2</sup> + b<sup>2</sup> = 12<sup>2</sup></ion-col>
+          <ion-col col-7>substitute given</ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>100 + b<sup>2</sup> = 144</ion-col>
+          <ion-col col-7>square the given</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>b<sup>2</sup> = 144 - 100</ion-col>
+          <ion-col col-7>transpose to the right</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>b<sup>2</sup> = 44</ion-col>
+          <ion-col col-7>solve</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>&radic;b<sup>2</sup> = &radic;44</ion-col>
+          <ion-col col-7>solve for the square root</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>b = 6.63</ion-col>
+          <ion-col col-7>The tunnel is 6.63ft high at the edge of each lane.</ion-col>
+          
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h3>Solution 2</h3>
+        <p>
+        In Figure 1, we can see that the radius of the tunnel is 12.
+      </p>
+      <ul>
+          <li>From the center to the edge of the lane is 10, which is the X.</li>
+          <li>Point P is <i>Y</i> feet above 10.</li>  
+          <li>Find <i>Y</i> using the standard form equation.</li>
+      </ul>
+    </div>
+      <div text-left class = "divmar" [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-5>x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></ion-col>
+          <ion-col col-7><b>standard equation</b></ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>10<sup>2</sup> + y<sup>2</sup> = 12<sup>2</sup></ion-col>
+          <ion-col col-7>substitute given</ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>100 + y<sup>2</sup> = 144</ion-col>
+          <ion-col col-7>square the given</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y<sup>2</sup> = 144 - 100</ion-col>
+          <ion-col col-7>transpose to the right</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y<sup>2</sup> = 44</ion-col>
+          <ion-col col-7>solve</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>&radic;y<sup>2</sup> = &radic;44</ion-col>
+          <ion-col col-7>solve for the square root</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y = 6.63</ion-col>
+          <ion-col col-7>The tunnel is 6.63ft high at the edge of each lane.</ion-col>
+        </ion-row>
+      </div>
+      <div text-center>
+      <button ion-button small icon-only (click)="aler1()">
+        <ion-icon name="bulb"></ion-icon>
+      </button>
+      </div>
+    </ion-slide>
+      
+    <ion-slide>
+        <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+            <h3>Problem 2</h3>
+          </div>
+    
+          <div text-justify class="divmar" [@bounce]='state'>
+            <p>
+            &emsp;A piece of a broken plate was dug up in an archaeological site.
+            It was put on top of a grid, as shown in Figure 2, with the arc of the plate
+            passing through A(7, 0), B(1, 4) and C(7, 2). Find its center, and the standard
+            equation of the circle describing the boundary of the plate.
+            </p>
+          </div>
+          <div text-center class="divmar" [@bounce]='state'>
+            <img src="assets/images/cartesian plate1.png" class="imagus" alt="circle solve" width="200" height="134">
+          <p>Figure 2<br>
+            The broken plate on top of a grid with its circumference passing through points A, B and C.
+          </p>
+          </div>
+      <!--<button ion-button round (click)="skip()">Graphing Circles &rarr;</button>-->
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h3>Solution 1</h3>
+        <p>
+            We first have to determine the center. It is the intersection of the perpendicular
+            bisectors of AB and BC, which are chords of the circle.
+      </p>
+      <div text-center>
+      <button ion-button small icon-only (click)="aler2()">
+        <ion-icon name="bulb"></ion-icon>
+      </button>
+      </div>
+      <img src="assets/images/cartesian plate2.png" class="imagus" alt="circle solve" width="200" height="134">
+      <ul>
+          <li>First, we have to get the midpoint and slope of AB and BC.</li>
+          <li>Use the point-slope form to get the equation of the perpendicular bisector of both points.</li>  
+          <li>Solve for the intersection of both perpendicular bisectors.</li>
+      </ul>
+    </div>
+      
+
+    </ion-slide>
+
+    <ion-slide no-padding>
+
+    <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <ion-row no-padding text-center>
+            <ion-col col-12><b>Solving for M (midpoint of AB) and N (midpoint of BC)</b></ion-col>
+        </ion-row>  
+      <ion-row no-padding>
+          <ion-col col-5>M<sub>x</sub> = (x<sub>1</sub> + x<sub>2</sub>)/2 M<sub>y</sub> = (y<sub>1</sub> + y<sub>2</sub>)/2</ion-col>
+          <ion-col col-7>midpoint formula</ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>M<sub>x</sub> = (-7 + 1)/2 M<sub>y</sub> = (0 + 4)/2</ion-col>
+          <ion-col col-7>substitute given</ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>M<sub>x</sub> = -3 M<sub>y</sub> = 2</ion-col>
+          <ion-col col-7>M = (-3, 2)</ion-col>
+          
+        </ion-row>
+        
+        <ion-row no-padding>
+          <ion-col col-5>N<sub>x</sub> = (1 + 7)/2<br>N<sub>y</sub> = (4 + 2)/2</ion-col>
+          <ion-col col-7>substitute given</ion-col>
+           
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>N<sub>x</sub> = 4 N<sub>y</sub> = 3</ion-col>
+          <ion-col col-7>N = (4, 3)</ion-col>
+            
+        </ion-row>
+      </div>
+      <div text-left class="divmar" [@bounce]='state'>
+      <ion-row no-padding text-center>
+        <ion-col col-12><b>Solving for m<sub>AB</sub> (slope of AB) and m<sub>BC</sub> (slope of BC)</b></ion-col>
+      </ion-row>  
+      <ion-row no-padding>
+        <ion-col col-7>m<sub>AB</sub> = (y<sub>2</sub> - y<sub>1</sub>)/(x<sub>2</sub> - x<sub>1</sub>)</ion-col>
+        <ion-col col-5>slope formula</ion-col>  
+      </ion-row> 
+      <ion-row no-padding>
+        <ion-col col-7>m<sub>AB</sub> = (4 - 0)/(1 + 7)</ion-col>
+        <ion-col col-5>substitute given</ion-col>  
+      </ion-row>  
+      <ion-row no-padding>
+        <ion-col col-7>m<sub>AB</sub> = 1/2</ion-col>
+        <ion-col col-5>slope of line AB</ion-col>  
+      </ion-row>
+    
+      <ion-row no-padding>
+        <ion-col col-7>m<sub>BC</sub> = (2 - 4)/(7 - 1)</ion-col>
+        <ion-col col-5>substitute given</ion-col>  
+      </ion-row>  
+      <ion-row no-padding>
+        <ion-col col-7>m<sub>BC</sub> = -1/3</ion-col>
+        <ion-col col-5>slope of line BC</ion-col>  
+      </ion-row>
+      <p>
+      &emsp;Since, M = (-3,2) and the negative reciprocal of m<sub>AB</sub> = -2, the equation of the first perpendicualr bisector is <b>y = -2x - 4</b>.
+    </p>  
+    </div>
+    </ion-slide>
+    <ion-slide no-padding>
+      <div text-justify class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+      <p>
+          &emsp;While N = (4,3) and the negative reciprocal of m<sub>BC</sub> = 3, the equation of the second perpendicular bisector is <b>y = 3x - 9</b>.
+      </p>
+      </div><br>
+      <div text-left class="divmar" [@bounce]='state'>
+        <ion-row no-padding text-center>
+          <ion-col col-12><b>Solving for the intersection of y = -2x - 4 and y = 3x - 9</b></ion-col>
+        </ion-row>
+        
+        <ion-row no-padding>
+          <ion-col col-5>-2x - 4 = 3x - 9</ion-col>
+          <ion-col col-7>substitute the 1st to the 2nd equation</ion-col>  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>9 - 4 = 3x + 2x</ion-col>
+          <ion-col col-7>transpose like terms</ion-col>  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>5 = 5x</ion-col>
+          <ion-col col-7>solve</ion-col>  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>x = 1</ion-col>
+          <ion-col col-7>get value of x</ion-col>  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y = 3(1) - 9</ion-col>
+          <ion-col col-7>substitute the value of x</ion-col>  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y = -6</ion-col>
+          <ion-col col-7>center = (1,-6)</ion-col>  
+         </ion-row>
+      </div><br>
+      <div text-justify class="divmar">
+        <p>
+            &emsp;Center is (1,-6), we can then get the radius by getting the distance between the center and any of points A, B, C.
+          Radius would be 10 so the standard equation is <br><b>(x - 1)<sup>2</sup> + (y + 6)<sup>2</sup> = 100</b>.       
+        </p>
+      </div>
+      <button ion-button round (click)="skip()">
+        Defining Parabola &rarr;
+      </button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

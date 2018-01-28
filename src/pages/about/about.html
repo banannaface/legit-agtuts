@@ -1,0 +1,79 @@
+<ion-header #head>
+
+  <ion-navbar color="secondary">
+      <ion-buttons left>
+          
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>  
+      </button>
+    </ion-buttons>
+    <ion-title>About</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content parallax hide [header]="head" class="color">
+  <div class='bg'>
+
+  </div>
+
+  <div class='main-cnt'>
+    <img src='../assets/images/dp.png' class="dp"> <!--di gumagana yung class sa android gawa ka na lang ng png pic na bilog ahaha baka nasa props na nilagay sa class dp kaya ayaw lumabas ng aboutdp-->
+    <h1 text-center class="listcolor"><b>Anna Team</b></h1>
+    <ion-list no-lines>
+      <ion-item class="listcolor">
+        <ion-icon name='contact' item-start></ion-icon>
+        <h2>Anna Katrina M. Cabanado</h2>
+        <p>Full Name</p>
+      </ion-item>
+      
+      <ion-item class="listcolor">
+        <ion-icon name='calendar' item-start></ion-icon>
+        <h2>December 01, 1997</h2>
+        <p>Birthday</p>
+      </ion-item>
+
+      <ion-item class="listcolor">
+        <ion-icon name='school' item-start></ion-icon>
+        <h2 style='font-size:15px'>Cavite State University - Carmona</h2>
+        <p>University</p>
+      </ion-item>
+
+      <ion-item class="listcolor">
+          <ion-icon name='ribbon' item-start></ion-icon>
+          <h2>BS in Information Technology</h2>
+          <p>Program</p>
+      </ion-item>
+
+      <ion-item class="listcolor">
+        <ion-icon name='time' item-start></ion-icon>
+        <h2>Batch 2017-2018</h2>
+        <p>Batch</p>
+      </ion-item>
+
+      <ion-item class="listcolor">
+        <ion-icon name='logo-facebook' item-start></ion-icon>
+        <h2>Anna Marfil Cabanado</h2>
+        <p style="font-size:12px">https://www.facebook.com/bananna.poop</p>
+      </ion-item>
+
+      <ion-item class="listcolor">
+        <ion-icon name='logo-instagram' item-start></ion-icon>
+        <h2>Anna Ghorl</h2>
+        <p style="font-size:11px">https://www.instagram.com/itshardtowakeup/</p>
+      </ion-item>
+
+      <ion-item class="listcolor">
+          <ion-icon name='logo-twitter' item-start></ion-icon>
+          <h2>Anna Cabanado</h2>
+          <p style="font-size:12px">https://twitter.com/ItsHardToWakeUp</p>
+      </ion-item>
+
+      <ion-item text-wrap class="listcolor item">
+        <ion-icon name='quote' item-start></ion-icon>
+        <p style="font-size:13px; text-align:center">Do what you love to do. But sometimes you just have no choice. That's where Anna comes in.</p>
+      </ion-item>
+    </ion-list>
+  </div> 
+</ion-content>

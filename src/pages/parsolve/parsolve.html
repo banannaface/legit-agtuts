@@ -1,0 +1,190 @@
+<!--
+  Generated template for the ParsolvePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='secondary'>
+    <ion-title>Solving Parabola</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="bgcolor">
+  <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h3>Problem 1</h3>
+      </div>
+
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>
+        &emsp;A satellite dish has a shape called a paraboloid, where each
+        cross-section is a parabola. Since radio signals (parallel to the axis) will bounce
+        off the surface of the dish to the focus, the receiver should be placed at the focus.
+        How far should the receiver be from the vertex, if the dish is 12 ft across, and 4.5ft deep at the vertex?
+        <br>Upon analyzing, the problem should look like this.<br><br>
+        </p>
+      </div>
+      <div text-center class="divmar" [@bounce]='state'>
+        <img src="assets/images/parsolve1.png" class="imagus" alt="circle solve" width="250" height="200">
+      <p>Figure 1<br>
+        A cross-section of the satellite dish was drawn on a cartesian plane with its vertex at origin as shown above.
+      </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+       <h3>Solution</h3>
+       <p>
+        In Figure 1, we can take half across the dish to be the x and the y as given in the problem.
+      </p>
+      <ul>
+          <li>x would be half across the satellite dish which is 12.</li>
+          <li>y would be how deep the satellite dish is which is 4.5ft.</li>  
+          <li>Using point P(x,y) in the parabola we can plug it to the formula and get the distance between vertex and focus.</li>
+      </ul>
+      </div>
+      <div text-left class = "divmar" [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-4>x<sup>2</sup> = 4cy</ion-col>
+          <ion-col col-8>standard parabola formula vertex at (0,0); opening upward</ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-4>6<sup>2</sup> = 4c(4.5)</ion-col>
+          <ion-col col-8>substitute given</ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-4>36 = 18c</ion-col>
+          <ion-col col-8>divide both sides by 18</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-4>c = 2</ion-col>
+          <ion-col col-8>solve for c</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>The receiver should be <b>2 ft.</b> away from the vertex.</ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+            <h3>Problem 2</h3>
+          </div>
+    
+          <div text-justify class="divmar" [@bounce]='state'>
+            <p>
+            &emsp;The cable of a suspension bridge hangs in the shape of a
+            parabola. The towers supporting the cable are 400 ft apart and 150 ft high.
+            If the cable, at its lowest, is 30 ft above the bridge at its midpoint, how high is
+            the cable 50 ft away (horizontally) from either tower?<br>
+            </p>
+          </div><br>
+          <div text-center class="divmar" [@bounce]='state'>
+            <img src="assets/images/parsolve2.png" class="imagus" alt="circle solve" width="200" height="134">
+            <br><p>Figure 2<br>
+            The bridge was placed on a cartesian plane and the midpoint of the two towers was at the origin.
+          </p>
+          </div>
+      <!--<button ion-button round (click)="skip()">Graphing Circles &rarr;</button>-->
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+       <h3>Solution</h3>
+       <p>
+        In Figure 2, the vertex of the parabola would be 30ft above the origin and we are trying to solve for the height of the parabola 150ft away (horizontally) from the origin.
+      </p>
+      <ul>
+          <li>we can say that the vertex is at (0, 30) and the parabola opens upward which makes its formula (x-0)<sup>2</sup> = 4c(y-30)<sup>2</sup></li>
+          <li>since the towers are 400ft apart, 150ft high with their midpoint at origin, we can say that (200,150) is a point on the parabola</li>  
+          <li>50ft away from the tower would give us 150 for the x and we are looking for the y variable if the x = 150</li>
+      </ul>
+      </div>
+      <div text-left class = "divmar" [@bounce]='state'>
+        <ion-row no-padding>
+          <ion-col col-5>x<sup>2</sup> = 4c(y-30)</ion-col>
+          <ion-col col-7>formula of the parabola in the problem</ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>200<sup>2</sup> = 4c(150-30)</ion-col>
+          <ion-col col-7>substitute the given x, y and k</ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>40000 = 4c(120)</ion-col>
+          <ion-col col-7>divide both sides by 120</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>4c = 333.33</ion-col>
+          <ion-col col-7>solve for 4c</ion-col>
+          
+        </ion-row>
+        
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <p>Now that we know what 4c is, we can then use the formula x<sup>2</sup> = 333.33(y-30) to solve the problem.</p>
+        <br>
+      </div>
+
+      <div text-left class = "divmar" [@bounce]='state'>
+        
+        
+
+        <ion-row no-padding (click)="aler1()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>150<sup>2</sup> = 333.33(y-30)</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+
+        <ion-row no-padding (click)="aler2()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>22500/333.33 = y - 30</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+      
+        <ion-row no-padding (click)="aler3()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>67.5 + 30 = y</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+
+        <ion-row no-padding>
+          <ion-col col-1></ion-col>
+          <ion-col col-11>y = 97.5</ion-col>
+        </ion-row>
+
+        <ion-row no-padding>
+          <ion-col col-1></ion-col>
+          <ion-col col-10>The cable is 97.5ft high, 50 ft away from both towers.</ion-col>
+          <ion-col col-1></ion-col>
+        </ion-row>
+      </div>
+
+      <button ion-button round (click)="skip()">
+          Defining Ellipse &rarr;
+        </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
