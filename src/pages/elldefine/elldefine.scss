@@ -2,17 +2,19 @@ page-elldefine {
     .imagus{
         margin: auto;
         border: 1px solid;
-        display: block;
+        //display: block;
         border-color: #de691a;
+        width: 200px;
+        height: 120px;
         
   }
   .imagus2{
     margin: auto;
     border: 1px solid;
-    display: block;
+    //display: block;
     border-color: #de691a;
-    width: 200px;
-    height: 170px;
+    width: 230px;
+    height: 300px;
 }
     .divstyle{
        margin: 0px;
@@ -30,6 +32,9 @@ page-elldefine {
     }
     .divmar{
         margin: 0px 10px 0px 10px;
+    }
+    .divmarul{
+        margin: 0px 0px 5px 0px;
     }
     h1{
         color: #de691a;
@@ -52,6 +57,10 @@ page-elldefine {
 
     ion-label{
         margin: 0px 0px 0px 0px;
+    }
+    ul{
+       
+        font-size: 13px;
     }
     .swiper-pagination-bullet-active{
         background: #de691a;

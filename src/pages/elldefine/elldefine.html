@@ -22,7 +22,7 @@
   <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
     <ion-slide>
       <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
-        <img src="assets/images/ellipse.gif" class="imagus" alt="ellipse" width="200" height="150">
+        <img src="assets/images/ellipse.gif" class="imagus" alt="ellipse" >
       </div>
 
       <div text-justify class="divmar" [@bounce]='state'>
@@ -31,9 +31,11 @@
         Both points are focus, and together they are called <i>foci.</i>
         </p>
       </div><br>
-
+      <div class="divmar">
+          <img src="assets/images/ellipse2.png" class="imagus" alt="ellipse">
+      </div>
       <div text-justify class="divmar">
-        <img src="assets/images/ellipse2.png" class="imagus2" alt="ellipse">
+        
         <p>
           &emsp;Given are two points on the x-axis, F<sub>1</sub>(-c, 0) and F<sub>2</sub>(c, 0), the foci, both c
           units away from their center (0, 0). See Figure above. Let P(x, y) be a point on
@@ -43,7 +45,7 @@
       
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide no-padding>
       <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
       <h3>Formula Derivation</h3>
       </div>
@@ -146,5 +148,123 @@
         <ion-icon name="bulb"></ion-icon>
       </button>
     </ion-slide>
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <img src="assets/images/ellipse1.png" alt="ellipse" width="250" height="200" style="border: 1px solid; border-color: #de691a">
+      </div>
+
+      <div text-justify class="divmar">
+        <p>
+        <b>center: </b>origin (0,0)<br>
+        <b>foci: </b>F<sub>1</sub>(-c,0) and F<sub>2</sub>(c,0)
+        </p>
+        <ul class="divmarul">
+          <li>each focus is <i>c</i> units away from the center.</li>
+          <li>for any point in the ellipse, the sum of its distance from both focus is 2a.</li>
+        </ul>
+        <p>
+          <b>vertices: </b>V<sub>1</sub>(-a,0) and V<sub>2</sub>(a,0)
+        </p>
+        <ul class="divmarul">
+          <li>if y=0 then x = &plusmn;a. Each vertex is <i>a</i> units away from the center.</li>
+          <li>the segment V<sub>1</sub>V<sub>2</sub> is the major axis with length 2a.</li>
+        </ul>
+        <p>
+          <b>covertices: </b>W<sub>1</sub>(0,-b) and W<sub>2</sub>(0,b)
+        </p>
+        <ul class="divmarul">
+          <li>if x=0 then y = &plusmn;b. Each covertex is <i>b</i> units away from the center.</li>
+          <li>the segment W<sub>1</sub>W<sub>2</sub> is the minor axis with length 2b.</li>
+        </ul>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-justify class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+      <h3>Standard Equation of Ellipse<br>(vertex at origin)</h3>
+      <p>  
+        &emsp;An ellipse doesnt only have its foci aligned horizontally, but also vertically. The same solution was done and 
+        the following equations was derived for each alignment of an ellipse with vertex at origin.
+      </p>
+      </div>
+      <div class="divmar">
+        <img src="assets/images/collageor.png" class="imagus2" alt="ellcol">
+      </div>
+      <button ion-button small icon-only (click)="aler14()">
+          <ion-icon name="bulb"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide>
+      <div text-justify class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+      <h3>Standard Equation of Ellipse<br>(vertex at (h,k))</h3>
+      <p>  
+        &emsp;An ellipse doesnt only have its center at origin, it can also be at (h,k). The same solution was done and 
+        the following equations was derived for each alignment of an ellipse with vertex at (h,k).
+      </p>
+      </div>
+      <div class="divmar">
+        <img src="assets/images/collagehk.png" class="imagus2" alt="ellcol">
+      </div>
+      <button ion-button small icon-only (click)="aler15()">
+          <ion-icon name="bulb"></ion-icon>
+      </button>
+    </ion-slide>
+    <ion-slide>
+        <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+          <h3>General Equation of Ellipse</h3>
+          <h4>Ax<sup>2</sup> + By<sup>2</sup> + Cx + Dy = E</h4>
+         
+        </div>
+        <div text-justify class="divmar" [@bounce]='state'>
+          <p>If the equation is given in general form, we can determine the standard form by completing the square in both variables.
+            <br><b>Example 1:</b> 9x<sup>2</sup> + 16y<sup>2</sup> - 126x + 64y = 71<br><br>
+          </p>
+        </div>
+        <div text-left>
+        <ion-row no-padding (click)="aler16()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>9(x<sup>2</sup> - 14x) + 16(y<sup>2</sup> + 4y) = 71</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler17()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>9(x<sup>2</sup> - 14x <i>+ 49</i>) + 16(y<sup>2</sup> + 6y <i>+ 4</i>) =<br>71 + 9(49) + 16(4)</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler18()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>9(x - 7)<sup>2</sup> + 16(y + 2)<sup>2</sup> = 576</ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        <ion-row no-padding (click)="aler19()">
+          <ion-col col-1></ion-col>
+          <ion-col col-9>
+            <table style="font-family:aleo;">
+              <tr>
+                <td>(x - 7)<sup>2</sup></td>
+                <td rowspan="2" style="text-align:center;">+</td>
+                <td>(y + 2)<sup>2</sup></td>
+                <td rowspan="2" style="text-align:center;">=</td>
+                <td rowspan="2" style="text-align:center;"> 1</td>
+              </tr>
+              <tr>
+                <td style="text-align:center;">
+                <span style="text-decoration:overline;">&nbsp;&nbsp;64&nbsp;&nbsp;</span>
+                </td>
+                <td style="text-align:center;">
+                <span style="text-decoration:overline;">&nbsp;&nbsp;36&nbsp;&nbsp;</span>
+                </td>
+              </tr>
+            </table></ion-col>
+          <ion-col col-2><ion-icon class="iconsmall" name="more" item-right></ion-icon></ion-col>
+        </ion-row>
+        
+      </div>
+      <button ion-button small icon-only (click)="aler20()">
+          <ion-icon name="bulb"></ion-icon>
+      </button><br><br>
+      <button ion-button round (click)="skip()">Graphing Ellipse &rarr;</button>
+    </ion-slide>
+
   </ion-slides>
 </ion-content>
