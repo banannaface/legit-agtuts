@@ -18,44 +18,65 @@
 </ion-header>
 
 
-<ion-content padding>
-<div text-center><h3>{{sqpart}}<sup>{{sq}}</sup>{{nsqpart}}</h3></div>
+<ion-content>
+<div text-center style="align-items:center" class="divmar">
+  <table>
+    <tr>
+     <td>&nbsp;&nbsp;</td>
+      <td>{{firstn}}<sup>2</sup></td>
+      <td rowspan="2" style="text-align:center;">&nbsp;+&nbsp;</td>
+      <td>{{secondn}}<sup>2</sup></td>
+      <td rowspan="2" style="text-align:center;">&nbsp;=&nbsp;</td>
+      <td rowspan="2" style="text-align:center;">1</td>
+      <td rowspan="2" style="text-align:center;">&nbsp;;&nbsp;c = {{cc}}</td>
+    </tr>
+    <tr>
+        <td>&nbsp;&nbsp;</td>
+      <td style="text-align:center;">
+      <span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;{{firstd}}&nbsp;&nbsp;&nbsp;</span>
+      </td>
+      <td style="text-align:center;">
+      <span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;{{secondd}}&nbsp;&nbsp;&nbsp;</span>
+      </td>
+    </tr>
+  </table>
+</div>
   <div class="ion-canvas" style="align-items:center">
     <canvas #canvas></canvas>
   </div><br>
-  <div text-left>
+  <div text-left style="align-items:center" class="divmar">
     <ion-item>
-      <ion-label>Axis of Symmetry {{ax}}</ion-label>
+      <ion-label>Major Axis (horizontal)</ion-label>
       <ion-toggle [(ngModel)]="axis" (ionChange)="changeaxis(axis)"></ion-toggle>
     </ion-item>
-    <ion-item>
-      <ion-label>Origin (0,0)</ion-label>
-      <ion-toggle [(ngModel)]="origin" (ionChange)="changeorigin(origin)"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Opening {{op}}</ion-label>
-      <ion-toggle [(ngModel)]="opening" (ionChange)="changeopening(opening)"></ion-toggle>
-    </ion-item>
+    
   </div>
-  <div text-left style="align-items:center">
+  <div text-left class="divmar2" style="align-items:center">
     <h6>vertex (h) = {{rangech}}</h6>
-    <ion-range disabled={{origin}} min="-15" max="15" snaps="true" [(ngModel)]="rangech" (ionChange)="changeverh(rangech)">
+    <ion-range min="-15" max="15" snaps="true" [(ngModel)]="rangech" (ionChange)="changeverh(rangech)">
       <ion-label range-left>-15</ion-label>
       <ion-label range-right>15</ion-label>
     </ion-range>
   </div>
-  <div text-left style="align-items:center">
+  <div text-left class="divmar2" style="align-items:center">
     <h6>vertex (k) = {{rangeck}}</h6>
-    <ion-range disabled={{origin}} min="-15" max="15" snaps="true" [(ngModel)]="rangeck" (ionChange)="changeverk(rangeck)">
+    <ion-range min="-15" max="15" snaps="true" [(ngModel)]="rangeck" (ionChange)="changeverk(rangeck)">
       <ion-label range-left>-15</ion-label>
       <ion-label range-right>15</ion-label>
     </ion-range>
   </div>
-  <div text-left style="align-items:center">
-    <h6> distance from V to F (c) = {{rangec}}</h6>
-    <ion-range min="1" max="10" snaps="true" [(ngModel)]="rangec" (ionChange)="changec(rangec)">
+  <div text-left class="divmar2"style="align-items:center">
+    <h6> distance from C to V: (a) = {{rangea}}</h6>
+    <ion-range min="2" max="15" snaps="true" [(ngModel)]="rangea" (ionChange)="changea(rangea)">
+      <ion-label range-left>2</ion-label>
+      <ion-label range-right>15</ion-label>
+    </ion-range>
+  </div>
+  <div text-left class="divmar2"style="align-items:center">
+    <h6> distance from C to W: (b) = {{rangeb}}</h6>
+    <ion-range min="1" max={{rangea-1}} snaps="true" [(ngModel)]="rangeb" (ionChange)="changeb(rangeb)">
       <ion-label range-left>1</ion-label>
-      <ion-label range-right>10</ion-label>
+      <ion-label range-right>{{rangea-1}}</ion-label>
     </ion-range>
   </div>
 </ion-content>

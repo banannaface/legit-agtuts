@@ -18,6 +18,140 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="bgcolor">
+  <ion-slides class="whity" pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h3>Problem 1</h3>
+      </div>
+
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>
+        &emsp;A tunnel has the shape of a semi-ellipse that is 15 ft high at
+        the center, and 36 ft across at the base. At most how high should a passing truck
+        be, if it is 12 ft wide, for it to be able to fit through the tunnel?
+        <br>Upon analyzing, the problem should look like this.<br><br>
+        </p>
+      </div>
+      <div text-center class="divmar" [@bounce]='state'>
+        <img src="assets/images/ellsolve1.png" class="imagus" alt="circle solve" width="250" height="200">
+      <p>Figure 1<br>
+        the semi-ellipse tunnel drawn on a cartesian plane with its center at origin as shown above.
+      </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+       <h3>Solution</h3>
+       <p>
+        In Figure 1, we take the midpoint of the truck's width and place it at the origin..
+      </p>
+      <ul>
+          <li>the tunnel is 36ft wide with its midpoint at 0,0 which means from the center to the vertex or <i>a</i>, it is 18ft.</li>
+          <li>the tunnel is 15ft high from the origin to a covertex above it or the <i>b</i></li>  
+          <li>from the center to the edge of the truck is 6ft and we are looking for the height of the truck is x = 6</li>
+      </ul>
+      </div>
+      <div text-left class = "divmar">
+        <ion-row no-padding>
+          <ion-col col-5><sup>x<sup>2</sup></sup>&frasl;<sub>18<sup>2</sup></sub> + <sup>y<sup>2</sup></sup>&frasl;<sub>15<sup>2</sup></sub> = 1</ion-col>
+          <ion-col col-7>formula of a horizontal ellipse center at (0,0)</ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5><sup>6<sup>2</sup></sup>&frasl;<sub>18<sup>2</sup></sub> + <sup>y<sup>2</sup></sup>&frasl;<sub>15<sup>2</sup></sub> = 1</ion-col>
+          <ion-col col-7>substitute given</ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y<sup>2</sup> = (1 - 0.11)*225
+          </ion-col>
+          <ion-col col-7>solve for y</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>y = 14.15</ion-col>
+          <ion-col col-7>maximum height of truck</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>The truck should be <b>14.15ft</b> at most to fit through the tunnel.</ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h3>Problem 2</h3>
+      </div>
+    
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>
+        &emsp;The orbit of a planet has the shape of an ellipse, and on one
+        of the foci is the star around which it revolves. The planet is closest to the star
+        when it is at one vertex. It is farthest from the star when it is at the other vertex.
+        Suppose the closest and farthest distances of the planet from this star, are 420
+        million kilometers and 580 million kilometers, respectively. Find the equation of
+        the ellipse, in standard form, with center at the origin and the star at the x-axis.
+        
+        </p>
+      </div>
+      <div text-center class="divmar">
+        <img src="assets/images/ellsolve2.png" class="imagus2" alt="ellipse solve">
+        <p>Figure 2<br>
+        from the first vertex to the other side is 580M + 420M. If we put the center at origin, it means from  center to one vertex is 500M.
+      </p>
+      </div>
+      <!--<button ion-button round (click)="skip()">Graphing Circles &rarr;</button>-->
+    </ion-slide>
+
+    <ion-slide>
+      <div text-left class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+       <h3>Solution</h3>
+       <p>
+        In Figure 2, the center of the ellipse is placed at the origin.
+      </p>
+      <ul>
+          <li>the major axis is 2a = 1000M since 580M + 420M, tehrefore a = 500M</li>
+          <li>let's place the star is on the right side of the center, then c = 500M - 420M = 80M</li>  
+          <li>we have to look for the standard formula of this ellipse</li>
+      </ul>
+      </div>
+      <div text-left class = "divmar">
+        <ion-row no-padding>
+          <ion-col col-5>b<sup>2</sup> = a<sup>2</sup> - c<sup>2</sup></ion-col>
+          <ion-col col-7>formula to get the b<sup>2</sup></ion-col>
+  
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>b<sup>2</sup> = 243600M</ion-col>
+          <ion-col col-7>solve for b<sup>2</sup></ion-col>
+         
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-5>
+              <sup>x<sup>2</sup></sup>&frasl;<sub>250000</sub> + <sup>y<sup>2</sup></sup>&frasl;<sub>243600</sub> = 1
+          </ion-col>
+          <ion-col col-7>this the standard formula we are looking for.</ion-col>
+          
+        </ion-row>
+        <ion-row no-padding>
+       
+          <ion-col col-12>even if we placed that the star is on the left side of teh center, we'll still have the same formula since squaring a number will always result to positive number.</ion-col>
+
+        </ion-row>
+        
+      </div>
+
+      <button ion-button round (click)="skip()">
+        Defining Hyperbola &rarr;
+      </button>
+    </ion-slide>
+
+    
+  </ion-slides>
 
 </ion-content>

@@ -20,6 +20,18 @@ export class EllgraphPage {
   public devwidth : number;
   public devheight : number;
   public toth : number;
+  public axis : boolean = false;
+  public rangech : number = 0;
+  public rangeck : number = 0;
+  public rangea : number = 2;
+  public rangeb : number = 1;
+
+  public firstn : string = "x";
+  public secondn : string = "y";
+  public firstd : number = 1;
+  public secondd : number = 4;
+  public cc : number = 1.73;
+
   constructor(public globalMeth:GlobalmethodsProvider, public platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
     platform.ready().then((readySource) => {
       console.log('Width: plat' + platform.width());
@@ -37,6 +49,7 @@ export class EllgraphPage {
 
     this.initialiseCanvas();
     this.drawGrid();
+    this.drawEllipse(this.rangech, this.rangeck, this.rangea, this.rangeb, "maya na lang", this.axis, this.axis);
     /*this.drawParabola(this.rangech, this.rangeck, this.rangec, "maya na lang", this.axis, this.origin, this.opening);
     this.drawCircle(this.rangech, this.rangeck, this.ranger);*/
     console.log('Height: ' + this._CANVAS.height);
@@ -78,8 +91,8 @@ export class EllgraphPage {
    
     this.totwidth = this.devwidth;
     this.totheight = this.toth;
-    this.CenterY = this._CANVAS.height/2;
-    this.CenterX = this._CANVAS.width/2;
+    this.CenterY = this.totheight/2;
+    this.CenterX = this.totwidth/2;
     this._CONTEXT.beginPath();
     this._CONTEXT.moveTo(this.CenterX, 0); //y-axis
     this._CONTEXT.lineTo(this.CenterX, this.totheight);
@@ -167,18 +180,86 @@ export class EllgraphPage {
 
   writeLabel(str:string, x:number, y:number){
     
-    this._CONTEXT.font = '12pt Calibri'
+    this._CONTEXT.font = 'bold 12pt Calibri'
     this._CONTEXT.textAlign = 'center'
     this._CONTEXT.textBaseline = 'top'
     this._CONTEXT.fillStyle = '#de691a'
     this._CONTEXT.fillText(str, x, y);
   }
 
+  changeaxis(ax){
+   
+   this.axis = ax;
+   if (this.axis==true){
+    this.firstd = this.rangea*this.rangea;
+    this.secondd = this.rangeb*this.rangeb;
+  }else{
+    this.firstd = this.rangeb*this.rangeb;
+    this.secondd = this.rangea*this.rangea;
+  }
+    console.log(this.axis);
+    this.drawEllipse(this.rangech, this.rangeck, this.rangea, this.rangeb, "maya na lang", this.axis, this.axis);
+  }
+
+  changeverh(rch){
+    this.rangech = rch;
+    if (rch>0){
+      this.firstn = "(x - "+this.rangech+")";
+    }else if (rch<0){
+      this.firstn = "(x + "+this.rangech*-1+")";
+    }else{
+      this.firstn = "x";
+    }
+    
+    console.log(this.rangech);
+    this.drawEllipse(this.rangech, this.rangeck, this.rangea, this.rangeb, "maya na lang", this.axis, this.axis);
+  }
+
+  changeverk(rck){
+    this.rangeck = rck;
+
+    if (rck>0){
+      this.secondn = "(y - "+this.rangeck+")";
+    }else if (rck<0){
+      this.secondn = "(y + "+this.rangeck*-1+")";
+    }else{
+      this.secondn = "y";
+    }
+    console.log(this.rangeck);
+    this.drawEllipse(this.rangech, this.rangeck, this.rangea, this.rangeb, "maya na lang", this.axis, this.axis);
+  }
+
+  changea(ra){
+    this.rangea = ra;
+    if (this.axis==true){
+      this.firstd = ra*ra;
+      this.secondd = this.rangeb*this.rangeb;
+    }else{
+      this.firstd = this.rangeb*this.rangeb;
+      this.secondd = ra*ra;
+    }
+    console.log(this.rangea);
+    this.drawEllipse(this.rangech, this.rangeck, this.rangea, this.rangeb, "maya na lang", this.axis, this.axis);
+  }
+
+  changeb(rb){
+    this.rangeb = rb;
+    if (this.axis==true){
+      this.firstd = this.rangea*this.rangea;
+      this.secondd = rb*rb;
+    }else{
+      this.firstd = rb*rb;
+      this.secondd = this.rangea*this.rangea;
+    }
+    console.log(this.rangeb);
+    this.drawEllipse(this.rangech, this.rangeck, this.rangea, this.rangeb, "maya na lang", this.axis, this.axis);
+  }
+
   public canvalX:number;
   public canvalY:number;
   public canvalR:number;
   public c:number;
-  
+
   drawEllipse(h:number, k:number, a:number, b:number, fo:string, or:boolean, ma:boolean){
     this.clearCanvas();
     this.drawGrid();
@@ -229,9 +310,14 @@ export class EllgraphPage {
       this._CONTEXT.moveTo(this.totwidth/2+((h+a)*10), this.canvalY);
       this._CONTEXT.bezierCurveTo(plrx,nlry,nlrx,nlry,this.totwidth/2+((h-a)*10), this.canvalY);
       this._CONTEXT.stroke();
-
-      this.writeLabel('center: ('+h+','+k+') foci: ('+(h+this.c)+', '+(k)+'), ('+(h-this.c)+', '+(k)+')', 200, this.totheight-125);
-      this.writeLabel('vertices: ('+(h+a)+','+k+'), ('+(h-a)+','+k+') minor: ('+h+', '+(k+b)+'), ('+h+', '+(k-b)+')', 200, this.totheight-100);
+      this.cc = Number(this.c.toFixed(2));
+      let num : number = h+this.cc;
+      let num1 : number = h-this.cc;
+      this.writeLabel('center: ('+h+','+k+')', this.totwidth*0.25, this.totheight*0.8);
+      this.writeLabel('F₁('+(num1.toFixed(2))+', '+(k)+'); F₂('+(num.toFixed(2))+'; '+(k)+')', this.totwidth*0.25, this.totheight*0.85);
+      this.writeLabel('V₁('+(h-a)+','+k+'); V₂('+(h+a)+','+k+')', this.totwidth*0.75-10, this.totheight*0.8);
+      this.writeLabel('W₁('+h+', '+(k-b)+'); W₂('+h+', '+(k+b)+')', this.totwidth*0.75-10, this.totheight*0.85);
+    
     }else{//means vertical major axis
       this.drawPoint(this.totwidth/2+((h+b)*10), this.canvalY) ;//+b
       this.drawPoint(this.totwidth/2+((h-b)*10), this.canvalY);//-b 
@@ -263,9 +349,14 @@ export class EllgraphPage {
       this._CONTEXT.moveTo(this.canvalX, this.totheight/2-((k+a)*10));
       this._CONTEXT.bezierCurveTo(plrx,plry,plrx,nlry,this.canvalX, this.totheight/2-((k-a)*10));
       this._CONTEXT.stroke();
-      this.writeLabel('center: ('+h+','+k+') foci: ('+(h)+', '+(k+this.c)+'), ('+(h)+', '+(k-this.c)+')', 200, this.totheight-125);
-      this.writeLabel('vertices: ('+(h)+','+(k+a)+'), ('+(h)+','+(k-a)+') minor: ('+(h+b)+', '+(k)+'), ('+(h-b)+', '+(k)+')', 200, this.totheight-100);
-      
+
+      this.cc = Number(this.c.toFixed(2));
+      let num : number = k+this.cc;
+      let num1 : number = k-this.cc;
+      this.writeLabel('center: ('+h+','+k+')', this.totwidth*0.25, this.totheight*0.8);
+      this.writeLabel('F₁('+(h)+', '+(num1.toFixed(2))+'); F₂('+(h)+', '+(num.toFixed(2))+')', this.totwidth*0.25, this.totheight*0.85);
+      this.writeLabel('V₁('+(h)+','+(k-a)+'); V₂('+(h)+','+(k+a)+')', this.totwidth*0.75-10, this.totheight*0.8);
+      this.writeLabel('W₁('+(h-b)+', '+(k)+'); W₂('+(h+b)+', '+(k)+')', this.totwidth*0.75-10, this.totheight*0.85);
     }
   }
 
