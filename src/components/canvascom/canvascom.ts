@@ -78,8 +78,15 @@ export class CanvascomComponent {
       this.origin = this.navParams.get('or');
       this.major = this.navParams.get('ma');
       this.drawEllipse(this.h, this.k, this.a, this.b, this.formula, this.origin, this.major);
+    
     }else if (this.globalMeth.conicsection == 'hyperbola'){
-      this.drawHyperbola();
+      this.h = this.navParams.get('H');
+      this.k = this.navParams.get('K');
+      this.a = this.navParams.get('A');
+      this.b = this.navParams.get('B');
+      this.formula = this.navParams.get('for');
+ 
+      this.drawHyperbola(this.h, this.k, this.a, this.b, this.formula);
     }else{
       this.globalMeth.presentAlertOkOnly('Error!','Please input valid numbers.');
     }
@@ -502,7 +509,34 @@ public cpntY:number;
     }
   }
 
-  drawHyperbola(){
+  public cvx:number; //canvasvaluex
+  public cvy:number;
+  public cva:number;
+  public cvb:number;
+  public hypc:number; //hyperbola c
+  public lr:number;
+  
+  drawHyperbola(h:number, k:number, a:number, b:number, fo:string){
+    let ctx = this.canvasElement.getContext('2d');
+    this.hypc = Math.sqrt((a*a)+(b*b));
+    this.cvx = (h*10)+this.totwidth/2;
+    this.cvy = this.totheight/2 - (k*10);
+    this.cva = a*10;
+    this.cvb = b*10;
+
+    this.lr = ((b*b)/a);
+
+    let lr11x = ((h*10)+this.totwidth/2) + (this.hypc*10);
+    let lr11y = (this.totheight/2 - (k*10)) - (this.lr*10);
+
+    let lr12x = ((h*10)+this.totwidth/2) + (this.hypc*10);
+    let lr12y = (this.totheight/2 - (k*10)) + (this.lr*10);
+
+    let lr21x = ((h*10)+this.totwidth/2) - (this.hypc*10);
+    let lr21y = (this.totheight/2 - (k*10)) - (this.lr*10);
+
+    let lr22x = ((h*10)+this.totwidth/2) - (this.hypc*10);
+    let lr22y = (this.totheight/2 - (k*10)) + (this.lr*10);
 
   }
 }
