@@ -14,20 +14,44 @@
 
 
 <ion-content padding>
-  <div text-center><h3>{{formula}}</h3></div>
+  <div text-center><h3>
+    <table style="font-family:aleo;">
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>{{firstn}}<span style="font-size: 15px;vertical-align:+32%;"><b>2</b></span></td>
+        <td rowspan="2" style="text-align:center;">&nbsp;-&nbsp;</td>
+        <td>{{secn}}<span style="font-size: 15px;vertical-align:+32%;"><b>2</b></span></td>
+        <td rowspan="2" style="text-align:center;">&nbsp;=&nbsp;</td>
+        <td rowspan="2" style="text-align:center;"> 1</td>
+      </tr>
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td style="text-align:center;">
+        <span style="text-decoration:overline;">&nbsp;&nbsp;{{firstd}}<span style="font-size: 15px;vertical-align:+32%;text-decoration:overline;">2</span>&nbsp;&nbsp;</span>
+        </td>
+        <td style="text-align:center;">
+        <span style="text-decoration:overline;">&nbsp;&nbsp;{{secd}}<span style="font-size: 15px;vertical-align:+32%;text-decoration:overline;">2</span>&nbsp;&nbsp;</span>
+        </td>
+      </tr>
+    </table>
+  </h3></div>
   <ion-list>
     <ion-item>
+      <ion-label color="primary">transverse axis (horizontal)</ion-label>
+      <ion-toggle [(ngModel)]="axis" color="primary" default=true (ionChange)="togtachange(axis)"></ion-toggle>
+    </ion-item>
+    <ion-item>
       <ion-label color="primary" type="number" floating>Center X (h)</ion-label>
-      <ion-input [(ngModel)]="hinput"></ion-input>
+      <ion-input [(ngModel)]="hinput" (ionChange)="hchange(hinput)"></ion-input>
     </ion-item>
     <ion-item><ion-label color="primary" type="number" floating>Center Y (k)</ion-label>
-      <ion-input [(ngModel)]="kinput"></ion-input>
+      <ion-input [(ngModel)]="kinput" (ionChange)="kchange(kinput)"></ion-input>
     </ion-item>
     <ion-item><ion-label color="primary" type="number" floating>Value of A (a)</ion-label>
-      <ion-input [(ngModel)]="ainput"></ion-input>
+      <ion-input [(ngModel)]="ainput" (ionChange)="achange(ainput)"></ion-input>
     </ion-item>
     <ion-item><ion-label color="primary" type="number" floating>Value of B (b)</ion-label>
-      <ion-input [(ngModel)]="binput"></ion-input>
+      <ion-input [(ngModel)]="binput" (ionChange)="bchange(binput)"></ion-input>
     </ion-item>
   </ion-list>
       

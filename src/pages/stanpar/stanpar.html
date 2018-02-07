@@ -15,30 +15,30 @@
 
 <ion-content padding>
   
-  <div text-center><h3>{{formula}}</h3></div>
+  <div text-center><h3>{{sqpart}}<sup>{{sq}}</sup>{{nsqpart}}</h3></div>
 
     <ion-list>
       <ion-item>
         <ion-label color="primary">Vertex at origin</ion-label>
-        <ion-toggle [(ngModel)]="origin" color="primary" (ionChange)="togchangeor()"></ion-toggle>
+        <ion-toggle [(ngModel)]="origin" color="primary" (ionChange)="changeorigin(origin)"></ion-toggle>
       </ion-item>
       <ion-item>
-          <ion-label color="primary">Axis of symmetry (vertical)</ion-label>
-          <ion-toggle [(ngModel)]="axis" color="primary" (ionChange)="togchangeax()"></ion-toggle>
+          <ion-label color="primary">Axis of symmetry {{ax}}</ion-label>
+          <ion-toggle [(ngModel)]="axis" color="primary" (ionChange)="changeaxis(axis)"></ion-toggle>
       </ion-item>
       <ion-item>
-        <ion-label color="primary">{{stropen}}</ion-label>
-        <ion-toggle [(ngModel)]="open" color="primary"></ion-toggle>
+        <ion-label color="primary">Opening {{op}}</ion-label>
+        <ion-toggle [(ngModel)]="opening" color="primary" (ionChange)="changeopening(opening)"></ion-toggle>
     </ion-item>
       <ion-item>
         <ion-label color="primary" type="number" floating>Center X (h)</ion-label>
-        <ion-input [(ngModel)]="hinput"></ion-input>
+        <ion-input [(ngModel)]="hinput" (ionChange)="changeverh(hinput)"></ion-input>
       </ion-item>
       <ion-item><ion-label color="primary" type="number" floating>Center Y (k)</ion-label>
-        <ion-input [(ngModel)]="kinput"></ion-input>
+        <ion-input [(ngModel)]="kinput" (ionChange)="changeverk(kinput)"></ion-input>
       </ion-item>
       <ion-item><ion-label color="primary" type="number" floating>Value of C (c)</ion-label>
-        <ion-input [(ngModel)]="cinput"></ion-input>
+        <ion-input [(ngModel)]="cinput" (ionChange)="changec(cinput)"></ion-input>
       </ion-item>
     </ion-list>
         

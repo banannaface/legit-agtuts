@@ -15,11 +15,15 @@ import { CanvascomComponent } from '../../components/canvascom/canvascom';
   templateUrl: 'stanhyp.html',
 })
 export class StanhypPage {
-  public hinput:any;
-  public kinput:any;
-  public ainput:any;
-  public binput:any;
- 
+  public hinput:any=0;
+  public kinput:any=0;
+  public ainput:any=0;
+  public binput:any=0;
+  public axis:boolean;
+  public firstn:string="x";
+  public secn:string="y";
+  public firstd:string="a";
+  public secd:string="b";
   public formula:string = "wait lang";
  
  
@@ -28,7 +32,7 @@ export class StanhypPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StanhypPage');
-    
+    this.axis = true;
     this.formula = 'wait lang';
   }
 
@@ -39,7 +43,9 @@ export class StanhypPage {
       H:Number(this.hinput),
       K:Number(this.kinput),
       A:Number(this.ainput),
-      B:Number(this.binput)
+      B:Number(this.binput),
+      for:this.formula,
+      ax:this.axis
     }
     console.log();
     this.globalMeth.conicsection = 'hyperbola';
@@ -53,6 +59,188 @@ export class StanhypPage {
     }
    
   
+  }
+
+  togtachange(ax){
+    if ((ax==true)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="x";
+      this.secn="y";
+    }else if ((ax==true)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if((ax==true)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((ax==true)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((ax==true)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if ((ax==false)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="y";
+      this.secn="x";
+     
+    }else if ((ax==false)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(y + "+this.kinput+")";
+      this.secn="(x + "+this.hinput+")";
+    }else if((ax==false)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(y + "+this.kinput+")";
+      this.secn="(x - "+this.hinput+")";
+    }else if((ax==false)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(y - "+this.kinput+")";
+      this.secn="(x - "+this.hinput+")";
+    }else if((ax==false)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(y - "+this.kinput+")";
+      this.secn="(x + "+this.hinput+")";
+    }
+    this.firstd=""+this.ainput*this.ainput;
+    this.secd=""+this.binput*this.binput;
+  }
+  
+  hchange(hh){
+    if ((this.axis==true)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="x";
+      this.secn="y";
+    }else if ((this.axis==true)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if ((this.axis==false)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="y";
+      this.secn="x";
+     
+    }else if ((this.axis==false)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }
+    this.firstd=""+this.ainput*this.ainput;
+    this.secd=""+this.binput*this.binput;
+  }
+  kchange(kk){
+    if ((this.axis==true)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="x";
+      this.secn="y";
+    }else if ((this.axis==true)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if ((this.axis==false)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="y";
+      this.secn="x";
+     
+    }else if ((this.axis==false)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }
+    this.firstd=""+this.ainput*this.ainput;
+    this.secd=""+this.binput*this.binput;
+  }
+  achange(aa){
+    if ((this.axis==true)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="x";
+      this.secn="y";
+    }else if ((this.axis==true)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if ((this.axis==false)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="y";
+      this.secn="x";
+     
+    }else if ((this.axis==false)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }
+    this.firstd=""+this.ainput*this.ainput;
+    this.secd=""+this.binput*this.binput;
+  }
+  bchange(bb){
+    if ((this.axis==true)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="x";
+      this.secn="y";
+    }else if ((this.axis==true)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(x + "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y - "+this.kinput+")";
+    }else if((this.axis==true)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(x - "+this.hinput+")";
+      this.secn="(y + "+this.kinput+")";
+    }else if ((this.axis==false)&&(this.hinput==0)&&(this.kinput==0)){
+      this.firstn="y";
+      this.secn="x";
+     
+    }else if ((this.axis==false)&&(this.hinput<0)&&(this.kinput<0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput<0)&&(this.kinput!>0)){
+      this.firstn="(y + "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput>0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x - "+this.kinput+")";
+    }else if((this.axis==false)&&(this.hinput>0)&&(this.kinput<0)){
+      this.firstn="(y - "+this.hinput+")";
+      this.secn="(x + "+this.kinput+")";
+    }
+    this.firstd=""+this.ainput*this.ainput;
+    this.secd=""+this.binput*this.binput;
   }
 
 }
