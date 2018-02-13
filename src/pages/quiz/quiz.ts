@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { QuizcirPage } from '../quizcir/quizcir';
+import { QuizparPage } from '../quizpar/quizpar';
+import { QuizellPage } from '../quizell/quizell';
+import { QuizhypPage } from '../quizhyp/quizhyp';
 /**
  * Generated class for the QuizPage page.
  *
@@ -12,6 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-quiz',
   templateUrl: 'quiz.html',
+  
 })
 export class QuizPage {
 
@@ -20,6 +24,22 @@ export class QuizPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuizPage');
+  }
+
+  circleClick(){
+    this.navCtrl.push(QuizcirPage);
+  }
+
+  parabolaClick(){
+    this.navCtrl.push(QuizparPage);
+  }
+
+  hyperbolaClick(){
+    this.navCtrl.push(QuizhypPage);
+  }
+
+  ellipseClick(){
+    this.navCtrl.push(QuizellPage);
   }
 
 }

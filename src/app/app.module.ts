@@ -45,6 +45,10 @@ import { StanellPage } from '../pages/stanell/stanell';
 import { GenhypPage } from '../pages/genhyp/genhyp';
 import { StanhypPage } from '../pages/stanhyp/stanhyp';
 
+import { QuizcirPage } from '../pages/quizcir/quizcir';
+import { QuizparPage } from '../pages/quizpar/quizpar';
+import { QuizellPage } from '../pages/quizell/quizell';
+import { QuizhypPage } from '../pages/quizhyp/quizhyp';
 
 
 import { CanvascomComponent } from '../components/canvascom/canvascom';
@@ -88,7 +92,11 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     StanellPage,
     GenellPage,
     StanhypPage,
-    GenhypPage
+    GenhypPage,
+    QuizcirPage,
+    QuizparPage,
+    QuizellPage,
+    QuizhypPage
     
   ],
   imports: [
@@ -134,7 +142,11 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     StanellPage,
     GenellPage,
     StanhypPage,
-    GenhypPage
+    GenhypPage,
+    QuizcirPage,
+    QuizparPage,
+    QuizellPage,
+    QuizhypPage
     
    
     
