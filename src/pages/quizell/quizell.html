@@ -16,5 +16,72 @@
 
 </ion-header>
 <ion-content padding>
-
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>These are point in allipse that are collinear with the center and foci.</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a1()">Foci</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b1()">Covertices</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c1()">Asymptotes</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d1()">Vertices</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>What is the alignment of the major axis if the denominator of x<sup>2</sup>is b<sup>2</sup>?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a2()">horizontal</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b2()">x-axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c2()">vertical</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d2()">y-axis</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>c is the number of units from ____ to ____.</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a3()">from center to vertex</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b3()">from center to focus</button></ion-col>
+        </ion-row>
+        <ion-row no-padding> 
+          <ion-col col-12><button ion-button round (click)="c3()">from focus to vertex</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d3()">from focus to focus</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

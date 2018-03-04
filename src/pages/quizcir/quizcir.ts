@@ -87,5 +87,153 @@ export class QuizcirPage {
     alert.present();
   }
 
+  showAnswer(tit: string, stit: string) {
+    let alert = this.alertCtrl.create({
+      title: tit,
+      subTitle: stit,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
+  public num1:number=0;
+  public num2:number=0;
+  public num3:number=0;
+  a1(){
+    
+    if (this.num1==1){
+      this.showAnswer("Question 1", "You already answered!");
+      this.num1=1;
+    }else{
+      this.showAnswer("Question 1", "Wrong Answer!");
+      this.num1=1;
+    }
+  }
+
+  b1(){
+    
+    if (this.num1==1){
+      this.showAnswer("Question 1", "You already answered!");
+      this.num1=1;
+    }else{
+      this.showAnswer("Question 1", "Wrong Answer!");
+      this.num1=1;
+    }
+  }
+
+  c1(){
+    
+    if (this.num1==1){
+      this.showAnswer("Question 1", "You already answered!");
+      this.num1=1;
+    }else{
+      this.showAnswer("Question 1", "You got it!");
+      this.num1=1;
+    }
+  }
+
+
+  d1(){
+    
+    if (this.num1==1){
+      this.showAnswer("Question 1", "You already answered!");
+      this.num1=1;
+    }else{
+      this.showAnswer("Question 1", "Wrong Answer!");
+      this.num1=1;
+    }
+  }
+
+  a2(){
+    
+    if (this.num2==1){
+      this.showAnswer("Question 2", "You already answered!");
+      this.num2=1;
+    }else{
+      this.showAnswer("Question 2", "You got it!");
+      this.num2=1;
+    }
+  }
+
+  b2(){
+    
+    if (this.num2==1){
+      this.showAnswer("Question 2", "You already answered!");
+      this.num2=1;
+    }else{
+      this.showAnswer("Question 2", "Wrong Answer!");
+      this.num2=1;
+    }
+  }
+
+  c2(){
+    
+    if (this.num2==1){
+      this.showAnswer("Question 2", "You already answered!");
+      this.num2=1;
+    }else{
+      this.showAnswer("Question 2", "Wrong Answer!");
+      this.num2=1;
+    }
+  }
+
+
+  d2(){
+    
+    if (this.num2==1){
+      this.showAnswer("Question 2", "You already answered!");
+      this.num2=1;
+    }else{
+      this.showAnswer("Question 2", "Wrong Answer!");
+      this.num2=1;
+    }
+  }
+
+  a3(){
+    
+    if (this.num3==1){
+      this.showAnswer("Question 3", "You already answered!");
+      this.num3=1;
+    }else{
+      this.showAnswer("Question 3", "Wrong Answer!");
+      this.num3=1;
+    }
+  }
+
+  b3(){
+    
+    if (this.num3==1){
+      this.showAnswer("Question 3", "You already answered!");
+      this.num3=1;
+    }else{
+      this.showAnswer("Question 3", "Wrong Answer!");
+      this.num3=1;
+    }
+  }
+
+  c3(){
+    
+    if (this.num3==1){
+      this.showAnswer("Question 3", "You already answered!");
+      this.num3=1;
+    }else{
+      this.showAnswer("Question 3", "You got it!");
+      this.num3=1;
+    }
+  }
+
+
+  d3(){
+    
+    if (this.num3==1){
+      this.showAnswer("Question 3", "You already answered!");
+      this.num3=1;
+    }else{
+      this.showAnswer("Question 3", "Wrong Answer!");
+      this.num3=1;
+    }
+  }
 
 }
+  

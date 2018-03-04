@@ -16,5 +16,73 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>What dou you call the two lines passing through the center of hyperbola?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a1()">Asymptotes</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b1()">Center</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c1()">Foci</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d1()">Covertices</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>what is the segment from the first vertex to the second vertex called?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a2()">transverse axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b2()">conjugate axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c2()">major axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d2()">minor axis</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>How will the conjugate axis be aligned if the denominator of the y-part of the equation is a<sup>2</sup>?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a3()">vertical</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b3()">y-axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding> 
+          <ion-col col-12><button ion-button round (click)="c3()">horizontal</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d3()">x-axis</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  
 </ion-content>

@@ -16,5 +16,73 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+        <p>What is the general equation of parabola?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a1()">y<sup>2</sup> = 4cx</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b1()">Ax<sup>2</sup> + Cx + Dy + E = 0</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c1()">Ax<sup>2</sup> + By<sup>2</sup> + Cx + Dy + E = 0</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d1()">(x-h)<sup>2</sup> = 8(y-k)</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>If the x part of parabola equation is squared the axis of symmetry is ____?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a2()">y-axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b2()">horizontal</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c2()">x-axis</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d2()">vertical</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+    <ion-slide>
+      <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+        <h1>Question #{{item}}</h1> 
+      </div>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>Determine the focus of parabola (y+2)<sup>2</sup> = 8(x-2)</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a3()">F(4, -2)</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b3()">F(0, -2)</button></ion-col>
+        </ion-row>
+        <ion-row no-padding> 
+          <ion-col col-12><button ion-button round (click)="c3()">F(2, 0)</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d3()">F(2, -4)</button></ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>

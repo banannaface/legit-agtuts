@@ -23,22 +23,64 @@
       </div>
       <div text-justify class="divmar" [@bounce]='state'>
         <p>What is the segment from the center to any point in the circle called?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a1()">Center</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b1()">Chord</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c1()">Radius</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d1()">Diameter</button></ion-col>
+        </ion-row>
       </div>
     </ion-slide>
     <ion-slide>
       <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
         <h1>Question #{{item}}</h1> 
       </div>
-      <div class="divmar" [@bounce]='state'>
-          <p>What is the standard equation of circle?</p>
+      <div text-justify class="divmar" [@bounce]='state'>
+          <p>What is the standard equation of circle, vertex at origin?</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a2()">x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b2()">x<sup>2</sup> = 4cy</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="c2()">a<sup>2</sup> + b<sup>2</sup> = 36</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d2()">(x - h)<sup>2</sup> + (y - k)<sup>2</sup> = r<sup>2</sup></button></ion-col>
+        </ion-row>
       </div>
     </ion-slide>
     <ion-slide>
       <div text-center class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
         <h1>Question #{{item}}</h1> 
       </div>
-      <div class="divmar" [@bounce]='state'>
+      <div text-justify class="divmar" [@bounce]='state'>
           <p>Where is the center of the circle x<sup>2</sup> + (y + 2)<sup>2</sup> = 16</p>
+      </div><br><br>
+      <div text-center class="divmar">
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="a3()">C(4, 1)</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="b3()">C(-2, 2)</button></ion-col>
+        </ion-row>
+        <ion-row no-padding> 
+          <ion-col col-12><button ion-button round (click)="c3()">C(0, -2)</button></ion-col>
+        </ion-row>
+        <ion-row no-padding>
+          <ion-col col-12><button ion-button round (click)="d3()">C(0, -4)</button></ion-col>
+        </ion-row>
       </div>
     </ion-slide>
   </ion-slides>
