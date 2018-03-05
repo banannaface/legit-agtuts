@@ -50,6 +50,11 @@ import { QuizparPage } from '../pages/quizpar/quizpar';
 import { QuizellPage } from '../pages/quizell/quizell';
 import { QuizhypPage } from '../pages/quizhyp/quizhyp';
 
+import { SolcirPage } from '../pages/solcir/solcir';
+import { SolparPage } from '../pages/solpar/solpar';
+import { SolellPage } from '../pages/solell/solell';
+import { SolhypPage } from '../pages/solhyp/solhyp';
+
 
 import { CanvascomComponent } from '../components/canvascom/canvascom';
 import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods';
@@ -96,7 +101,11 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     QuizcirPage,
     QuizparPage,
     QuizellPage,
-    QuizhypPage
+    QuizhypPage,
+    SolcirPage,
+    SolparPage,
+    SolellPage,
+    SolhypPage
     
   ],
   imports: [
@@ -146,7 +155,11 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     QuizcirPage,
     QuizparPage,
     QuizellPage,
-    QuizhypPage
+    QuizhypPage,
+    SolcirPage,
+    SolparPage,
+    SolellPage,
+    SolhypPage
     
    
     

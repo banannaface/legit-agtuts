@@ -10,7 +10,7 @@
 
 
 <ion-content class="bgcolor">
-  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()" style="background-color:aliceblue">
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
     
     <ion-slide>
         <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">

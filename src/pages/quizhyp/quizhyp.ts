@@ -41,6 +41,7 @@ export class QuizhypPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuizhypPage');
+    this.item = 1;
   }
 
   slideChanged(){

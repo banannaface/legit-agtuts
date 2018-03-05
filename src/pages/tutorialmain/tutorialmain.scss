@@ -4,11 +4,11 @@ page-tutorialmain {
         margin: auto;
         border: 1px solid;
         display: block;
-        border-color: #de691a;
+        border-color: color($colors, primary);
     }
        
     .bgcolor{
-        background-color: #424141;
+        background-color: #bfdefc;
     }
     .whity{
         background-color: #ffffff;
@@ -17,7 +17,7 @@ page-tutorialmain {
           margin: 10px 10px 10px 10px;
     }
     h1{
-        color: #de691a;
+        color: color($colors, primary);
         font-size: 1.5em;
     }
 
@@ -27,7 +27,7 @@ page-tutorialmain {
         font-size: 15px;
     }
     .swiper-pagination-bullet-active{
-        background: #de691a;
+        background: color($colors, primary);
 
     }
 

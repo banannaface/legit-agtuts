@@ -41,6 +41,7 @@ export class QuizellPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuizellPage');
+    this.item = 1;
   }
 
   slideChanged(){
