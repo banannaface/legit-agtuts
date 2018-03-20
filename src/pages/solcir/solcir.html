@@ -19,5 +19,54 @@
 
 
 <ion-content padding>
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<!--ponyetaaaa bakit puro stanor af! tangina nakakainis! tsk!-->
+  <div class="divmaror">
+    <ion-item> 
+    <ion-label>Equation Type</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="changety(type)">
+        <ion-option value="stanor">Standard (origin)</ion-option>
+        <ion-option value="stan">Standard (h,k)</ion-option>
+        <ion-option value="gen">General</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+  <div class="{{stanordiv}}">
+    <ion-row text-center no-padding>
+      <ion-col col-1>x</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-1>+</ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-1>y</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-1>=</ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-1 (click)="rval()">{{rrval}}</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+    </ion-row>
+  </div>
+  <div class="{{standiv}}">
+      <ion-row text-center no-padding>
+        <ion-col col-4 (click)="xval()">(x{{xxval2}})<sup>2</sup></ion-col>
+        <ion-col col-1>+</ion-col>
+        <ion-col col-4 (click)="yval()">(y{{yyval2}})<sup>2</sup></ion-col>
+        <ion-col col-1>=</ion-col>
+        <ion-col col-2 (click)="rval()">{{rrval}}<sup>2</sup></ion-col>
+      </ion-row>
+    </div>
+    <div class="{{gendiv}}">
+        <ion-row text-center no-padding>
+          <ion-col col-2 (click)="aval()">{{aaval2}}x<sup>2</sup></ion-col>
+          <ion-col col-2 (click)="bval()">{{bbval2}}y<sup>2</sup></ion-col>
+          <ion-col col-2 (click)="cval()">{{ccval2}}x</ion-col>
+          <ion-col col-2 (click)="dval()">{{ddval2}}y</ion-col>
+          <ion-col col-2 (click)="eval()">{{eeval2}}</ion-col>
+          <ion-col col-2>=0</ion-col>
+          
+        </ion-row>
+      </div>
 </ion-content>
