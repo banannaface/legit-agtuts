@@ -19,21 +19,19 @@
 
 
 <ion-content padding>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+ 
 <!--ponyetaaaa bakit puro stanor af! tangina nakakainis! tsk!-->
   <div class="divmaror">
     <ion-item> 
     <ion-label>Equation Type</ion-label>
       <ion-select [(ngModel)]="type" (ionChange)="changety(type)">
-        <ion-option value="stanor">Standard (origin)</ion-option>
+        <ion-option selected="true" value="stanor">Standard (origin)</ion-option>
         <ion-option value="stan">Standard (h,k)</ion-option>
         <ion-option value="gen">General</ion-option>
       </ion-select>
     </ion-item>
   </div>
-  <div class="{{stanordiv}}">
+  <div  id="stanordiv" style="font-size: 20px">
     <ion-row text-center no-padding>
       <ion-col col-1>x</ion-col>
       <ion-col col-1><sup>2</sup></ion-col>
@@ -45,28 +43,86 @@
       <ion-col col-1></ion-col>
       <ion-col col-1>=</ion-col>
       <ion-col col-1></ion-col>
-      <ion-col col-1 (click)="rval()">{{rrval}}</ion-col>
-      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-2 (click)="rval()">{{rrval}}</ion-col>
+      
     </ion-row>
   </div>
-  <div class="{{standiv}}">
-      <ion-row text-center no-padding>
-        <ion-col col-4 (click)="xval()">(x{{xxval2}})<sup>2</sup></ion-col>
-        <ion-col col-1>+</ion-col>
-        <ion-col col-4 (click)="yval()">(y{{yyval2}})<sup>2</sup></ion-col>
-        <ion-col col-1>=</ion-col>
-        <ion-col col-2 (click)="rval()">{{rrval}}<sup>2</sup></ion-col>
-      </ion-row>
-    </div>
-    <div class="{{gendiv}}">
-        <ion-row text-center no-padding>
-          <ion-col col-2 (click)="aval()">{{aaval2}}x<sup>2</sup></ion-col>
-          <ion-col col-2 (click)="bval()">{{bbval2}}y<sup>2</sup></ion-col>
-          <ion-col col-2 (click)="cval()">{{ccval2}}x</ion-col>
-          <ion-col col-2 (click)="dval()">{{ddval2}}y</ion-col>
-          <ion-col col-2 (click)="eval()">{{eeval2}}</ion-col>
-          <ion-col col-2>=0</ion-col>
+  <div id="standiv" style="font-size: 20px; display:none">
+    <ion-row text-center no-padding>
+      <ion-col col-4 (click)="xval()">(x{{xxval2}})<sup>2</sup></ion-col>
+      <ion-col col-1>+</ion-col>
+      <ion-col col-4 (click)="yval()">(y{{yyval2}})<sup>2</sup></ion-col>
+      <ion-col col-1>=</ion-col>
+      <ion-col col-2 (click)="rval()">{{rrval}}<sup>2</sup></ion-col>
+    </ion-row>
+  </div>
+  <div id="gendiv" style="font-size: 17px; display:none">
+    <ion-row text-center no-padding>
+      <ion-col col-2 (click)="aval()">{{aaval2}}x<sup>2</sup></ion-col>
+      <ion-col col-2 (click)="bval()">{{bbval2}}y<sup>2</sup></ion-col>
+      <ion-col col-2 (click)="cval()">{{ccval2}}x</ion-col>
+      <ion-col col-2 (click)="dval()">{{ddval2}}y</ion-col>
+      <ion-col col-2 (click)="eval()">{{eeval2}}</ion-col>
+      <ion-col col-2>=0</ion-col>
           
-        </ion-row>
-      </div>
+    </ion-row>
+  </div><br><br><br>
+  <div class="divmaror">
+    <button ion-button full outline (click)="solve()">Solve &rarr;</button>
+  </div><br>
+  <div text-center class="divmaror">
+    <h1>Results</h1>
+  </div>
+  <div class="divmaror">
+    <h4>Radius: {{finalradius}}  units</h4>
+    <h4>Center: ({{finalx}}, {{finaly}})</h4>
+  </div><br>
+   
+  <div text-center class="divmaror">
+    <h1>Solution</h1>
+  </div>
+  <div id="stanorsol" style="font-size: 20px">
+    <h4>Radius:</h4>
+    <p>r<sup>2</sup> = {{rrval}}<br>
+    &radic;r<sup>2</sup> = &radic;{{rrval}}<br>
+    r = {{finalradius}} units
+    </p>
+    <h4>Center: ({{finalx}}, {{finaly}})</h4>
+    <p>the equation is in standard form, center at origin.</p>
+  </div>
+  <div id="stansol" style="font-size: 20px; display:none" >
+    <h4>Radius:</h4>
+    <p>r<sup>2</sup> = {{rrval}}<br>
+      &radic;r<sup>2</sup> = &radic;{{rrval}}<br>
+      r = {{finalradius}} units
+    </p>
+    <h4>Center: ({{finalx}}, {{finaly}})</h4>
+    <p>the equation is in standard form, center at h,k.</p>
+  </div>
+  <div id="gensol" style="font-size: 20px; display:none">
+    
+    <p>(we have to solve for the standard form to get the center and radius)<br>
+    {{aaval2}}x<sup>2</sup>{{bbval2}}y<sup>2</sup>{{ccval2}}x{{ddval2}}y{{eeval2}} = 0<br>
+    </p>
+    <table style="font-family:verdana; font-size:15px">
+        <tr>
+          <td>{{aaval2}}x<sup>2</sup>{{ccval2}}x{{bbval2}}y<sup>2</sup>{{ddval2}}y = {{eneg}}</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          {{aaval2}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </td>
+        </tr>
+      </table>
+    <p>
+    x<sup>2</sup>{{xdivf2}}x + y<sup>2</sup>{{ydivf2}}y = {{eneg}}/{{aaval2}}<br>
+    x<sup>2</sup>{{xdivf2}}x+{{xcomsq}} + y<sup>2</sup>{{ydivf2}}y+{{ycomsq}} = ({{eneg}}+{{xadd}}+{{yadd}})/{{aaval2}}<br>
+    </p>
+    <h5>
+    (x{{xdiv22}})<sup>2</sup> + (y{{ydiv22}})<sup>2</sup> = {{finalradius}}<sup>2</sup>
+    </h5>
+    
+  </div>
+     
 </ion-content>

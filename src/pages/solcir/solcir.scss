@@ -1,17 +1,25 @@
 page-solcir {
     .divmar{
-        margin: 0px 10px 0px 10px;
-        font-size: 20px;
-        display: none;
+        margin: 0px 5px 0px 5px;
     }
     .divmar2{
-        margin: 0px 10px 0px 10px;
-        font-size: 20px;
-        display: inline-block;
+        margin: 0px 5px 0px 5px;
+      
     }
     .divmaror{
-        margin: 0px 10px 0px 10px;
+        margin: 0px 5px 0px 5px;
         font-size: 20px;
        
+    }
+
+    h1{
+        color: color($colors, primary);
+        font-size: 1.5em;
+    }
+
+    p{
+        display: block;
+        margin: 0 auto;
+        font-size: 15px;
     }
 }
