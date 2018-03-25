@@ -140,7 +140,7 @@ export class SolcirPage {
         }else if(this.aaval<0){
           this.aaval2 = (this.aaval);
         }else{
-          this.presentAlert("A should not be equal to 0. 1 is the default value.");
+          this.presentAlert("A should not be equal to 0. 1 will be the default value.");
           this.aaval = 1;
         }
        
@@ -187,9 +187,6 @@ export class SolcirPage {
     var stand = document.getElementById("standiv");
     var gene = document.getElementById("gendiv");
 
-    var stanorisol = document.getElementById("stanorsol");
-    var standsol = document.getElementById("stansol");
-    var genesol = document.getElementById("gensol");
    
     this.type = typee;
     console.log(typee);
@@ -201,9 +198,6 @@ export class SolcirPage {
      
       console.log(typee + ", stanor daw");
      
-      stanorisol.style.display = "block";
-      standsol.style.display = "none";
-      genesol.style.display = "none";
       
     }else if (typee=="stan"){
       stanori.style.display = "none";
@@ -211,18 +205,14 @@ export class SolcirPage {
       gene.style.display = "none";
       console.log(typee + ", stan daw");
       
-      stanorisol.style.display = "none";
-      standsol.style.display = "block";
-      genesol.style.display = "none";
+      
     }else if (typee=="gen"){
       stanori.style.display = "none";
       stand.style.display = "none";
       gene.style.display = "block";
       console.log(typee + ", gen daw");
      
-      stanorisol.style.display = "none";
-      standsol.style.display = "none";
-      genesol.style.display = "block";
+      
     }
    
   }
@@ -313,16 +303,30 @@ export class SolcirPage {
   public xdiv22:string;
   public ydiv22:string;
   solve(){
+    var stanorisol = document.getElementById("stanorsol");
+    var standsol = document.getElementById("stansol");
+    var genesol = document.getElementById("gensol");
+   
     if (this.type=="stanor"){
       this.finalx = 0;
       this.finaly = 0;
       let fin = Number(Math.sqrt(this.rrval)).toFixed(2);
       this.finalradius = parseFloat(fin);
+
+      stanorisol.style.display = "block";
+      standsol.style.display = "none";
+      genesol.style.display = "none";
+      
+
     }else if (this.type=="stan"){
       this.finalx = this.xxval;
       this.finaly = this.yyval;
       let fin = Number(Math.sqrt(this.rrval)).toFixed(2);
       this.finalradius = parseFloat(fin);
+
+      stanorisol.style.display = "none";
+      standsol.style.display = "block";
+      genesol.style.display = "none";
     }else if (this.type=="gen"){
       if (this.aaval<0){
         this.aaval = this.aaval*-1;
@@ -378,6 +382,10 @@ export class SolcirPage {
       this.eneg = this.eeval*-1;
       let fin = Number(Math.sqrt(((this.eeval*-1)+this.xadd+this.yadd)/this.aaval)).toFixed(2);
       this.finalradius = parseFloat(fin);
+      
+      stanorisol.style.display = "none";
+      standsol.style.display = "none";
+      genesol.style.display = "block";
       /*if (xdivf>0){ negative ang x
         this.finalx = xdivf/-2;
       }else if (xdivf<0){ positive ang x

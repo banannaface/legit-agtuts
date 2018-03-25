@@ -66,7 +66,7 @@
       <ion-col col-2>=0</ion-col>
           
     </ion-row>
-  </div><br><br><br>
+  </div><br><br>
   <div class="divmaror">
     <button ion-button full outline (click)="solve()">Solve &rarr;</button>
   </div><br>
@@ -81,7 +81,7 @@
   <div text-center class="divmaror">
     <h1>Solution</h1>
   </div>
-  <div id="stanorsol" style="font-size: 20px">
+  <div id="stanorsol" style="font-size: 20px; display:none">
     <h4>Radius:</h4>
     <p>r<sup>2</sup> = {{rrval}}<br>
     &radic;r<sup>2</sup> = &radic;{{rrval}}<br>
@@ -101,17 +101,24 @@
   </div>
   <div id="gensol" style="font-size: 20px; display:none">
     
-    <p>(we have to solve for the standard form to get the center and radius)<br>
+    <p>(we have to solve for the standard form to get the center and radius)<br><br>
     {{aaval2}}x<sup>2</sup>{{bbval2}}y<sup>2</sup>{{ccval2}}x{{ddval2}}y{{eeval2}} = 0<br>
     </p>
     <table style="font-family:verdana; font-size:15px">
-        <tr>
-          <td>{{aaval2}}x<sup>2</sup>{{ccval2}}x{{bbval2}}y<sup>2</sup>{{ddval2}}y = {{eneg}}</td>
+        <tr style="font-size:15px">
+          <td>{{aaval2}}x<sup>2</sup>{{ccval2}}x{{bbval2}}y<sup>2</sup>{{ddval2}}y</td>
+          <td rowspan="2">=</td>
+          <td>{{eneg}}</td>
         </tr>
         <tr>
           <td style="text-align:center;">
-          <span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+          <span style="text-decoration:overline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
           {{aaval2}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </td>
+          <td style="text-align:center;">
+          <span style="text-decoration:overline;">
+          &nbsp;&nbsp;{{aaval2}}&nbsp;&nbsp;</span>
           </td>
         </tr>
       </table>

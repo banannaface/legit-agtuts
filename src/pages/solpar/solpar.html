@@ -21,4 +21,146 @@
 
 <ion-content padding>
 
+  <div class="divmaror">
+    <ion-item> 
+    <ion-label>Equation Type</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="changety(type)">
+        <ion-option selected="true" value="stanor">Standard (origin)</ion-option>
+        <ion-option value="stan">Standard (h,k)</ion-option>
+        <ion-option value="gen">General</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Axis of symmetry (vertical)</ion-label>
+      <ion-toggle [(ngModel)]="axsym" checked="true" (ionChange)="changeax(axsym)"></ion-toggle>
+    </ion-item>
+  </div>
+  <div  id="stanordiv" style="font-size: 20px">
+    <ion-row text-center no-padding>
+      <ion-col col-2></ion-col>
+      <ion-col col-1>{{lstr}}</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-1>=</ion-col>
+      <ion-col col-1></ion-col>
+      <ion-col col-3 (click)="val4p()">{{val4a}}</ion-col>
+      <ion-col col-1>{{rstr}}</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+  </div>
+
+  <div  id="standiv" style="font-size: 20px; display:none">
+    <ion-row text-center no-padding>
+      <ion-col col-4 (click)="lcenvall()">({{lstr}}{{lcenval2}})</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-1>=</ion-col>
+      <ion-col col-2 (click)="val4p()">{{val4a}}</ion-col>
+      <ion-col col-4 (click)="rcenvall()">({{rstr}}{{rcenval2}})</ion-col>
+    </ion-row>
+  </div>
+  
+  <div  id="gendiv" style="font-size: 20px; display:none">
+    <ion-row text-center no-padding>
+      <ion-col col-3 (click)="aaval()">{{aval2}}{{gensq}}</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-2 (click)="ccval()">{{cval2}}x</ion-col>
+      <ion-col col-2 (click)="ddval()">{{dval2}}y</ion-col>
+      <ion-col col-2 (click)="eeval()">{{eval2}}</ion-col>
+      <ion-col col-2>= 0</ion-col>
+
+    </ion-row>
+  </div><br><br>
+  <div class="divmaror">
+    <button ion-button full outline (click)="solve()">Solve &rarr;</button>
+  </div><br>
+  <div text-center class="divmaror">
+    <h1>Results</h1>
+  </div>
+  <div class="divmaror">
+    <h4>Vertex: ({{vh}}, {{vk}})</h4>
+    <h4>Focus: ({{fh}}, {{fk}})</h4>
+    <h5>Axis of Symmetry: {{axisym}} ({{horver}})</h5>
+    <h4>Directrix: {{direc}}</h4>
+    <h4>Opening: {{open}}</h4>
+  </div><br>
+  <div text-center class="divmaror">
+    <h1>Solution</h1>
+  </div>
+  <div id="stanorsol" style="font-size: 20px; display:none">
+    <h5>Vertex:</h5><br>
+    <p>the equation is in standard form, center at origin.</p>
+    <h5>Focus:</h5><br>
+    <p>4a = {{val4a}}<br>
+    a = {{val4a}}/4<br>
+    a = {{a}}<br>
+    F({{fhfor}}, {{fkfor}})<br>
+    <b>F({{fh}}, {{fk}})</b>
+    </p>
+    <h5>Axis of Symmetry:</h5><br>
+    <p>
+      {{axform}}<br>
+      <b>{{axisym}}</b>
+    </p>
+    <h5>Directrix:</h5><br>
+    <p>
+      {{dirfor}}<br>
+      <b>{{direc}}</b>
+    </p>
+    <h5>Opening:</h5><br>
+    <p>{{opexp}}</p>
+  </div>
+  <div id="stansol" style="font-size: 20px; display:none" >
+      <h5>Vertex:</h5><br>
+      <p>the equation is in standard form, center at h,k.</p>
+      <h5>Focus:</h5><br>
+      <p>4a = {{val4a}}<br>
+      a = {{val4a}}/4<br>
+      a = {{a}}<br>
+      F({{fhfor}}, {{fkfor}})<br>
+      <b>F({{fh}}, {{fk}})</b>
+      </p>
+      <h5>Axis of Symmetry:</h5><br>
+      <p>
+        {{axform}}<br>
+        <b>{{axisym}}</b>
+      </p>
+      <h5>Directrix:</h5><br>
+      <p>
+        {{dirfor}}<br>
+        <b>{{direc}}</b>
+      </p>
+      <h5>Opening:</h5><br>
+      <p>{{opexp}}</p>
+  </div>
+  <div id="gensol" style="font-size: 20px; display:none">
+      <h5>Vertex:</h5><br>
+      <p>(we have to solve for the standard form to get everything.)
+        {{genform}}<br>
+        {{aval2}}{{genformsub}}<sup>2</sup> {{cval2}}x {{dval2}}y {{eval2}} = 0<br>
+        {{sol2}}<br>
+        {{sol3}}<br>
+        {{sol4}}<br>
+        {{sol5}}
+      </p>
+      
+      <h5>Focus:</h5><br>
+      <p>4a = {{val4a}}<br>
+      a = {{val4a}}/4<br>
+      a = {{a}}<br>
+      F({{fhfor}}, {{fkfor}})<br>
+      <b>F({{fh}}, {{fk}})</b>
+      </p>
+      <h5>Axis of Symmetry:</h5><br>
+      <p>
+        {{axform}}<br>
+        <b>{{axisym}}</b>
+      </p>
+      <h5>Directrix:</h5><br>
+      <p>
+        {{dirfor}}<br>
+        <b>{{direc}}</b>
+      </p>
+      <h5>Opening:</h5><br>
+      <p>{{opexp}}</p>
+  </div>
 </ion-content>
