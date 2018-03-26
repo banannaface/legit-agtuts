@@ -288,6 +288,7 @@ public gensq:string='y';
   public sol3:string;
   public sol4:string;
   public sol5:string;
+  public a4:number;
   solve(){
     var stanorisol = document.getElementById("stanorsol");
     var standsol = document.getElementById("stansol");
@@ -300,10 +301,10 @@ public gensq:string='y';
       if(this.axis==true){//vertical xsquared
         if (this.a>0){//upward
           this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is positive, the parabola opens upward.';
-          this.dirfor = 'y = 0 - a';
+          this.dirfor = 'y = 0 - |a|';
           this.axfor = 'x = h';
           this.fhfor = '0';
-          this.fkfor = '0 + a';
+          this.fkfor = '0 + |a|';
           this.fh= 0;
           this.fk= this.vk+this.a;
           this.axisym = 'x = '+this.vh;
@@ -312,10 +313,10 @@ public gensq:string='y';
           this.open = 'upward';
         }else{//downward
           this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens downward.';
-          this.dirfor = 'y = 0 + a';
+          this.dirfor = 'y = 0 + |a|';
           this.axfor = 'x = h';
           this.fhfor = '0';
-          this.fkfor = '0 - a';
+          this.fkfor = '0 - |a|';
           this.fh= 0;
           this.fk= this.vk+this.a;
           this.axisym = 'x = '+this.vh;
@@ -358,9 +359,13 @@ public gensq:string='y';
 
       
       if(this.axis==true){//vertical xsquared
+      
         if (this.a>0){//upward
+          this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is positive, the parabola opens upward.';
+          this.dirfor = 'y = k - |a|';
+          this.axfor = 'x = h';
           this.fhfor = 'h';
-          this.fkfor = 'k + a';
+          this.fkfor = 'k + |a|';
           this.vh= this.hval;
           this.vk= this.kval;
           this.fh= this.hval;
@@ -370,8 +375,11 @@ public gensq:string='y';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'upward';
         }else{//downward
+          this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens downward.';
+          this.dirfor = 'y = k + |a|';
+          this.axfor = 'x = h';
           this.fhfor = 'h';
-          this.fkfor = 'k - a';
+          this.fkfor = 'k - |a|';
           this.vh= this.hval;
           this.vk= this.kval;
           this.fh= this.hval;
@@ -383,7 +391,10 @@ public gensq:string='y';
         }
       }else{//horizontal ysquared
         if (this.a>0){//right
-          this.fhfor = 'h + a';
+          this.opexp = 'y-part is squared which means the parabola is horizontal and because 4a = '+this.val4a + ' which is positive, the parabola opens to the right.';
+          this.dirfor = 'x = h - |a|';
+          this.axfor = 'y = k';
+          this.fhfor = 'h + |a|';
           this.fkfor = 'k';
           this.vh= this.hval;
           this.vk= this.kval;
@@ -394,7 +405,10 @@ public gensq:string='y';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'right';
         }else{//left
-          this.fhfor = 'h - a';
+          this.opexp = 'y-part is squared which means the parabola is horizontal and because 4a = '+this.val4a + ' which is negative, the parabola opens to the left.';
+          this.dirfor = 'x = h + |a|';
+          this.axfor = 'y = k';
+          this.fhfor = 'h - |a|';
           this.fkfor = 'k';
           this.vh= this.hval;
           this.vk= this.kval;
@@ -433,13 +447,39 @@ public gensq:string='y';
         this.genform = 'Ax^2 + Cx + Dy + E = 0';
         this.genformsub = 'x';
         let comsq = (this.cval/2)*(this.cval/2);
-        this.sol2 = 'x^2 '+this.cval2+'y + '+ comsq + this.dval2 +'y = '+ (this.eval*-1) + ' + '+ comsq;
+        this.sol2 = 'x^2 '+this.cval2+'x + '+ comsq + this.dval2 +'y = '+ (this.eval*-1) + ' + '+ comsq;
         let totadd = (this.eval*-1) + comsq;
-        this.sol3 = '(x '+this.vh+')^2 = '+(this.dval*-1)+'y + '+totadd;
-        this.sol4 = '(x '+this.vh+')^2 = '+(this.dval*-1)+'(y - '+totadd/(this.dval*-1)+')';
-        this.sol5 = 'x';
+        let totadds:string;
+        if (totadd>=0){
+          totadds = '+' + totadd;
+        }else{
+          totadds = totadd.toString();
+        }
+        let vks:string;
+        if (this.vk<0){
+          vks = '+' + this.vk*-1;
+        }else{
+          vks = '-'+this.vk;
+        }
+        let vhs:string;
+        if (this.vh<0){
+          vhs = '+' + this.vh*-1;
+        }else{
+          vhs = '-' + this.vh;
+        }
+
+        this.sol3 = '(x '+vhs+')^2 = '+(this.dval*-1)+'y '+totadds;
+        this.sol4 = '(x '+vhs+')^2 = '+(this.dval*-1)+'(y '+totadds+'/'+(this.dval*-1)+')';
+        this.sol5 = '(x '+vhs+')^2 = '+(this.dval*-1/this.aval)+'(y '+vks+')';
+        this.a4 = ((this.dval*-1)/this.aval);
+
 
         if(this.a>0){//upward
+          this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is positive, the parabola opens upward.';
+          this.dirfor = 'y = k - |a|';
+          this.axfor = 'x = h';
+          this.fhfor = 'h';
+          this.fkfor = 'k + |a|';
           this.fh= this.vh;
           this.fk= +this.vk + +this.a;
           this.axisym = 'x = '+this.vh;
@@ -447,6 +487,11 @@ public gensq:string='y';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'upward';
         }else{//downward
+          this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens downward.';
+          this.dirfor = 'y = k + |a|';
+          this.axfor = 'x = h';
+          this.fhfor = 'h';
+          this.fkfor = 'k - |a|';
           this.fh= this.vh;
           this.fk= +this.vk + +this.a;
           this.axisym = 'x = '+this.vh;
@@ -456,8 +501,6 @@ public gensq:string='y';
         }
       }else{//horizontal ysquared
 
-        this.genform = 'Ay^2 + Cx + Dy + E = 0';
-        this.genformsub = 'y';
         this.vkk =  (this.dval/this.aval)/2;
         if(this.vkk>0){
           this.vk = this.vkk*-1;
@@ -474,9 +517,41 @@ public gensq:string='y';
         }
 
         this.a = parseFloat(Number(((this.cval*-1)/this.aval)/4).toFixed(2));
-
+        
+        this.genform = 'Ay^2 + Cx + Dy + E = 0';
+        this.genformsub = 'y';
+        let comsq = (this.dval/2)*(this.dval/2);
+        this.sol2 = 'y^2 '+this.dval2+'y + '+ comsq + this.cval2 +'x = '+ (this.eval*-1) + ' + '+ comsq;
+        let totadd = (this.eval*-1) + comsq;
+        let totadds:string;
+        if (totadd>=0){
+          totadds = '+' + totadd;
+        }else{
+          totadds = totadd.toString();
+        }
+        let vks:string;
+        if (this.vk<0){
+          vks = '+' + this.vk*-1;
+        }else{
+          vks = '-'+this.vk;
+        }
+        let vhs:string;
+        if (this.vh<0){
+          vhs = '+' + this.vh*-1;
+        }else{
+          vhs = '-' + this.vh;
+        }
+        this.sol3 = '(y '+vks+')^2 = '+(this.cval*-1)+'x '+totadds;
+        this.sol4 = '(y '+vks+')^2 = '+(this.cval*-1)+'(x '+totadds+'/'+(this.cval*-1)+')';
+        this.sol5 = '(y '+vks+')^2 = '+(this.cval*-1/this.aval)+'(x '+vhs+')';
+        this.a4 = ((this.cval*-1)/this.aval);
 
         if(this.a>0){//right
+          this.opexp = 'y-part is squared which means the parabola is horizontal and because 4a = '+this.val4a + ' which is positive, the parabola opens to the right.';
+          this.dirfor = 'x = h - |a|';
+          this.axfor = 'y = k';
+          this.fhfor = 'h + |a|';
+          this.fkfor = 'k';
           this.fk= this.vk;
           this.fh= +this.vh + +this.a;
           this.axisym = 'y = '+this.vk;
@@ -484,6 +559,11 @@ public gensq:string='y';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'right';
         }else{//left
+          this.opexp = 'y-part is squared which means the parabola is horizontal and because 4a = '+this.val4a + ' which is negative, the parabola opens to the left.';
+          this.dirfor = 'x = h + |a|';
+          this.axfor = 'y = k';
+          this.fhfor = 'h - |a|';
+          this.fkfor = 'k';
           this.fh= +this.vh + +this.a;
           this.fk= this.vk;
           this.axisym = 'y = '+this.vk;
