@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { DirectivesModule } from '../directives/directives.module';
+import { ComponentsModule } from '../components/components.module';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -61,16 +63,16 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    WelcomePage,
+   HomePage,
+     /*WelcomePage,
     TutorialsPage,
     GraphPage,
     SolvePage,
     QuizPage,
-    AboutPage,
-    ParallaxDirective,
+    //AboutPage,
+    
     TutorialmainPage,
-    HideDirective,
+   
     CirdefinePage,
     CirgraphPage,
     CirsolvePage,
@@ -90,9 +92,9 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     HelpPage,
     GraphstaPage,
     GraphgenPage,
-    GraphcirPage,
-    CanvascomComponent,
-    StanparPage,
+    GraphcirPage,*/
+    //CanvascomComponent,
+    /*StanparPage,
     GenparPage,
     StanellPage,
     GenellPage,
@@ -105,14 +107,15 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     SolcirPage,
     SolparPage,
     SolellPage,
-    SolhypPage
+    SolhypPage*/
     
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     BrowserAnimationsModule,
-
+    DirectivesModule,
+    ComponentsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
