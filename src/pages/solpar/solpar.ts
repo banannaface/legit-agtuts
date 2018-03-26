@@ -195,7 +195,7 @@ export class SolparPage {
     }
    
   }
-public gensq:string='y';
+  public gensq:string='y';
   changeax(axiss){
     this.axis = axiss;
     if (axiss==true){
@@ -289,6 +289,7 @@ public gensq:string='y';
   public sol4:string;
   public sol5:string;
   public a4:number;
+  
   solve(){
     var stanorisol = document.getElementById("stanorsol");
     var standsol = document.getElementById("stansol");

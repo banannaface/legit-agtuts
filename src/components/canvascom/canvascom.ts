@@ -1,12 +1,15 @@
 import { Component, ViewChild, Renderer } from '@angular/core';
 import { Platform, NavParams } from 'ionic-angular';
 import { GlobalmethodsProvider } from '../../providers/globalmethods/globalmethods';
+
 @Component({
   selector: 'canvascom',
-  templateUrl: 'canvascom.html'
+  templateUrl: 'canvascom.html',
+  
 })
-export class CanvascomComponent {
 
+export class CanvascomComponent {
+  
   @ViewChild('myCanvas') canvas:any;
   canvasElement:any;
   

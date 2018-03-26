@@ -19,5 +19,291 @@
 
 
 <ion-content padding>
+  <div class="divmaror">
+    <ion-item> 
+    <ion-label>Equation Type</ion-label>
+      <ion-select [(ngModel)]="type" (ionChange)="changety(type)">
+        <ion-option selected="true" value="stanor">Standard (origin)</ion-option>
+        <ion-option value="stan">Standard (h,k)</ion-option>
+        <ion-option value="gen">General</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Major Axis (vertical)</ion-label>
+      <ion-toggle [(ngModel)]="axsym" (ionChange)="changeax(axsym)"></ion-toggle>
+    </ion-item>
+  </div>
 
+  <div  id="stanordiv" style="font-size: 20px;" align-items='center'>
+
+    <table cellpadding='5' width='300' style="font-size: 20px;">
+      <tr>
+        <td>x<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;+&nbsp;</td>
+        <td>y<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;=&nbsp;</td>
+        <td rowspan='2'>1</td>
+      </tr>
+      <tr>
+        <td style="text-align:center;" (click)="xdenval()">
+          <span style="text-decoration:overline;">&nbsp;
+          {{xden}}<sup>2</sup>&nbsp;</span>
+        </td>
+        <td style="text-align:center;" (click)="ydenval()">
+          <span style="text-decoration:overline;">&nbsp;
+          {{yden}}<sup>2</sup>&nbsp;</span>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div  id="standiv" style="font-size: 20px; display:none" align-items='center'>
+    <table cellpadding='5' width='300' style="font-size: 20px;">
+      <tr>
+        <td (click)="hhval()">(x{{hval2}})<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;+&nbsp;</td>
+        <td (click)="kkval()">(y{{kval2}})<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;=&nbsp;</td>
+        <td rowspan='2'>1</td>
+      </tr>
+      <tr>
+        <td style="text-align:center;" (click)="xdenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{xden}}<sup>2</sup>&nbsp;&nbsp;</span>
+        </td>
+        <td style="text-align:center;" (click)="ydenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{yden}}<sup>2</sup>&nbsp;&nbsp;</span>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div  id="gendiv" style="font-size: 20px; display:none" align-items='center'>
+    <ion-row text-center no-padding>
+      <ion-col col-2 (click)="aaval()">{{aval2}}x<sup>2</sup></ion-col>
+      <ion-col col-2 (click)="bbval()">{{bval2}}y<sup>2</sup></ion-col>
+      <ion-col col-2 (click)="ccval()">{{cval2}}x</ion-col>
+      <ion-col col-3 (click)="ddval()">{{dval2}}y</ion-col>
+      <ion-col col-3 (click)="eeval()"> = {{eval2}}</ion-col>
+
+    </ion-row>
+  </div><br><br>
+  <div class="divmaror">
+    <button ion-button full outline (click)="solve()">Solve &rarr;</button>
+  </div><br>
+
+  <div text-center class="divmaror">
+    <h1>Results</h1>
+  </div>
+  <div class="divmaror">
+    <h4>Center: ({{hval}}, {{kval}})</h4>
+    <h4>Vertex (V<sub>1</sub>): ({{vh1}}, {{vk1}})</h4>
+    <h4>Vertex (V<sub>2</sub>): ({{vh2}}, {{vk2}})</h4>
+    <h4>Focus (F<sub>1</sub>): ({{fh1}}, {{fk1}})</h4>
+    <h4>Focus (F<sub>2</sub>): ({{fh2}}, {{fk2}})</h4>
+    <h4>Covertex (W<sub>1</sub>): ({{wh1}}, {{wk1}})</h4>
+    <h4>Covertex (W<sub>2</sub>): ({{wh2}}, {{wk2}})</h4>
+    <h5>Major Axis: {{horver}}</h5>
+  </div><br>
+
+  <div text-center class="divmaror">
+    <h1>Solution</h1>
+  </div>
+
+  <div id="stanorsol" style="font-size: 20px; display:none">
+    <h5>Center:</h5>
+    <p>the equation is in standard form, center at origin.</p>
+    <h5>Solving for a, b and c:</h5>
+    <p>
+      a = &radic;{{aval}}<br>
+      <b>a = {{a}}</b><br>
+
+      b = &radic;{{bval}}<br>
+      <b>b = {{b}}</b><br>
+    
+      c = &radic;<span style="text-decoration:overline">
+        (a<span style="font-size: 10px;vertical-align:+25%;">2</span>-
+        b<span style="font-size: 10px;vertical-align:+25%;">2</span>)&nbsp;</span><br>
+      c = &radic;<span style="text-decoration:overline">
+        ({{aval}} - {{bval}}&nbsp;</span><br>
+      <b>c = {{c}}</b>
+    </p>
+    <h5>Vertex:</h5>
+    <p>
+      V<sub>1</sub>({{vhfor1}}, {{vkfor1}})<br>
+      <b>V<sub>1</sub>({{vh1}}, {{vk1}})</b><br>
+      V<sub>2</sub>({{vhfor2}}, {{vkfor2}})<br>
+      <b>V<sub>2</sub>({{vh2}}, {{vk2}})</b>
+    </p>
+    <h5>Focus:</h5>
+    <p>
+      F<sub>1</sub>({{fhfor1}}, {{fkfor1}})<br>
+      <b>F<sub>1</sub>({{fh1}}, {{fk1}})</b><br>
+      F<sub>2</sub>({{fhfor2}}, {{fkfor2}})<br>
+      <b>F<sub>2</sub>({{fh2}}, {{fk2}})</b>
+    </p>
+    <h5>Covertex:</h5>
+    <p>
+      W<sub>1</sub>({{whfor1}}, {{wkfor1}})<br>
+      <b>W<sub>1</sub>({{wh1}}, {{wk1}})</b><br>
+      W<sub>2</sub>({{whfor2}}, {{wkfor2}})<br>
+      <b>W<sub>2</sub>({{wh2}}, {{wk2}})</b>
+    </p>
+    <h5>Major Axis:</h5>
+    <p>
+      {{axform}}
+    </p>
+    
+  </div>
+
+
+  <div id="stansol" style="font-size: 20px; display:none" >
+      <h5>Center:</h5>
+    <p>C({{hval}}, {{kval}})</p>
+    <h5>Solving for a, b and c:</h5>
+    <p>
+      a = &radic;{{aval}}<br>
+      <b>a = {{a}}</b><br>
+
+      b = &radic;{{bval}}<br>
+      <b>b = {{b}}</b><br>
+    
+      c = &radic;<span style="text-decoration:overline">
+        (a<span style="font-size: 10px;vertical-align:+25%;">2</span>-
+        b<span style="font-size: 10px;vertical-align:+25%;">2</span>)&nbsp;</span><br>
+      c = &radic;<span style="text-decoration:overline">
+        ({{aval}} - {{bval}}&nbsp;</span><br>
+      <b>c = {{c}}</b>
+    </p>
+    <h5>Vertex:</h5>
+    <p>
+      V<sub>1</sub>({{vhfor1}}, {{vkfor1}})<br>
+      <b>V<sub>1</sub>({{vh1}}, {{vk1}})</b><br>
+      V<sub>2</sub>({{vhfor2}}, {{vkfor2}})<br>
+      <b>V<sub>2</sub>({{vh2}}, {{vk2}})</b>
+    </p>
+    <h5>Focus:</h5>
+    <p>
+      F<sub>1</sub>({{fhfor1}}, {{fkfor1}})<br>
+      <b>F<sub>1</sub>({{fh1}}, {{fk1}})</b><br>
+      F<sub>2</sub>({{fhfor2}}, {{fkfor2}})<br>
+      <b>F<sub>2</sub>({{fh2}}, {{fk2}})</b>
+    </p>
+    <h5>Covertex:</h5>
+    <p>
+      W<sub>1</sub>({{whfor1}}, {{wkfor1}})<br>
+      <b>W<sub>1</sub>({{wh1}}, {{wk1}})</b><br>
+      W<sub>2</sub>({{whfor2}}, {{wkfor2}})<br>
+      <b>W<sub>2</sub>({{wh2}}, {{wk2}})</b>
+    </p>
+    <h5>Major Axis:</h5>
+    <p>
+      {{axform}}
+    </p>
+    
+  </div>
+
+  <div id="gensol" style="font-size: 20px; display:none">
+     
+    <p>(we have to solve for the standard form to get everything.)<br>
+      Ax<sup>2</sup> + By<sup>2</sup> + Cx + Dy = E<br>
+      {{aval2}}x<sup>2</sup> {{cval2}}x {{bval2}}y<sup>2</sup> {{dval2}}y = {{eval2}}<br>
+      {{aval2}}(x<sup>2</sup>{{cdiv2}}x){{bval2}}(y<sup>2</sup>{{ddiv2}}y) = {{eval2}}<br>
+      {{aval2}}(x<sup>2</sup>{{cdiv2}}x+{{xadd}}){{bval2}}(y<sup>2</sup>{{ddiv2}}y+{{yadd}}) = {{eval2}} + {{totxadd}} + {{totyadd}}<br>
+    </p>
+    
+    <table cellpadding='5' width='300' style="font-size: 15px;">
+      <tr>
+        <td>{{Aval}}(x{{hval2}})<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;+&nbsp;</td>
+        <td>{{Bval}}(y{{kval2}})<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;=&nbsp;</td>
+        <td>{{totden}}</td>
+      </tr>
+      <tr>
+        <td style="text-align:center;" (click)="xdenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{totden}}&nbsp;&nbsp;</span>
+        </td>
+        <td style="text-align:center;" (click)="ydenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{totden}}&nbsp;&nbsp;</span>
+        </td>
+        <td style="text-align:center;" (click)="ydenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{totden}}&nbsp;&nbsp;</span>
+        </td>
+      </tr>
+    </table>
+
+    <table cellpadding='5' width='300' style="font-size: 15px;">
+      <tr>
+        <td>(x{{hval2}})<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;+&nbsp;</td>
+        <td>(y{{kval2}})<sup>2</sup></td>
+        <td rowspan='2'>&nbsp;=&nbsp;</td>
+        <td rowspan='2'>1</td>
+      </tr>
+      <tr>
+        <td style="text-align:center;" (click)="xdenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{x2den}}&nbsp;&nbsp;</span>
+        </td>
+        <td style="text-align:center;" (click)="ydenval()">
+          <span style="text-decoration:overline;">&nbsp;&nbsp;
+          {{y2den}}&nbsp;&nbsp;</span>
+        </td>
+      </tr>
+    </table>
+
+      
+    <h5>Center:</h5>
+    <p>C({{hval}}, {{kval}})</p>
+    <h5>Solving for a, b and c:</h5>
+    <p>
+      a = &radic;{{aval}}<br>
+      <b>a = {{a}}</b><br>
+
+      b = &radic;{{bval}}<br>
+      <b>b = {{b}}</b><br>
+    
+      c = &radic;<span style="text-decoration:overline">
+        (a<span style="font-size: 10px;vertical-align:+25%;">2</span>-
+        b<span style="font-size: 10px;vertical-align:+25%;">2</span>)&nbsp;</span><br>
+      c = &radic;<span style="text-decoration:overline">
+        ({{aval}} - {{bval}}&nbsp;</span><br>
+      <b>c = {{c}}</b>
+    </p>
+    <h5>Vertex:</h5>
+    <p>
+      V<sub>1</sub>({{vhfor1}}, {{vkfor1}})<br>
+      <b>V<sub>1</sub>({{vh1}}, {{vk1}})</b><br>
+      V<sub>2</sub>({{vhfor2}}, {{vkfor2}})<br>
+      <b>V<sub>2</sub>({{vh2}}, {{vk2}})</b>
+    </p>
+    <h5>Focus:</h5>
+    <p>
+      F<sub>1</sub>({{fhfor1}}, {{fkfor1}})<br>
+      <b>F<sub>1</sub>({{fh1}}, {{fk1}})</b><br>
+      F<sub>2</sub>({{fhfor2}}, {{fkfor2}})<br>
+      <b>F<sub>2</sub>({{fh2}}, {{fk2}})</b>
+    </p>
+    <h5>Covertex:</h5>
+    <p>
+      W<sub>1</sub>({{whfor1}}, {{wkfor1}})<br>
+      <b>W<sub>1</sub>({{wh1}}, {{wk1}})</b><br>
+      W<sub>2</sub>({{whfor2}}, {{wkfor2}})<br>
+      <b>W<sub>2</sub>({{wh2}}, {{wk2}})</b>
+    </p>
+    <h5>Major Axis:</h5>
+    <p>
+      {{axform}}
+    </p>
+    
+  </div>
+
+  
 </ion-content>

@@ -4,8 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { DirectivesModule } from '../directives/directives.module';
-import { ComponentsModule } from '../components/components.module';
+//import { DirectivesModule } from '../directives/directives.module';
+//import { ComponentsModule } from '../components/components.module';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -61,18 +61,19 @@ import { SolhypPage } from '../pages/solhyp/solhyp';
 import { CanvascomComponent } from '../components/canvascom/canvascom';
 import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods';
 @NgModule({
+
   declarations: [
     MyApp,
    HomePage,
-     /*WelcomePage,
+     WelcomePage,
     TutorialsPage,
     GraphPage,
     SolvePage,
     QuizPage,
-    //AboutPage,
-    
+    AboutPage,
+    HideDirective,
     TutorialmainPage,
-   
+    ParallaxDirective,
     CirdefinePage,
     CirgraphPage,
     CirsolvePage,
@@ -92,9 +93,9 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     HelpPage,
     GraphstaPage,
     GraphgenPage,
-    GraphcirPage,*/
-    //CanvascomComponent,
-    /*StanparPage,
+    GraphcirPage,
+    CanvascomComponent,
+    StanparPage,
     GenparPage,
     StanellPage,
     GenellPage,
@@ -107,15 +108,17 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     SolcirPage,
     SolparPage,
     SolellPage,
-    SolhypPage*/
+    SolhypPage
     
   ],
   imports: [
     BrowserModule,
+    //IonicModule.forRoot(CanvascomComponent),
     IonicModule.forRoot(MyApp),
     BrowserAnimationsModule,
-    DirectivesModule,
-    ComponentsModule,
+    //DirectivesModule,
+    //ComponentsModule,
+   
   ],
   bootstrap: [IonicApp],
   entryComponents: [
