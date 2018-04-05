@@ -3,9 +3,12 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Network } from '@ionic-native/network';
 
 //import { DirectivesModule } from '../directives/directives.module';
 //import { ComponentsModule } from '../components/components.module';
+
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -60,6 +63,8 @@ import { SolhypPage } from '../pages/solhyp/solhyp';
 
 import { CanvascomComponent } from '../components/canvascom/canvascom';
 import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods';
+import { AppsetProvider } from '../providers/appset/appset';
+import { AgtutsmongoProvider } from '../providers/agtutsmongo/agtutsmongo';
 @NgModule({
 
   declarations: [
@@ -174,7 +179,10 @@ import { GlobalmethodsProvider } from '../providers/globalmethods/globalmethods'
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalmethodsProvider
+    GlobalmethodsProvider,
+    Network,
+    AppsetProvider,
+    AgtutsmongoProvider
   ]
 })
 export class AppModule {}

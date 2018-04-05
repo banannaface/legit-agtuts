@@ -1,12 +1,17 @@
 import { Component, ViewChild, trigger, transition, style, state, animate, keyframes } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { TutorialmainPage } from '../tutorialmain/tutorialmain';
+import { IonicPage, NavController, NavParams, Slides, ToastController } from 'ionic-angular';
+import { Network } from '@ionic-native/network';
+import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 
+import { TutorialmainPage } from '../tutorialmain/tutorialmain';
 import { GraphcirPage } from '../graphcir/graphcir';
 import { SolvePage } from '../solve/solve';
 import { QuizPage } from '../quiz/quiz';
 import { HelpPage } from '../help/help';
 import { AboutPage } from '../about/about';
+import { AgtutsmongoProvider } from './../../providers/agtutsmongo/agtutsmongo';
+
 /**
  * Generated class for the TutorialsPage page.
  *
@@ -41,9 +46,55 @@ export class TutorialsPage {
   @ViewChild(Slides) slides:Slides;
  public skef:string = 'START LEARNING';
   state: string = 'x';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  connected: Subscription;
+  disconnected: Subscription;
+  tut: Observable<any>
+
+  constructor(public agtutsmongo: AgtutsmongoProvider, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
   }
-public slideind:number=0;
+
+  ionViewDidEnter(){
+    this.connected = this.network.onConnect().subscribe(data => {
+      console.log(data);
+      this.networkupdate(data.type, 1);
+    }, error => console.error(error));
+    this.disconnected = this.network.onDisconnect().subscribe(data => {
+      console.log(data);
+      this.networkupdate(data.type, 2);
+    }, error => console.error(error));
+  }
+
+  ionViewWillLeave(){
+    this.connected.unsubscribe();
+    this.disconnected.unsubscribe();
+  }
+
+  loadtuts(){
+    this.tut = this.agtutsmongo.getuts();
+  }
+
+  networkupdate(connstate: string, num: number){
+
+    let netype = this.network.type;
+    if (num==1){
+      this.toast.create({
+        message: `you are ${connstate} via ${netype}.`,
+        duration: 3000
+      }).present();
+
+      this.loadtuts(); //do the 8.5 saving data blabla tutorial on server.js thingies
+      //tas download sa local storage ng phone ang json file then load it.
+    }else if (num==2){
+      this.toast.create({
+        message: `you are ${connstate}.`,
+        duration: 3000
+      }).present();
+    }
+    
+  }
+
+  public slideind:number=0;
 
   slideChanged(){
     try{

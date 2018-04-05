@@ -44,7 +44,7 @@ page-cirdefine {
         margin: 0px 0px 0px 0px;
     }
     .swiper-pagination-bullet-active{
-        background: #de691a;
+        background: color($colors, primary);
     }
     .item {
         min-height: 3rem !important;

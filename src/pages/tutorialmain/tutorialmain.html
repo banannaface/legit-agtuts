@@ -9,8 +9,8 @@
 </ion-header>
 
 
-<ion-content class="bgcolor">
-  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+<ion-content padding class="bgcolor">
+  <ion-slides class='whity' pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
     
     <ion-slide>
         <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
