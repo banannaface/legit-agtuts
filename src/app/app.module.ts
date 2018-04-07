@@ -4,7 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Network } from '@ionic-native/network';
-
+import { IonicStorageModule } from '@ionic/storage';
+//import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 //import { DirectivesModule } from '../directives/directives.module';
 //import { ComponentsModule } from '../components/components.module';
 
@@ -121,6 +123,9 @@ import { AgtutsmongoProvider } from '../providers/agtutsmongo/agtutsmongo';
     //IonicModule.forRoot(CanvascomComponent),
     IonicModule.forRoot(MyApp),
     BrowserAnimationsModule,
+    IonicStorageModule.forRoot(),
+    HttpModule
+    //HttpClientModule
     //DirectivesModule,
     //ComponentsModule,
    
@@ -176,6 +181,7 @@ import { AgtutsmongoProvider } from '../providers/agtutsmongo/agtutsmongo';
     
   ],
   providers: [
+
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

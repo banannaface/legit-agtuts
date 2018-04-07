@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 
 const CONFIG = {
-  apiURL: 'https://desolate-eyrie-84948.herokuapp.com/'
+  apiURL: 'https://raw.githubusercontent.com/banannaface/editor/master/'
 };
 
 @Injectable()

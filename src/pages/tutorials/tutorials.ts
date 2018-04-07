@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams, Slides, ToastController } from 'io
 import { Network } from '@ionic-native/network';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
-
+import { Storage } from '@ionic/storage';
+//import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { TutorialmainPage } from '../tutorialmain/tutorialmain';
 import { GraphcirPage } from '../graphcir/graphcir';
 import { SolvePage } from '../solve/solve';
@@ -50,8 +52,9 @@ export class TutorialsPage {
   connected: Subscription;
   disconnected: Subscription;
   tut: Observable<any>
-
-  constructor(public agtutsmongo: AgtutsmongoProvider, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
+  //public http: HttpClient
+  constructor(public http: Http, public storage: Storage, public agtutsmongo: AgtutsmongoProvider, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
+  
   }
 
   ionViewDidEnter(){
@@ -63,6 +66,7 @@ export class TutorialsPage {
       console.log(data);
       this.networkupdate(data.type, 2);
     }, error => console.error(error));
+
   }
 
   ionViewWillLeave(){
@@ -70,9 +74,24 @@ export class TutorialsPage {
     this.disconnected.unsubscribe();
   }
 
-  loadtuts(){
-    this.tut = this.agtutsmongo.getuts();
+  
+  /*data:any = [];
+  url:string = 'http://localhost:5000/defpar';
+  
+  getalltuts(){
+    this.tut = this.http.get(this.url)
+    .map(response => response.json().result);
+
+    this.tut.subscribe(result => {
+      this.data = result;
+      console.log(this.data);
+    });
   }
+
+  savealltuts(){
+    
+    this.storage.set('intuts', JSON.stringify(this.data));
+  }*/
 
   networkupdate(connstate: string, num: number){
 
@@ -82,8 +101,10 @@ export class TutorialsPage {
         message: `you are ${connstate} via ${netype}.`,
         duration: 3000
       }).present();
+     // this.getalltuts();
+     // this.savealltuts();
 
-      this.loadtuts(); //do the 8.5 saving data blabla tutorial on server.js thingies
+      //do the 8.5 saving data blabla tutorial on server.js thingies
       //tas download sa local storage ng phone ang json file then load it.
     }else if (num==2){
       this.toast.create({
@@ -175,6 +196,7 @@ export class TutorialsPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad TutorialsPage');
+   
   }
  
 }

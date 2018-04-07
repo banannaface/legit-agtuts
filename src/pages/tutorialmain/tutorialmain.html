@@ -18,8 +18,8 @@
         </div>
         <div class="divmar" [@bounce]='state'>
         <br><p>
-          Conic sections are formed by the intersection of a plane and a cone. there are four main conic sections
-          - circle, parabola, ellipse and hyperbola.
+          <!--Conic sections are formed by the intersection of a plane and a cone. there are four main conic sections
+          - circle, parabola, ellipse and hyperbola.{{datas.content[0]}}-->
         </p>
        
         <img src="assets/images/conic_sections.gif" class="center imagus" alt="conic sections gif" width="200" height="110">
@@ -32,9 +32,9 @@
         </div>
         <div class="divmar" [@bounce]='state'>
         <p>
-          A circle is the set of points in a plane that are <b>equidistant from a given point</b>, called the <i>center.</i>
+          <!--A circle is the set of points in a plane that are <b>equidistant from a given point</b>, called the <i>center.</i>
           The distance from the center to a point in the circle is called the <i>radius.</i>
-          Twice the radius is known as the <i>diameter.</i>
+          Twice the radius is known as the <i>diameter.</i>{{secondpar}}-->
         </p>
        </div>
        <div class="ion-canvas" [@bounce]='state'>
@@ -54,10 +54,10 @@
       </div>
       <div class="divmar" [@bounce]='state'>
         <p>
-            A parabola is a curve where any point is at <b>an equal distance</b> from:
+            <!--A parabola is a curve where any point is at <b>an equal distance</b> from:
             <br>
             &ensp;&ensp;a fixed point (the <i>focus</i>), and<br>
-            &ensp;&ensp;a fixed straight line (the <i>directrix</i>)
+            &ensp;&ensp;a fixed straight line (the <i>directrix</i>){{thirdpar}}-->
             
         </p>
         </div>
@@ -78,9 +78,9 @@
       <h1>Ellipse</h1>
     </div>
     <div class="divmar" [@bounce]='state'>  
-      <p>
-            An ellipse is the set of all points on a plane whose distance	from two fixed points F and G <b>add up to a constant.</b>
-            "F" is a focus, "G" is a focus, and together they are called <i>foci.</i> (pronounced "fo-sigh")
+      <p>  <!--{{fourthpar}}
+           An ellipse is the set of all points on a plane whose distance	from two fixed points F and G <b>add up to a constant.</b>
+            "F" is a focus, "G" is a focus, and together they are called <i>foci.</i> (pronounced "fo-sigh")-->
         </p></div>
         <div class="ion-canvas" [@bounce]='state'>
             <canvas #canvas2></canvas>
@@ -98,11 +98,11 @@
         <h1>Hyperbola</h1>
       </div>
       <div class="divmar" [@bounce]='state'>
-        <p>
+        <p> <!--{{fifthpar}}
             A hyperbola is a curve where the distances of any point from:
             &ensp;a fixed point (the <i>focus</i>), and
             &ensp;a fixed straight line (the <i>directrix</i>)<b> are always in the same ratio.</b>
-            The hyperbola is an open curve (has no ends).
+            The hyperbola is an open curve (has no ends).-->
         </p></div>
         <div class="ion-canvas" [@bounce]='state'>
             <canvas #canvas3></canvas>
@@ -121,8 +121,8 @@
       </div>
       <div class="divmar" [@bounce]='state'>
         <p>
-            A non-linear system of equations is a system in which at least one of the variables has an exponent
-            other than 1.
+            <!--A non-linear system of equations is a system in which at least one of the variables has an exponent
+            other than 1.--> {{sixthpar}}
         </p></div>
         <div class="ion-canvas" [@bounce]='state'>
             <canvas #canvas4></canvas>
@@ -136,6 +136,17 @@
         <br>-->
         <button ion-button round (click)="skip()">Circles &rarr;</button>
         
+    </ion-slide>
+    <ion-slide>
+      <ion-list>
+        <ion-item *ngFor='let tutorial of tutorials'>
+          {{tutorial.type}}
+        </ion-item>
+        <hr>
+      </ion-list>
+
+      <p>{{try[0]}} and {{try[1]}} and {{try[2]}} and {{try[3]}}</p>
+
     </ion-slide>
   </ion-slides>
 

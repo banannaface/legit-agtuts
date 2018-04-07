@@ -1,6 +1,9 @@
 import { Component, ViewChild, ElementRef, trigger, transition, style, state, animate, keyframes } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { CirdefinePage } from '../cirdefine/cirdefine';
+import { Storage } from '@ionic/storage';
+//import { Observable } from 'rxjs/Observable';
+import { AgtutsmongoProvider } from './../../providers/agtutsmongo/agtutsmongo';
 
 @IonicPage()
 @Component({
@@ -37,9 +40,9 @@ state: string = 'x';
 private _CANVAS : any;
 private _CONTEXT : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public agtuts: AgtutsmongoProvider, public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
   }
-public slideind:number=0;
+  public slideind:number=0;
 
   slideChanged(){
     try{
@@ -96,6 +99,26 @@ public slideind:number=0;
     }
     
   }
+  try = [0, 11, 22, 33];
+  //tang:any = [];
+  //data:any = [];
+  //datas: Observable<any>;
+  tutorials: any;
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TutorialmainPage');
+    this.agtuts.getTutorials().then((data) => {
+      console.log(data);
+      this.tutorials = data;
+    });
+   
+  }
+
+
+ 
+
+
+
 public CenterX: number;
 public CenterY: number;
 public totwidth: number=300;
@@ -389,8 +412,5 @@ clearCanvas()
 skip(){
     this.navCtrl.push(CirdefinePage);
 }
-ionViewDidLoad() {
-  console.log('ionViewDidLoad TutorialmainPage');
- 
-}
+
 }

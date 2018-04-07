@@ -2,16 +2,62 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { AppsetProvider } from '../appset/appset';
 @Injectable()
 export class AgtutsmongoProvider {
 
-  apiurl = this.appset.getapiurl();
-  constructor(public http: Http, public appset: AppsetProvider) {
+  data: any;
+  constructor(public http: Http) {
+    this.data = null;
+  }
+  
+  getTutorials(){
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('https://desolate-eyrie-84948.herokuapp.com/api/tutorials').map(res => res.json()).subscribe(data => {
+        this.data = data;
+        resolve(this.data);
+      });
+    });
+  }
+  
+  getQuizzes(){
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get('https://desolate-eyrie-84948.herokuapp.com/api/quiz').map(res => res.json()).subscribe(data => {
+        this.data = data;
+        resolve(this.data);
+      });
+    });
+  }
+  /*
+  createReview(review){
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    this.http.post('http://localhost:8080/api/reviews', JSON.stringify(review), {headers: headers})
+      .subscribe(res => {
+        console.log(res.json());
+      });
+
   }
 
-  public getuts(){
-    return this.http.get(this.apiurl + 'edituts')
-    .map(response => response.json().result);
+  deleteReview(id){
+
+    this.http.delete('http://localhost:8080/api/reviews/' + id).subscribe((res) => {
+      console.log(res.json());
+    });
+
   }
+
+/*  constructor(public http: HttpClient) {
+  console.log('Hello ReviewsProvider Provider');
+} */
+
 }

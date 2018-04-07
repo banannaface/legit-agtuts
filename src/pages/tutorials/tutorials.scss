@@ -40,13 +40,13 @@ p{
 }
 
 .swiper-pagination{
-    bottom: 10% !important;
+    bottom: 13% !important;
 }
 #skip{
     position: absolute;
     bottom: 40px;
     width: 100%;
-    background: none !important;
+    background: color($colors, primary);
     text-align: center;
     cursor: pointer;
     z-index: 5;
