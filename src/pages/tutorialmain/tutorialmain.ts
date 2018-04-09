@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, trigger, transition, style, state, animate, keyframes } from '@angular/core';
+import { Component, ViewChild, trigger, transition, style, state, animate, keyframes } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { CirdefinePage } from '../cirdefine/cirdefine';
 import { Storage } from '@ionic/storage';
@@ -28,17 +28,18 @@ import { AgtutsmongoProvider } from './../../providers/agtutsmongo/agtutsmongo';
     ])
   ]
 })
+
 export class TutorialmainPage {
-@ViewChild('canvas') canvasEl : ElementRef;
-@ViewChild('canvas1') canvasEl1 : ElementRef;
-@ViewChild('canvas2') canvasEl2 : ElementRef;
-@ViewChild('canvas3') canvasEl3 : ElementRef;
-@ViewChild('canvas4') canvasEl4 : ElementRef;
+//@ViewChild('canvas') canvasEl : ElementRef;
+//@ViewChild('canvas1') canvasEl1 : ElementRef;
+////@ViewChild('canvas2') canvasEl2 : ElementRef;
+//@ViewChild('canvas3') canvasEl3 : ElementRef;
+//@ViewChild('canvas4') canvasEl4 : ElementRef;
 @ViewChild(Slides) slides : Slides;
 public skef:string = 'START LEARNING';
 state: string = 'x';
-private _CANVAS : any;
-private _CONTEXT : any;
+//private _CANVAS : any;
+//private _CONTEXT : any;
 
   constructor(public agtuts: AgtutsmongoProvider, public storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -51,7 +52,7 @@ private _CONTEXT : any;
       console.log('something\'s thingy shit when slidechanged');
     }
     
-    if (this.slideind==0){
+   /* if (this.slideind==0){
       
       
     }else if (this.slideind==1){
@@ -76,7 +77,7 @@ private _CONTEXT : any;
       this.drawNonlinear();
     }else{
       console.log('something\'s wrong daw');
-    }
+    }*/
   
   }
   animationDone() {
@@ -103,20 +104,35 @@ private _CONTEXT : any;
   //tang:any = [];
   //data:any = [];
   //datas: Observable<any>;
-  tutorials: any;
-
+ totos: any = [];
+  //datas = null;
+  //public etonas: string[];
+  
+  //pass = null;
+  //public num: number;
   ionViewDidLoad() {
     console.log('ionViewDidLoad TutorialmainPage');
-    this.agtuts.getTutorials().then((data) => {
-      console.log(data);
-      this.tutorials = data;
-    });
-   
+    this.totos = this.navParams.data;
+    //for ( var i = 0; i < this.totos.length; i++ ) {
+      //this.etonas[i] = this.totos[i];
+    // console.log(this.etona[i]);
+    //}
   }
 
 
+  
  
-
+  /*loadData(){
+    this.storage.get('tuts').then((val) => {
+      if(val!=null && val !=undefined){
+        this.tutorials = JSON.parse(val);
+        //console.log(this.conts);
+      }else{
+        console.log('omg undefined huhu');
+      }
+    });
+  }*/
+/*
 
 
 public CenterX: number;
@@ -373,7 +389,7 @@ public canvalX:number;
   if (num==0){
 
   }else if (num==1){
-    this._CANVAS 	    = this.canvasEl.nativeElement;
+    //this._CANVAS 	    = this.canvasEl.nativeElement;
   }
   else if (num==2){
     this._CANVAS 	    = this.canvasEl1.nativeElement;
@@ -408,7 +424,7 @@ clearCanvas()
 {
    this._CONTEXT.clearRect(0, 0, this._CANVAS.width, this._CANVAS.height);
    this.setupCanvas();
-}
+}*/
 skip(){
     this.navCtrl.push(CirdefinePage);
 }

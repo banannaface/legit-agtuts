@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -10,13 +10,13 @@ export class AgtutsmongoProvider {
     this.data = null;
   }
   
-  getTutorials(){
+  getTutorials(str: string){
     if (this.data) {
       return Promise.resolve(this.data);
     }
-
+//https://desolate-eyrie-84948.herokuapp.com/api/tutorials
     return new Promise(resolve => {
-      this.http.get('https://desolate-eyrie-84948.herokuapp.com/api/tutorials').map(res => res.json()).subscribe(data => {
+      this.http.get('http://localhost:5000/api/'+str).map(res => res.json()).subscribe(data => {
         this.data = data;
         resolve(this.data);
       });
@@ -29,7 +29,7 @@ export class AgtutsmongoProvider {
     }
 
     return new Promise(resolve => {
-      this.http.get('https://desolate-eyrie-84948.herokuapp.com/api/quiz').map(res => res.json()).subscribe(data => {
+      this.http.get('http://localhost:5000/api/quiz').map(res => res.json()).subscribe(data => {
         this.data = data;
         resolve(this.data);
       });

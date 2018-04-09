@@ -2,10 +2,10 @@ import { Component, ViewChild, trigger, transition, style, state, animate, keyfr
 import { IonicPage, NavController, NavParams, Slides, ToastController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { Subscription } from 'rxjs/Subscription';
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
 //import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 import { TutorialmainPage } from '../tutorialmain/tutorialmain';
 import { GraphcirPage } from '../graphcir/graphcir';
 import { SolvePage } from '../solve/solve';
@@ -51,9 +51,9 @@ export class TutorialsPage {
 
   connected: Subscription;
   disconnected: Subscription;
-  tut: Observable<any>
+  //tut: Observable<any>
   //public http: HttpClient
-  constructor(public http: Http, public storage: Storage, public agtutsmongo: AgtutsmongoProvider, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public agtuts: AgtutsmongoProvider, public storage: Storage, public agtutsmongo: AgtutsmongoProvider, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
   
   }
 
@@ -74,7 +74,8 @@ export class TutorialsPage {
     this.disconnected.unsubscribe();
   }
 
-  
+  tutorials: any = [];
+  totos:any = [];
   /*data:any = [];
   url:string = 'http://localhost:5000/defpar';
   
@@ -101,9 +102,7 @@ export class TutorialsPage {
         message: `you are ${connstate} via ${netype}.`,
         duration: 3000
       }).present();
-     // this.getalltuts();
-     // this.savealltuts();
-
+     
       //do the 8.5 saving data blabla tutorial on server.js thingies
       //tas download sa local storage ng phone ang json file then load it.
     }else if (num==2){
@@ -114,7 +113,33 @@ export class TutorialsPage {
     }
     
   }
+ 
+  getsaveloadData(str:string){
+    this.agtuts.getTutorials(str).then((data) => {
+      console.log('gettuts');
+      this.tutorials = data;
+      
+      console.log('savetuts');
+      this.storage.set('tuts', JSON.stringify(this.tutorials));
+      //console.log(JSON.stringify(this.tutorials));
 
+      console.log('loadtuts');
+      this.storage.get('tuts').then((val) => {
+        if(val != null && val != undefined){
+          this.totos = JSON.parse(val);
+          //console.log(this.totos);
+          
+        }else{
+          console.log('omg undefined huhu');
+        }
+      });
+    });
+
+  }
+  
+  
+  
+ 
   public slideind:number=0;
 
   slideChanged(){
@@ -149,7 +174,7 @@ export class TutorialsPage {
 
   skip(){
     if (this.slideind==0){
-      this.navCtrl.push(TutorialmainPage);
+      this.navCtrl.push(TutorialmainPage, this.totos);
       
     }else if (this.slideind==1){
       this.navCtrl.push(GraphcirPage);
@@ -196,6 +221,7 @@ export class TutorialsPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad TutorialsPage');
+    this.getsaveloadData('intall');
    
   }
  
