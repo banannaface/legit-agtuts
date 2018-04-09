@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { AgtutsmongoProvider } from './../../providers/agtutsmongo/agtutsmongo';
 
 
 import { TutorialmainPage } from '../tutorialmain/tutorialmain';
@@ -16,9 +16,9 @@ import { EllsolvePage } from '../ellsolve/ellsolve';
 import { HypdefinePage } from '../hypdefine/hypdefine';
 import { HypgraphPage } from '../hypgraph/hypgraph';
 import { HypsolvePage } from '../hypsolve/hypsolve';
-import { NondefinePage } from '../nondefine/nondefine';
-import { NongraphPage } from '../nongraph/nongraph';
-import { NonsolvePage } from '../nonsolve/nonsolve';
+//import { NondefinePage } from '../nondefine/nondefine';
+//import { NongraphPage } from '../nongraph/nongraph';
+//import { NonsolvePage } from '../nonsolve/nonsolve';
 /**
  * Generated class for the TocPage page.
  *
@@ -33,46 +33,46 @@ import { NonsolvePage } from '../nonsolve/nonsolve';
 })
 export class TocPage {
   
-  pages: Array<{title:string, component:any}>;
-  cpages: Array<{title:string, component:any}>;
-  ppages: Array<{title:string, component:any}>;
-  epages: Array<{title:string, component:any}>;
-  hpages: Array<{title:string, component:any}>;
-  npages: Array<{title:string, component:any}>;
+  pages: Array<{title:string, component:any, wtf: any}>;
+  cpages: Array<{title:string, component:any, wtf: any}>;
+  ppages: Array<{title:string, component:any, wtf: any}>;
+  epages: Array<{title:string, component:any, wtf: any}>;
+  hpages: Array<{title:string, component:any, wtf: any}>;
+  npages: Array<{title:string, component:any, wtf: any}>;
   activePage: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public agtuts: AgtutsmongoProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.pages = [
-      {title: "Introduction", component:TutorialmainPage},
+      {title: "Introduction", component:TutorialmainPage, wtf:this.agtuts.totos},
     ];
     this.cpages = [
-      {title: "Defining Circle", component:CirdefinePage},
-      {title: "Graphing Circle", component:CirgraphPage},
-      {title: "Solving Circle", component:CirsolvePage}
+      {title: "Defining Circle", component:CirdefinePage, wtf:this.agtuts.defcirs},
+      {title: "Graphing Circle", component:CirgraphPage, wtf:''},
+      {title: "Solving Circle", component:CirsolvePage, wtf:this.agtuts.solcirs}
     ];
 
     this.ppages = [
-      {title: "Defining Parabola", component:PardefinePage},
-      {title: "Graphing Parabola", component:PargraphPage},
-      {title: "Solving Parabola", component:ParsolvePage}
+      {title: "Defining Parabola", component:PardefinePage, wtf:this.agtuts.defpars},
+      {title: "Graphing Parabola", component:PargraphPage, wtf:''},
+      {title: "Solving Parabola", component:ParsolvePage, wtf:this.agtuts.solpars}
     ];
 
     this.epages = [
-      {title: "Defining Ellipse", component:ElldefinePage},
-      {title: "Graphing Ellipse", component:EllgraphPage},
-      {title: "Solving Ellipse", component:EllsolvePage}
+      {title: "Defining Ellipse", component:ElldefinePage, wtf:this.agtuts.defells},
+      {title: "Graphing Ellipse", component:EllgraphPage, wtf:''},
+      {title: "Solving Ellipse", component:EllsolvePage, wtf:this.agtuts.solells}
     ];
 
     this.hpages = [
-      {title: "Defining Hyperbola", component:HypdefinePage},
-      {title: "Graphing Hyperbola", component:HypgraphPage},
-      {title: "Solving Hyperbola", component:HypsolvePage}
+      {title: "Defining Hyperbola", component:HypdefinePage, wtf:this.agtuts.defhyps},
+      {title: "Graphing Hyperbola", component:HypgraphPage, wtf:''},
+      {title: "Solving Hyperbola", component:HypsolvePage, wtf:this.agtuts.solhyps}
     ];
 
-    this.npages = [
-      {title: "Defining Non-linear Equations", component:NondefinePage},
-      {title: "Graphing Non-linear Equations", component:NongraphPage},
-      {title: "Solving Non-linear Equations", component:NonsolvePage}
-    ];
+    /*this.npages = [
+      {title: "Defining Non-linear Equations", component:NondefinePage, wtf:this.agtuts.totos},
+      {title: "Graphing Non-linear Equations", component:NongraphPage, wtf:this.agtuts.totos},
+      {title: "Solving Non-linear Equations", component:NonsolvePage, wtf:this.agtuts.totos}
+    ];*/
     
 
   }
@@ -81,7 +81,7 @@ export class TocPage {
     console.log('ionViewDidLoad TocPage');
   }
   openPage(page){
-    this.navCtrl.push(page.component);
+    this.navCtrl.push(page.component, page.wtf);
     this.activePage = page;
   }
 

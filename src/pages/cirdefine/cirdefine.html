@@ -26,12 +26,12 @@
       </div>
 
       <div text-justify class="divmar" [@bounce]='state'>
-        <p>
-        &emsp;In algebraic terms, a circle is the set of points (x, y) at some fixed distance (r) from some fixed point (h, k). 
+        <p>{{defcirs && defcirs[0]?.content}}
+        <!--&emsp;In algebraic terms, a circle is the set of points (x, y) at some fixed distance (r) from some fixed point (h, k). 
         The value of r is called the <i>"radius"</i> of the circle, and the point (h, k) is called the <i>"center"</i> of the circle.
         Circle may also be considered a special kind of ellipse.
         <br>&emsp;Twice the radius = <i>Diameter</i>
-        <br>&emsp;Perimeter = <i>&emsp;Circumference.</i>
+        <br>&emsp;Perimeter = <i>&emsp;Circumference.</i>-->
         </p>
       </div>
       <div text-left [@bounce]='state'>
@@ -47,8 +47,8 @@
         </ion-row>
         <ion-row no-padding>
           <ion-col col-1></ion-col>
-          <ion-col col-10><p>This means that if diameter is 1 then circumference is 3.14, which is pi (&pi;).<br>
-            That is why circumference is 2r&pi;, since diameter = 2r.</p></ion-col>
+          <ion-col col-10><p>{{defcirs && defcirs[1]?.content}}<!--This means that if diameter is 1 then circumference is 3.14, which is pi (&pi;).<br>
+            That is why circumference is 2r&pi;, since diameter = 2r.--></p></ion-col>
           <ion-col col-1></ion-col>
         </ion-row>
       </div>
@@ -59,9 +59,9 @@
         <img src="assets/images/tutcircle.png" class="imagus" alt="circle">
       </div>
       <div text-justify class = "divmar" [@bounce]='state'>
-        <p>
-        &emsp;The figure above has center at C(h, k) and radius is more than 0. A point P(x, y) is on the circle if and only if
-        line PC= r. For any such point then, its coordinates should satisfy the following:
+        <p>{{defcirs && defcirs[2]?.content}}
+        <!--&emsp;The figure above has center at C(h, k) and radius is more than 0. A point P(x, y) is on the circle if and only if
+        line PC= r. For any such point then, its coordinates should satisfy the following:-->
         </p>
       </div>
 
@@ -89,9 +89,9 @@
           <strong>(x-h)<sup>2</sup> + (y-k)<sup>2</sup> = r<sup>2</sup></strong>
       </div>
       <div class="divmar sfont" text-justify [@bounce]='state' (@bounce.done)="animationDone()">
-        <p><br>
-          This is the <b>Standard Equation</b> of a circle with center at (h,k) and radius r. (aka center-radius form)
-          <br>If the center is at the origin then h=0 and k=0. &emsp;The standard equation is then,</p>
+        <p><br>{{defcirs && defcirs[3]?.content}}
+          <!--This is the <b>Standard Equation</b> of a circle with center at (h,k) and radius r. (aka center-radius form)
+          <br>If the center is at the origin then h=0 and k=0. &emsp;The standard equation is then,--></p>
       </div>
       <div class="divmar sfont" text-center [@bounce]='state'>
         <ion-row no-padding>
@@ -101,7 +101,7 @@
           </ion-row>
       </div>
       <div class="divmar sfont" text-justify [@bounce]='state'>
-         <p> &emsp;The standard Equation of a circle with center at (5,-6) and a radius of 6 would be,</p>
+         <p> {{defcirs && defcirs[4]?.content}}<!--&emsp;The standard Equation of a circle with center at (5,-6) and a radius of 6 would be,--></p>
       </div>
       <div class="divmar sfont" text-center [@bounce]='state'>
         <ion-row no-padding>
@@ -111,7 +111,7 @@
         </ion-row>
       </div>
       <div class="divmar sfont" [@bounce]='state' text-justify>
-          <p>&emsp;After expanding the standard equation, it can be written as,</p>
+          <p>{{defcirs && defcirs[5]?.content}}<!--&emsp;After expanding the standard equation, it can be written as,--></p>
       </div>
       <div class="divmar" [@bounce]='state' text-center>
         <ion-row no-padding>
@@ -119,7 +119,7 @@
         </ion-row>
       </div>
       <div class="divmar sfont" [@bounce]='state' text-center>
-          <p>&emsp;This is an equation in general form.</p>
+          <p>{{defcirs && defcirs[6]?.content}}<!--&emsp;This is an equation in general form.--></p>
       </div><br>
       <div class="divmar sfont" [@bounce]='state' text-center>
         <ion-row no-padding>
@@ -136,11 +136,11 @@
       
     <ion-slide>
       <div class="divmar afont" [@bounce]='state' (@bounce.done)="animationDone()">
-        <b>Using General Equation to determine Standard Equation</b>
+        <b>{{defcirs && defcirs[7]?.content}}<!--Using General Equation to determine Standard Equation--></b>
       </div><br>
 
       <div class="divmar sfont" text-justify [@bounce]='state'>
-        We can determine the standard equation by completing the square of both variables of the general equation.
+        {{defcirs && defcirs[8]?.content}}<!--We can determine the standard equation by completing the square of both variables of the general equation.-->
         <br><b>Example&emsp; <i>x<sup>2</sup> + y<sup>2</sup> - 10x + 12y + 25 = 0</i></b>
       </div><br>
       <div text-left class="expar divmar sfont" [@bounce]='state'>

@@ -1,6 +1,10 @@
 import { Component, ViewChild, trigger, transition, style, state, animate, keyframes } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, AlertController } from 'ionic-angular';
 import { CirgraphPage } from '../cirgraph/cirgraph';
+import { Storage } from '@ionic/storage';
+import { AgtutsmongoProvider } from './../../providers/agtutsmongo/agtutsmongo';
+
+
 /**
  * Generated class for the CirdefinePage page.
  *
@@ -35,12 +39,17 @@ export class CirdefinePage {
   @ViewChild(Slides) slides : Slides;
   state: string = 'x';
   public slideind:number=0;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  tutordc: any = [];
+  constructor(public agtuts: AgtutsmongoProvider, public storage: Storage, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
-
+  defcirs: any = [];
   ionViewDidLoad() {
     console.log('ionViewDidLoad CirgraphPage');
+    //this.loadData('defcir');
+    this.defcirs = this.navParams.data;
+
+    console.log(this.agtuts.defcirs);
+    
   }
 
   slideChanged(){
@@ -104,4 +113,55 @@ export class CirdefinePage {
     });
     alert.present();
   }
+
+/*  getsaveData(str:string){
+    console.log(str);
+    this.agtuts.getTutorials(str).then((data) => {
+      console.log('gettuts');
+      this.tutordc = data;
+      console.log(this.tutordc);
+
+      console.log('savetuts');
+      this.storage.set(str, JSON.stringify(this.tutordc));
+      console.log(JSON.stringify(this.tutordc));
+      
+      this.loadData(str);
+    });
+    
+  }
+
+  loadData(stri: string){
+    console.log('loadtuts');
+    console.log(stri);
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+          if (stri == 'intall'){
+            this.agtuts.totos = JSON.parse(val);
+          }else if (stri == 'defcir'){
+            this.agtuts.defcira = JSON.parse(val);
+          }else if (stri == 'solcir'){
+            this.agtuts.solcira = JSON.parse(val);
+          }else if (stri == 'defpar'){
+            this.agtuts.defpara = JSON.parse(val);
+          }else if (stri == 'solpar'){
+            this.agtuts.solpara = JSON.parse(val);
+          }else if (stri == 'defell'){
+            this.agtuts.defella = JSON.parse(val);
+          }else if (stri == 'solell'){
+            this.agtuts.solella = JSON.parse(val);
+          }else if (stri == 'defhyp'){
+            this.agtuts.defhypa = JSON.parse(val);
+          }else if (stri == 'solhyp'){
+            this.agtuts.solhypa = JSON.parse(val);
+          }
+          
+          console.log(val);
+          
+        }else{
+          console.log('omg undefined huhu');
+        }
+      });
+  }*/
+
+
 }

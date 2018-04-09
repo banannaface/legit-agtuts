@@ -5,6 +5,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AgtutsmongoProvider {
 
+  public totos:any = [];
+  public defcirs:any = [];
+  public solcirs:any = [];
+  public defpars:any = [];
+  public solpars:any = [];
+  public defells:any = [];
+  public solells:any = [];
+  public defhyps:any = [];
+  public solhyps:any = [];
+
+
   data: any;
   constructor(public http: Http) {
     this.data = null;
@@ -16,7 +27,7 @@ export class AgtutsmongoProvider {
     }
 //https://desolate-eyrie-84948.herokuapp.com/api/tutorials
     return new Promise(resolve => {
-      this.http.get('http://localhost:5000/api/'+str).map(res => res.json()).subscribe(data => {
+      this.http.get('https://desolate-eyrie-84948.herokuapp.com/api/'+str).map(res => res.json()).subscribe(data => {
         this.data = data;
         resolve(this.data);
       });

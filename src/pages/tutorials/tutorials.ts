@@ -53,20 +53,24 @@ export class TutorialsPage {
   disconnected: Subscription;
   //tut: Observable<any>
   //public http: HttpClient
-  constructor(public agtuts: AgtutsmongoProvider, public storage: Storage, public agtutsmongo: AgtutsmongoProvider, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public agtuts: AgtutsmongoProvider, public storage: Storage, private toast: ToastController, private network: Network, public navCtrl: NavController, public navParams: NavParams) {
   
   }
+//public costate: string;
+//public nom: number;
 
   ionViewDidEnter(){
     this.connected = this.network.onConnect().subscribe(data => {
       console.log(data);
       this.networkupdate(data.type, 1);
+      
+      //this.loadData();
     }, error => console.error(error));
     this.disconnected = this.network.onDisconnect().subscribe(data => {
       console.log(data);
       this.networkupdate(data.type, 2);
     }, error => console.error(error));
-
+    
   }
 
   ionViewWillLeave(){
@@ -75,7 +79,8 @@ export class TutorialsPage {
   }
 
   tutorials: any = [];
-  totos:any = [];
+  defcc: any = [];
+  
   /*data:any = [];
   url:string = 'http://localhost:5000/defpar';
   
@@ -113,28 +118,35 @@ export class TutorialsPage {
     }
     
   }
- 
-  getsaveloadData(str:string){
-    this.agtuts.getTutorials(str).then((data) => {
+
+  getsaveData(){
+    //intall
+      this.agtuts.getTutorials('intall').then((data) => {
       console.log('gettuts');
       this.tutorials = data;
-      
-      console.log('savetuts');
-      this.storage.set('tuts', JSON.stringify(this.tutorials));
-      //console.log(JSON.stringify(this.tutorials));
+      //console.log(this.tutorials);
 
-      console.log('loadtuts');
-      this.storage.get('tuts').then((val) => {
-        if(val != null && val != undefined){
-          this.totos = JSON.parse(val);
-          //console.log(this.totos);
-          
-        }else{
-          console.log('omg undefined huhu');
-        }
-      });
+      console.log('savetuts');
+      this.storage.set('intall', JSON.stringify(this.tutorials));
+      //console.log(JSON.stringify(this.tutorials));
+      
+      this.loadData('intall');
     });
 
+
+    //defcir
+    this.agtuts.getTutorials('defcir').then((data) => {
+      console.log('gettutsdc');
+      this.defcc = data;
+      //console.log(this.defcc);
+
+      console.log('savetutsdc');
+      this.storage.set('defcir', JSON.stringify(this.defcc));
+      //console.log(JSON.stringify(this.defcc));
+      
+      this.loadData('defcir');
+    });
+    
   }
   
   
@@ -174,7 +186,7 @@ export class TutorialsPage {
 
   skip(){
     if (this.slideind==0){
-      this.navCtrl.push(TutorialmainPage, this.totos);
+      this.navCtrl.push(TutorialmainPage, this.agtuts.totos);
       
     }else if (this.slideind==1){
       this.navCtrl.push(GraphcirPage);
@@ -219,10 +231,116 @@ export class TutorialsPage {
     }
     
   }
+
+  loadData(stri: string){
+    console.log('loadtuts');
+    console.log(stri);
+    if (stri == 'intall'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         this.agtuts.totos = JSON.parse(val);
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+    }else if (stri == 'defcir'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         this.agtuts.defcirs = JSON.parse(val);
+
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }else if (stri == 'solcir'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+          this.agtuts.solcirs = JSON.parse(val);
+
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+     
+    }else if (stri == 'defpar'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         
+          this.agtuts.defpars = JSON.parse(val);
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }else if (stri == 'solpar'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         this.agtuts.solpars = JSON.parse(val);
+
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }else if (stri == 'defell'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         
+        this.agtuts.defells = JSON.parse(val);
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }else if (stri == 'solell'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         
+        this.agtuts.solells = JSON.parse(val);
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }else if (stri == 'defhyp'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         
+          this.agtuts.defhyps = JSON.parse(val);
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }else if (stri == 'solhyp'){
+      this.storage.get(stri).then((val) => {
+        if(val != null && val != undefined){
+         
+          this.agtuts.solhyps = JSON.parse(val);
+        }else{
+          console.log('omg undefined huhu' + stri);
+        }
+      });
+      
+    }
+    
+      
+  }
+  /*setdt(str: string, nom: number){
+    if (str=='connected'){
+      this.costate = str;
+      this.nom = 1;
+    }else if(str='disconnected'){}
+      this.costate = str;
+      this.nom = 2;
+    }
+  }*/
   ionViewDidLoad() {
     console.log('ionViewDidLoad TutorialsPage');
-    this.getsaveloadData('intall');
-   
+    
+    this.getsaveData();
+
   }
  
 }

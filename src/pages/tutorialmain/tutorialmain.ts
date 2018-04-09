@@ -104,7 +104,7 @@ state: string = 'x';
   //tang:any = [];
   //data:any = [];
   //datas: Observable<any>;
- totos: any = [];
+  totos: any = [];
   //datas = null;
   //public etonas: string[];
   
