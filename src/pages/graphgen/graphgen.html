@@ -14,25 +14,16 @@
 
 
 <ion-content padding>
-  <h3>Ax<sup>2</sup> + By<sup>2</sup> + Cx + Dy + E = 0</h3>
-  <ion-list>
-    <ion-item>
-      <ion-label color="primary" type="number" floating>A value</ion-label>
-      <ion-input [(ngModel)]="Ainput"></ion-input>
-    </ion-item>
-    <ion-item><ion-label color="primary" type="number" floating>B value</ion-label>
-      <ion-input [(ngModel)]="Binput"></ion-input>
-    </ion-item>
-    <ion-item><ion-label color="primary" type="number" floating>C value</ion-label>
-      <ion-input [(ngModel)]="Cinput"></ion-input>
-    </ion-item>
-    <ion-item><ion-label color="primary" type="number" floating>D value</ion-label>
-      <ion-input [(ngModel)]="Dinput"></ion-input>
-    </ion-item>
-    <ion-item><ion-label color="primary" type="number" floating>E value</ion-label>
-      <ion-input [(ngModel)]="Einput"></ion-input>
-    </ion-item>
-  </ion-list>
-  
+  <div style="font-size: 17px">
+    <ion-row text-center no-padding>
+      <ion-col col-2 (click)="aval()">{{aaval2}}x<sup>2</sup></ion-col>
+      <ion-col col-2 (click)="bval()">{{bbval2}}y<sup>2</sup></ion-col>
+      <ion-col col-2 (click)="cval()">{{ccval2}}x</ion-col>
+      <ion-col col-2 (click)="dval()">{{ddval2}}y</ion-col>
+      <ion-col col-2 (click)="eval()">{{eeval2}}</ion-col>
+      <ion-col col-2>=0</ion-col>
+          
+    </ion-row>
+  </div>
   <button ion-button full outline (click)="submit()">Submit &rarr;</button>
 </ion-content>

@@ -1,3 +1,41 @@
 page-help {
+    .imagus{
+        margin: auto;
+        border: 1px solid;
+        display: block;
+        //width: 100%;
+        border-color: color($colors, primary);
+    }
+       
+    .bgcolor{
+        background-color: #424141;
+    }
+    .whity{
+        background-color: #ffffff;
+    }
+    .divmar{
+          margin: 10px 10px 10px 10px;
+    }
+    h1{
+        color: color($colors, primary);
+        font-size: 1.5em;
+    }
 
+    p{
+        display: block;
+        margin: 0 auto;
+        font-size: 15px;
+    }
+    .swiper-pagination-bullet-active{
+        background: color($colors, primary);
+
+    }
+    .figure{
+        display: block;
+        margin: 0 auto;
+        font-size: 12px;
+    }
+    .swiper-pagination{
+        bottom: 3% !important;
+    }
 }

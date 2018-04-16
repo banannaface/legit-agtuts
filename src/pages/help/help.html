@@ -19,6 +19,37 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="bgcolor">
+  <ion-slides class='whity' pager (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+        <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+          <h1>Tutorials</h1>
+        </div>
+        <div class="divmar" [@bounce]='state'>
+          <p>
+            Two buttons will be able to lead you to the tutorials page. One is in the main menu and the
+            other is in the side menu.
+          </p><br>
+           
+          <img src="assets/images/2.1.jpg" class="center imagus" alt="tutorial button" width="200" height="80">
+
+          <p class="figure"><i>The start learning button in the main menu.</i></p>
+        </div>
+    </ion-slide>
+
+    <ion-slide>
+        <div class="divmar" [@bounce]='state' (@bounce.done)="animationDone()">
+          <h1>Tutorials</h1>
+        </div>
+        <div class="divmar" [@bounce]='state'>
+          <img src="assets/images/4.1.jpg" class="center imagus" alt="tutorial button" width="200" height="80">
+           <p class="figure">
+            <i>The Tutorials button on the side menu.</i>
+          </p><br>
+          <p>You will encounter three buttons in this page. The more, note and next lesson button.</p>
+        </div>
+    </ion-slide>
+  </ion-slides>
+
 
 </ion-content>

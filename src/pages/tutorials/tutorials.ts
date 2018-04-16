@@ -6,7 +6,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { Storage } from '@ionic/storage';
 //import { HttpClient } from '@angular/common/http';
 //import { Http } from '@angular/http';
-import { TutorialmainPage } from '../tutorialmain/tutorialmain';
+//import { TutorialmainPage } from '../tutorialmain/tutorialmain';
+import { TocPage } from '../toc/toc';
 import { GraphcirPage } from '../graphcir/graphcir';
 import { SolvePage } from '../solve/solve';
 import { QuizPage } from '../quiz/quiz';
@@ -58,8 +59,14 @@ export class TutorialsPage {
   }
 //public costate: string;
 //public nom: number;
+ionViewDidLoad() {
+  console.log('ionViewDidLoad TutorialsPage');
+  this.getsaveData();
+  
+  
 
-  ionViewDidEnter(){
+}
+ionViewDidEnter(){
     this.connected = this.network.onConnect().subscribe(data => {
       console.log(data);
       this.networkupdate(data.type, 1);
@@ -123,26 +130,32 @@ export class TutorialsPage {
     //intall
       this.agtuts.getTutorials('intall').then((data) => {
       console.log('gettuts');
-      this.tutorials = data;
-      //console.log(this.tutorials);
+      if (data != null && data !=undefined){
+        this.tutorials = data;
+        //console.log(this.tutorials);
 
-      console.log('savetuts');
-      this.storage.set('intall', JSON.stringify(this.tutorials));
-      //console.log(JSON.stringify(this.tutorials));
+        console.log('savetuts');
+        this.storage.set('intall', JSON.stringify(this.tutorials));
+        //console.log(JSON.stringify(this.tutorials));
+      }
+      
       
       this.loadData('intall');
     });
 
 
     //defcir
-    this.agtuts.getTutorials('defcir').then((data) => {
+    this.agtuts.getTutorials('defcir').then((data1) => {
       console.log('gettutsdc');
-      this.defcc = data;
-      //console.log(this.defcc);
+      if(data1 != null && data1 != undefined){
+        this.defcc = data1;
+        //console.log(this.defcc);
 
-      console.log('savetutsdc');
-      this.storage.set('defcir', JSON.stringify(this.defcc));
-      //console.log(JSON.stringify(this.defcc));
+        console.log('savetutsdc');
+        this.storage.set('defcir', JSON.stringify(this.defcc));
+        //console.log(JSON.stringify(this.defcc));
+      }
+      
       
       this.loadData('defcir');
     });
@@ -186,7 +199,7 @@ export class TutorialsPage {
 
   skip(){
     if (this.slideind==0){
-      this.navCtrl.push(TutorialmainPage, this.agtuts.totos);
+      this.navCtrl.push(TocPage);
       
     }else if (this.slideind==1){
       this.navCtrl.push(GraphcirPage);
@@ -336,11 +349,6 @@ export class TutorialsPage {
       this.nom = 2;
     }
   }*/
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TutorialsPage');
-    
-    this.getsaveData();
-
-  }
+  
  
 }
