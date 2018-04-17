@@ -6,13 +6,33 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>genpar</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Parabola General Form</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="divmaror">
+    <ion-item>
+      <ion-label>Axis of symmetry (vertical)</ion-label>
+      <ion-toggle [(ngModel)]="axsym" checked="true" (ionChange)="changeax(axsym)"></ion-toggle>
+    </ion-item>
+  </div>
+<div style="font-size: 20px ">
+    <ion-row text-center no-padding>
+      <ion-col col-3 (click)="aaval()">{{aval2}}{{gensq}}</ion-col>
+      <ion-col col-1><sup>2</sup></ion-col>
+      <ion-col col-2 (click)="ccval()">{{cval2}}x</ion-col>
+      <ion-col col-2 (click)="ddval()">{{dval2}}y</ion-col>
+      <ion-col col-2 (click)="eeval()">{{eval2}}</ion-col>
+      <ion-col col-2>= 0</ion-col>
+
+    </ion-row>
+  </div><br><br>
+  <div class="divmaror">
+    <button ion-button full outline (click)="submit()">Submit &rarr;</button>
+  </div>
 
 </ion-content>

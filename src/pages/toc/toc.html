@@ -53,11 +53,6 @@
         <button menuClose ion-item *ngFor="let p of hpages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
                 <h3>{{p.title}}</h3>
         </button>
-        <ion-list-header>
-            <h2>Non-linear Equations</h2>
-        </ion-list-header>
-        <button menuClose ion-item *ngFor="let p of npages" [class.activeHighlight]="checkActive(p)" (click)="openPage(p)">
-                <h3>{{p.title}}</h3>
-        </button>
+        
     </ion-list>
 </ion-content>

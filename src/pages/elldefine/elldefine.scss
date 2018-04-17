@@ -3,7 +3,7 @@ page-elldefine {
         margin: auto;
         border: 1px solid;
         //display: block;
-        border-color: #de691a;
+        border-color: color($colors, primary);
         width: 200px;
         height: 120px;
         
@@ -12,7 +12,7 @@ page-elldefine {
     margin: auto;
     border: 1px solid;
     //display: block;
-    border-color: #de691a;
+    border-color: color($colors, primary);
     width: 230px;
     height: 300px;
 }
@@ -37,11 +37,11 @@ page-elldefine {
         margin: 0px 0px 5px 0px;
     }
     h1{
-        color: #de691a;
+        color: color($colors, primary);
         font-size: 1.5em;
     }
     h3{
-        color: #de691a;
+        color: color($colors, primary);
         font-size: 1em;
     }
     p{
@@ -63,7 +63,7 @@ page-elldefine {
         font-size: 13px;
     }
     .swiper-pagination-bullet-active{
-        background: #de691a;
+        background: color($colors, primary);
     }
     .item {
         min-height: 3rem !important;

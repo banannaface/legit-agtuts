@@ -1,3 +1,109 @@
 page-hypdefine {
+    .imagus{
+        margin: auto;
+        border: 1px solid;
+        //display: block;
+        border-color: color($colors, primary);
+        width: 220px;
+        height: 400px;
+        
+  }
+  .imagus2{
+    margin: auto;
+    border: 1px solid;
+    //display: block;
+    border-color: color($colors, primary);
+    width: 300px;
+    height: 230px;
+}
+    .divstyle{
+       margin: 0px;
+       text-align: right;
+       align-items: flex-start;
+    }
+   .expar{
+    font-size: 11px;
+    }
+    .bgcolor{
+        background-color: #424141;
+    }
+    .whity{
+        background-color: #ffffff;
+    }
+    .divmar{
+        margin: 0px 10px 0px 10px;
+    }
+    .divmarul{
+        margin: 0px 0px 5px 0px;
+    }
+    h1{
+        color: color($colors, primary);
+        font-size: 1.5em;
+    }
+    h3{
+        color: color($colors, primary);
+        font-size: 1em;
+    }
+    p{
+        display: block;
+        margin: 0 auto;
+        font-size: 13px;
+    }
+    ion-col{
+        display: block;
+        margin: 0 auto;
+        font-size: 13px;
+    }
 
+    ion-label{
+        margin: 0px 0px 0px 0px;
+    }
+    ul{
+       
+        font-size: 13px;
+    }
+    .swiper-pagination-bullet-active{
+        background: color($colors, primary);
+    }
+    .item {
+        min-height: 3rem !important;
+    }
+    .swiper-pagination{
+        bottom: 2% !important;
+    }
+    .alert-button-font-size{
+        font-size: 15px;
+    }
+    .sfont{
+        font-size: 13px;
+    }
+    .afont{
+        font-size: 15px;
+    }
+    
+      .no-padding{
+          padding: 0px 0px 0px 0px;
+      }
+     
+     .list-md-margin-top{
+        margin-top: 0px !important;
+     }
+     .list-md-margin-bottom{
+        margin-bottom: 0px !important;
+     }
+     .list-ios-margin-top{
+        margin-top: 0px !important;
+     }
+     .list-ios-margin-bottom{
+        margin-bottom: 0px !important;
+     }
+     .label-md-margin-top{
+        margin-top: 0px;
+     }
+     .label-md-margin-bottom{
+         margin-bottom: 0px;
+     }
+    .iconsmall{
+        font-size: 20px;
+    }
 }

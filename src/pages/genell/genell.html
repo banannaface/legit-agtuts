@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>genell</ion-title>
+    <ion-title>Ellipse General Form</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,4 +15,25 @@
 
 <ion-content padding>
 
+<div class="divmaror">
+
+  <ion-item>
+    <ion-label>Major Axis (vertical)</ion-label>
+    <ion-toggle [(ngModel)]="axsym" (ionChange)="changeax(axsym)"></ion-toggle>
+  </ion-item>
+</div>
+<div style="font-size: 20px" align-items='center'>
+  <ion-row text-center no-padding>
+    <ion-col col-2 (click)="aaval()">{{aval2}}x<sup>2</sup></ion-col>
+    <ion-col col-2 (click)="bbval()">{{bval2}}y<sup>2</sup></ion-col>
+    <ion-col col-2 (click)="ccval()">{{cval2}}x</ion-col>
+    <ion-col col-3 (click)="ddval()">{{dval2}}y</ion-col>
+    <ion-col col-3 (click)="eeval()"> = {{eval2}}</ion-col>
+
+  </ion-row>
+</div>
+
+<div class="divmaror">
+  <button ion-button full outline (click)="submit()">Submit &rarr;</button>
+</div>
 </ion-content>
