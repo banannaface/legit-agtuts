@@ -43,14 +43,23 @@ page-quizcir {
     ion-label{
         margin: 0px 0px 0px 0px;
     }
+    #lastbutton{
+        //position: absolute;
+        bottom: 40px;
+        width: 100%;
+        background: color($colors, primary);
+        text-align: center;
+        cursor: pointer;
+        z-index: 5;
+    }
     .swiper-pagination-bullet-active{
-        background: #de691a;
+        background: color($colors, primary);
     }
     .item {
         min-height: 3rem !important;
     }
     .swiper-pagination{
-        bottom: 2% !important;
+        bottom: 10% !important;
     }
     .alert-button-font-size{
         font-size: 15px;

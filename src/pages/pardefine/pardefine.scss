@@ -3,7 +3,7 @@ page-pardefine {
         margin: auto;
         border: 1px solid;
         display: block;
-        border-color: #de691a;
+        border-color: color($colors, primary);
        
   }
     .divstyle{
@@ -24,11 +24,11 @@ page-pardefine {
         margin: 0px 10px 0px 10px;
     }
     h1{
-        color: #de691a;
+        color: color($colors, primary);
         font-size: 1.5em;
     }
     h3{
-        color: #de691a;
+        color:color($colors, primary);
         font-size: 1em;
     }
     ul{
@@ -37,6 +37,7 @@ page-pardefine {
     }
 
     p{
+        text-align: justify;
         display: block;
         margin: 0 auto;
         font-size: 13px;
@@ -51,7 +52,7 @@ page-pardefine {
         margin: 0px 0px 0px 0px;
     }
     .swiper-pagination-bullet-active{
-        background: #de691a;
+        background: color($colors, primary);
     }
     .item {
         min-height: 3rem !important;

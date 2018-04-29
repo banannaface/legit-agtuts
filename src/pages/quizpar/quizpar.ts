@@ -78,22 +78,63 @@ export class QuizparPage {
     }
   }
 
+  public right:number=0;
+  public wrong:number=0;
+  public what:string;
+
   showAlert(tit: string, stit: string) {
     let alert = this.alertCtrl.create({
       title: tit,
       subTitle: stit,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+      
+          handler: () => {
+            console.log('ok clicked');
+            this.what = 'okie';
+           
+          }
+        }
+      ]
     });
     alert.present();
+  
   }
 
   showAnswer(tit: string, stit: string) {
     let alert = this.alertCtrl.create({
       title: tit,
       subTitle: stit,
-      buttons: ['OK']
+      buttons: [
+        {
+          text: 'OK',
+      
+          handler: () => {
+            console.log('ok clicked');
+            this.what = 'okie';
+           
+          }
+        }
+      ]
     });
     alert.present();
+    alert.onDidDismiss(() => {
+      console.log('Yes/No', this.what);
+      if (this.what == 'okie'){
+        this.slides.slideNext();
+        var lasbut = document.getElementById("lastbutton");
+        
+        if ((this.slides.isEnd()==true)&&(this.right+this.wrong==this.slides.length())){
+          this.showAlert('Message','you got '+this.right+' right answer/s and '+this.wrong+' wrong answer/s.<br>Click the button below to proceed next.');
+          lasbut.style.display = 'block';
+        }else{
+          lasbut.style.display = 'none';
+        };
+      }
+    }
+
+    );
   }
 
   public num1:number=0;
@@ -106,6 +147,7 @@ export class QuizparPage {
       this.num1=1;
     }else{
       this.showAnswer("Question 1", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num1=1;
     }
   }
@@ -117,6 +159,7 @@ export class QuizparPage {
       this.num1=1;
     }else{
       this.showAnswer("Question 1", "You got it!");
+      this.right = this.right+1;
       this.num1=1;
     }
   }
@@ -128,6 +171,7 @@ export class QuizparPage {
       this.num1=1;
     }else{
       this.showAnswer("Question 1", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num1=1;
     }
   }
@@ -140,6 +184,7 @@ export class QuizparPage {
       this.num1=1;
     }else{
       this.showAnswer("Question 1", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num1=1;
     }
   }
@@ -151,6 +196,7 @@ export class QuizparPage {
       this.num2=1;
     }else{
       this.showAnswer("Question 2", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num2=1;
     }
   }
@@ -162,6 +208,7 @@ export class QuizparPage {
       this.num2=1;
     }else{
       this.showAnswer("Question 2", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num2=1;
     }
   }
@@ -173,6 +220,7 @@ export class QuizparPage {
       this.num2=1;
     }else{
       this.showAnswer("Question 2", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num2=1;
     }
   }
@@ -185,6 +233,7 @@ export class QuizparPage {
       this.num2=1;
     }else{
       this.showAnswer("Question 2", "You got it!");
+      this.right = this.right+1;
       this.num2=1;
     }
   }
@@ -196,6 +245,7 @@ export class QuizparPage {
       this.num3=1;
     }else{
       this.showAnswer("Question 3", "You got it!");
+      this.right = this.right+1;
       this.num3=1;
     }
   }
@@ -207,6 +257,7 @@ export class QuizparPage {
       this.num3=1;
     }else{
       this.showAnswer("Question 3", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num3=1;
     }
   }
@@ -218,6 +269,7 @@ export class QuizparPage {
       this.num3=1;
     }else{
       this.showAnswer("Question 3", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num3=1;
     }
   }
@@ -230,6 +282,7 @@ export class QuizparPage {
       this.num3=1;
     }else{
       this.showAnswer("Question 3", "Wrong Answer!");
+      this.wrong = this.wrong+1;
       this.num3=1;
     }
   }

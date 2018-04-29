@@ -1,6 +1,6 @@
 import { Component, ViewChild, trigger, transition, style, state, animate, keyframes } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, AlertController } from 'ionic-angular';
-import { EllsolvePage } from '../ellsolve/ellsolve';
+import { HypsolvePage } from '../hypsolve/hypsolve';
 /**
  * Generated class for the HypdefinePage page.
  *
@@ -50,7 +50,7 @@ export class HypdefinePage {
   }
 
   skip(){
-    this.navCtrl.push(EllsolvePage);
+    this.navCtrl.push(HypsolvePage);
   }
 
   animationDone() {
