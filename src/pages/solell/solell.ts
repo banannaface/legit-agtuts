@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { GlobalmethodsProvider } from '../../providers/globalmethods/globalmethods';
+import { CanvascomComponent } from '../../components/canvascom/canvascom';
 
 /**
  * Generated class for the SolellPage page.
@@ -20,7 +22,7 @@ export class SolellPage {
   public axis:boolean;
   public type:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public globalMeth:GlobalmethodsProvider, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -36,6 +38,7 @@ export class SolellPage {
     this.eval2='E';
     this.axis = false;
     this.type = 'stanor';
+    
   }
 
   public bval:number;
@@ -87,6 +90,41 @@ export class SolellPage {
   public wkfor2:string;
 
   public axform:string;
+
+  
+  public formula:string='Ellipse';
+  public origin:boolean;
+  public hinput:number;
+  public kinput:number;
+  public ainput:number;
+  public binput:number;
+  public major:boolean;
+  graph(){
+    if(this.axis==true){
+      this.major = false;
+
+    }else{
+      this.major = true;
+    }
+    let data = {
+      ma:this.major,
+      for: this.formula,
+      or:this.origin,
+      H:Number(this.hinput),
+      K:Number(this.kinput),
+      A:Number(this.ainput),
+      B:Number(this.binput)
+    }
+
+    this.globalMeth.conicsection = 'ellipse';
+    if (this.ainput<=0 || this.binput<=0){
+      this.globalMeth.presentAlertOkOnly('Error!','R should not be less than or equal to zero since it is a distance');
+    }else if(this.ainput<this.binput){
+      this.globalMeth.presentAlertOkOnly('Error!','a should always be more than b since 2a is the major axis while 2b is the minor axis.');
+    }else{
+      this.navCtrl.push(CanvascomComponent, data); 
+    }
+  }
 
   presentAlert(subtit:string) {
     let alert = this.alertCtrl.create({
@@ -357,6 +395,7 @@ export class SolellPage {
     var stanorisol = document.getElementById("stanorsol");
     var standsol = document.getElementById("stansol");
     var genesol = document.getElementById("gensol");
+    var graphbut = document.getElementById("graphbut");
 
     if(this.type=='stanor'){
       console.log(this.type+' type stanor');
@@ -406,6 +445,12 @@ export class SolellPage {
         this.horver = 'vertical';
         this.axform = 'x^2\'s denominator is smaller that y^2\'s which means it is b^2 and the major axis is vertical.';
 
+        this.origin = true;
+        this.hinput = this.hval;
+        this.kinput = this.kval;
+        this.ainput = this.a;
+        this.binput = this.b;
+
       }else{//horizontal a under x
 
         this.vh1 = 0-this.a;
@@ -440,6 +485,12 @@ export class SolellPage {
 
         this.horver = 'horizontal';
         this.axform = 'x^2\'s denominator is greater than y^2\'s which means it is a^2 and the major axis is horizontal.';
+        
+        this.origin = true;
+        this.hinput = this.hval;
+        this.kinput = this.kval;
+        this.ainput = this.a;
+        this.binput = this.b;
       }
       stanorisol.style.display = "block";
       standsol.style.display = "none";
@@ -495,6 +546,13 @@ export class SolellPage {
 
         this.horver = 'vertical';
         this.axform = 'x^2\'s denominator is smaller that y^2\'s which means it is b^2 and the major axis is vertical.';
+      
+        this.origin = false;
+        this.hinput = this.hval;
+        this.kinput = this.kval;
+        this.ainput = this.a;
+        this.binput = this.b;
+
       }else{//horizontal a under x
 
         
@@ -530,6 +588,12 @@ export class SolellPage {
 
         this.horver = 'horizontal';
         this.axform = 'x^2\'s denominator is greater than y^2\'s which means it is a^2 and the major axis is horizontal.';
+      
+        this.origin = false;
+        this.hinput = this.hval;
+        this.kinput = this.kval;
+        this.ainput = this.a;
+        this.binput = this.b;
       }
 
       stanorisol.style.display = "none";
@@ -622,6 +686,17 @@ export class SolellPage {
         this.horver = 'vertical';
         this.axform = 'x^2\'s denominator is smaller that y^2\'s which means it is b^2 and the major axis is vertical.';
 
+        if ((this.hval==0)&&(this.kval==0)){
+          this.origin = true;
+        }else{
+          this.origin = false;
+        }
+        
+        this.hinput = this.hval;
+        this.kinput = this.kval;
+        this.ainput = this.a;
+        this.binput = this.b;
+
       }else{//horizontal a under x
 
         this.vh1 = parseFloat(Number(+this.hval - +this.a).toFixed(2));
@@ -656,6 +731,17 @@ export class SolellPage {
         
         this.horver = 'horizontal';
         this.axform = 'x^2\'s denominator is greater than y^2\'s which means it is a^2 and the major axis is horizontal.';
+      
+        if ((this.hval==0)&&(this.kval==0)){
+          this.origin = true;
+        }else{
+          this.origin = false;
+        }
+        
+        this.hinput = this.hval;
+        this.kinput = this.kval;
+        this.ainput = this.a;
+        this.binput = this.b;
       }
 
       stanorisol.style.display = "none";
@@ -666,6 +752,8 @@ export class SolellPage {
 
       console.log(this.type+"sumthins wrong na naman.");
     }
+
+    graphbut.style.display = "block";
   }
 
 }

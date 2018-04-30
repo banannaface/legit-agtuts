@@ -55,6 +55,14 @@ export class GraphgenPage {
     });
     alert.present();
   }
+  showAlert(tit: string, stit: string) {
+    let alert = this.alertCtrl.create({
+      title: tit,
+      subTitle: stit,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
   presentPromptneg(xx:string, varr) {
     let alert = this.alertCtrl.create({
@@ -141,7 +149,9 @@ export class GraphgenPage {
     });
   }
 
-
+  note(){
+    this.showAlert('How to Use','tap the values (A, B, C, D, E) you want to change, then tap submit to display graph.');
+  }
 
   aval(){
     this.presentPromptneg("A value", "aaval");

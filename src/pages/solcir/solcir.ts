@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
-/**
- * Generated class for the SolcirPage page.
+import { GlobalmethodsProvider } from '../../providers/globalmethods/globalmethods';
+import { CanvascomComponent } from '../../components/canvascom/canvascom';
+/** 
+* Generated class for the SolcirPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -33,7 +34,7 @@ export class SolcirPage {
   public type:string = "stanor";
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public globalMeth:GlobalmethodsProvider, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -179,7 +180,19 @@ export class SolcirPage {
     });
   }
 
-
+  graph(){
+    let data = {
+      H:this.finalx,
+      K:this.finaly,
+      R:this.finalradius
+    }
+    this.globalMeth.conicsection = 'circle';
+    if (this.finalradius<=0){
+      this.globalMeth.presentAlertOkOnly('Error!','R should not be less than or equal to zero since it is a distance');
+    }else{
+      this.navCtrl.push(CanvascomComponent, data); 
+    }
+  }
 
   changety(typee){
 
@@ -306,7 +319,7 @@ export class SolcirPage {
     var stanorisol = document.getElementById("stanorsol");
     var standsol = document.getElementById("stansol");
     var genesol = document.getElementById("gensol");
-   
+    var graphbut = document.getElementById("graphbut");
     if (this.type=="stanor"){
       this.finalx = 0;
       this.finaly = 0;
@@ -396,6 +409,8 @@ export class SolcirPage {
     }else{
       console.log("sumthins wrong na naman.");
     }
+
+   graphbut.style.display = "block"; 
   }
 
 

@@ -33,7 +33,18 @@ export class GenparPage {
     });
     alert.present();
   }
+  note(){
+    this.showAlert('How to Use','tap the values (A, C, D, E) you want to change and input your own value, then tap submit to display graph.');
+  }
 
+  showAlert(tit: string, stit: string) {
+    let alert = this.alertCtrl.create({
+      title: tit,
+      subTitle: stit,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   public aval:number;
   public cval:number;
   public dval:number;

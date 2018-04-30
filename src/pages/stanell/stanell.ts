@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { CanvascomComponent } from '../../components/canvascom/canvascom';
 import { GlobalmethodsProvider } from '../../providers/globalmethods/globalmethods';
 /**
@@ -27,7 +27,7 @@ export class StanellPage {
   public h:number;
   public k:number;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public globalMeth:GlobalmethodsProvider) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public globalMeth:GlobalmethodsProvider) {
   }
 
   ionViewDidLoad() {
@@ -40,6 +40,17 @@ export class StanellPage {
     this.origin = false;
     this.formula = '((x-h)^2/'+this.a+'^2) + ((y-k)^2/'+this.b+'^2) = 1';
     
+  }
+  note(){
+    this.showAlert('How to Use','Input the values of center, a and b in the textbox below and use the toggle button to toggle the origin and major axis then tap \'submit\' to see graph.');
+  }
+  showAlert(tit: string, stit: string) {
+    let alert = this.alertCtrl.create({
+      title: tit,
+      subTitle: stit,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
+import { GlobalmethodsProvider } from '../../providers/globalmethods/globalmethods';
+import { CanvascomComponent } from '../../components/canvascom/canvascom';
 /**
  * Generated class for the SolparPage page.
  *
@@ -15,15 +16,16 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class SolparPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public globalMeth:GlobalmethodsProvider, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SolparPage');
-    this.rstr = 'y';
-    this.lstr = 'x';
+    this.rstr = 'x';
+    this.lstr = 'y';
     this.val4a = 4;
     this.type = 'stanor';
+    this.axis = false;
   }
 
   public type:string;
@@ -219,6 +221,33 @@ export class SolparPage {
       
     }
   }
+  public opening:boolean;
+  public formula:'Parabola';
+  public origin:boolean;
+  public hinput:number;
+  public kinput:number;
+  public cinput:number;
+  graph(){
+    let data = {
+      op: this.opening,
+      for: this.formula,
+      ax:this.axis,
+      or:this.origin,
+      H:Number(this.hinput),
+      K:Number(this.kinput),
+      C:Number(this.cinput)
+    }
+    
+    console.log(this.origin);
+    this.globalMeth.conicsection = 'parabola';
+    if (this.cinput<=0){
+      this.globalMeth.presentAlertOkOnly('Error!','C should not be less than or equal to zero since it is a distance');
+    }else{
+      this.navCtrl.push(CanvascomComponent, data); //.catch(() => this.globalMeth.presentAlertOkOnly('Error!','Please input valid numbers.'));
+    }
+   
+  
+  }
 
   val4p(){
     this.presentPromptneg("4a value", "4aval");
@@ -294,7 +323,8 @@ export class SolparPage {
     var stanorisol = document.getElementById("stanorsol");
     var standsol = document.getElementById("stansol");
     var genesol = document.getElementById("gensol");
-    
+    var graphbut = document.getElementById("graphbut");
+
     this.a = this.val4a/4
     if(this.type=='stanor'){
       this.vh= 0;
@@ -312,6 +342,12 @@ export class SolparPage {
           this.horver = 'vertical';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'upward';
+
+          this.opening = true;
+          this.origin = true;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a;
         }else{//downward
           this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens downward.';
           this.dirfor = 'y = 0 + |a|';
@@ -324,6 +360,12 @@ export class SolparPage {
           this.horver = 'vertical';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'downward';
+
+          this.opening = false;
+          this.origin = true;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a*-1;
         }
       }else{//horizontal ysquared
         if (this.a>0){//right
@@ -338,6 +380,12 @@ export class SolparPage {
           this.horver = 'horizontal';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'right';
+
+          this.opening = true;
+          this.origin = true;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a;
         }else{//left
           this.opexp = 'y-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens to the left.';
           this.dirfor = 'x = 0 + a';
@@ -350,6 +398,12 @@ export class SolparPage {
           this.horver = 'horizontal';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'left';
+
+          this.opening = false;
+          this.origin = true;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a*-1;
         }
       }
 
@@ -375,6 +429,12 @@ export class SolparPage {
           this.horver = 'vertical';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'upward';
+
+          this.opening = true;
+          this.origin = false;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a;
         }else{//downward
           this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens downward.';
           this.dirfor = 'y = k + |a|';
@@ -389,6 +449,12 @@ export class SolparPage {
           this.horver = 'vertical';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'downward';
+
+          this.opening = false;
+          this.origin = false;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a*-1;
         }
       }else{//horizontal ysquared
         if (this.a>0){//right
@@ -405,6 +471,12 @@ export class SolparPage {
           this.horver = 'horizontal';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'right';
+
+          this.opening = true;
+          this.origin = false;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a;
         }else{//left
           this.opexp = 'y-part is squared which means the parabola is horizontal and because 4a = '+this.val4a + ' which is negative, the parabola opens to the left.';
           this.dirfor = 'x = h + |a|';
@@ -419,6 +491,12 @@ export class SolparPage {
           this.horver = 'horizontal';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'left';
+
+          this.opening = false;
+          this.origin = false;
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a*-1;
         }
       }
 
@@ -487,6 +565,17 @@ export class SolparPage {
           this.horver = 'vertical';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'upward';
+
+          if((this.vh==0)&&(this.vk==0)){
+            this.origin = true;
+          }else{
+            this.origin = false;
+          }
+          this.opening = true;
+          
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a;
         }else{//downward
           this.opexp = 'x-part is squared which means the parabola is vertical and because 4a = '+this.val4a + ' which is negative, the parabola opens downward.';
           this.dirfor = 'y = k + |a|';
@@ -499,6 +588,17 @@ export class SolparPage {
           this.horver = 'vertical';
           this.direc = 'y = '+(this.vk-this.a);
           this.open = 'downward';
+
+          if((this.vh==0)&&(this.vk==0)){
+            this.origin = true;
+          }else{
+            this.origin = false;
+          }
+          this.opening = false;
+          
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a*-1;
         }
       }else{//horizontal ysquared
 
@@ -559,6 +659,18 @@ export class SolparPage {
           this.horver = 'horizontal';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'right';
+
+          if((this.vh==0)&&(this.vk==0)){
+            this.origin = true;
+          }else{
+            this.origin = false;
+          }
+          this.opening = true;
+          
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a;
+          console.log(this.cinput);
         }else{//left
           this.opexp = 'y-part is squared which means the parabola is horizontal and because 4a = '+this.val4a + ' which is negative, the parabola opens to the left.';
           this.dirfor = 'x = h + |a|';
@@ -571,6 +683,17 @@ export class SolparPage {
           this.horver = 'horizontal';
           this.direc = 'x = '+(this.vh-this.a);
           this.open = 'left';
+
+          if((this.vh==0)&&(this.vk==0)){
+            this.origin = true;
+          }else{
+            this.origin = false;
+          }
+          this.opening = false;
+          
+          this.hinput = this.vh;
+          this.kinput = this.vk;
+          this.cinput = this.a*-1;
         }
 
       }
@@ -582,6 +705,7 @@ export class SolparPage {
       console.log("sumthins wrong na naman.");
     }
       
+    graphbut.style.display = "block";
     
    
   }

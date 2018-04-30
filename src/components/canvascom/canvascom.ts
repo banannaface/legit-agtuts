@@ -239,14 +239,14 @@ public cpntX:number;
 public cpntY:number;
   drawParabola(h:number, k:number, c:number, fo:string, ax:boolean, or:boolean, op:boolean){
     let ctx = this.canvasElement.getContext('2d');
-    
+   // this.formula = fo;
     if ((ax==true)&&(or==true)&&(op==true)){//vertex origin, opening upward
-      this.spntX = -(Math.sqrt(4*c*15)*10) + this.totwidth/2;
-      this.spntY = this.totheight/2 - 150;
-      this.epntX = (Math.sqrt(4*c*15)*10) + this.totwidth/2;
-      this.epntY = this.totheight/2 - 150;
+      this.spntX = -(Math.sqrt(4*c*10)*10) + this.totwidth/2;
+      this.spntY = this.totheight/2 - 100;
+      this.epntX = (Math.sqrt(4*c*10)*10) + this.totwidth/2;
+      this.epntY = this.totheight/2 - 100;
       this.cpntX = 0 + this.totwidth/2;
-      this.cpntY = this.totheight/2 + 150;
+      this.cpntY = this.totheight/2 + 100;
       ctx.lineWidth = 2;
       ctx.strokeStyle = "#ffffff";
       ctx.beginPath();
@@ -265,12 +265,12 @@ public cpntY:number;
 
       
     }else if ((ax==true)&&(or==true)&&(op==false)){// vertex origin opening downward
-      this.spntX = -(Math.sqrt(4*c*15)*10) + this.totwidth/2;
-      this.spntY = this.totheight/2 + 150;
-      this.epntX = (Math.sqrt(4*c*15)*10) + this.totwidth/2;
-      this.epntY = this.totheight/2 + 150;
+      this.spntX = -(Math.sqrt(4*c*10)*10) + this.totwidth/2;
+      this.spntY = this.totheight/2 + 100;
+      this.epntX = (Math.sqrt(4*c*10)*10) + this.totwidth/2;
+      this.epntY = this.totheight/2 + 100;
       this.cpntX = 0 + this.totwidth/2;
-      this.cpntY = this.totheight/2 - 150;
+      this.cpntY = this.totheight/2 - 100;
       ctx.lineWidth = 2;
       ctx.strokeStyle = "#ffffff";
       ctx.beginPath();

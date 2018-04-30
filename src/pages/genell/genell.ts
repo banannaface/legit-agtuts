@@ -67,7 +67,18 @@ export class GenellPage {
     this.major = false;
     this.axis = false;
   }
+  note(){
+    this.showAlert('How to Use','tap the values (A, B, C, D, E) you want to change and input your own value. Use the toggle button to toggle the major axis between vertical or horizontal, then tap submit to display graph.');
+  }
 
+  showAlert(tit: string, stit: string) {
+    let alert = this.alertCtrl.create({
+      title: tit,
+      subTitle: stit,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
   changeax(axiss){
     this.axis = axiss;
    

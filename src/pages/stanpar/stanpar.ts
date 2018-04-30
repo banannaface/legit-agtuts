@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 //import { GraphPage } from '../graph/graph';
 import { GlobalmethodsProvider } from '../../providers/globalmethods/globalmethods';
 import { CanvascomComponent } from '../../components/canvascom/canvascom';
@@ -25,7 +25,7 @@ export class StanparPage {
   public formula:string="extra";
 
   public stropen:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public globalMeth:GlobalmethodsProvider) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public globalMeth:GlobalmethodsProvider) {
   }
 
   ionViewDidLoad() {
@@ -35,6 +35,18 @@ export class StanparPage {
     this.opening = false;
     this.stropen = 'Opening (right)';
     this.formula = '(y-k)^2'+' = 4c(x-h)';
+  }
+  note(){
+    this.showAlert('How to Use','Input the values of center and C in the textbox below and use the toggle button to toggle the origin, axis of symmetry and opening then tap \'submit\' to see graph.');
+  }
+
+  showAlert(tit: string, stit: string) {
+    let alert = this.alertCtrl.create({
+      title: tit,
+      subTitle: stit,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   submit(){
