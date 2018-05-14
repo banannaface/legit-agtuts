@@ -4,7 +4,7 @@ page-about {
         background-color:#9FCBE6;
     }
     .bg{
-        background-image: url('../assets/images/beach.jpg');
+        background-image: url('../assets/images/mathbg.jpg');
         height: 300px;
         background-size: cover;
         filter: blur(3px);
@@ -20,11 +20,12 @@ page-about {
 
     .dp{
         
-        height: 100px;
-        width: 100px;
+        height: 150px;
+        width: 150px;
         
 
         display: block;
+        margin-top: auto;
         margin-left: auto;
         margin-right: auto;
    

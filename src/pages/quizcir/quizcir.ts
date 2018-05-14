@@ -154,7 +154,7 @@ export class QuizcirPage {
       this.showAnswer("Question 1", "You already answered!");
       this.num1=1;
     }else{
-      this.showAnswer("Question 1", "Wrong Answer!");
+      this.showAnswer("Question 1", "Wrong Answer! The right answer is RADIUS.");
       this.wrong = this.wrong+1;
       this.num1=1;
     }
@@ -166,7 +166,7 @@ export class QuizcirPage {
       this.showAnswer("Question 1", "You already answered!");
       this.num1=1;
     }else{
-      this.showAnswer("Question 1", "Wrong Answer!");
+      this.showAnswer("Question 1", "Wrong Answer! The right answer is RADIUS.");
       this.wrong = this.wrong+1;
       this.num1=1;
     }
@@ -191,7 +191,7 @@ export class QuizcirPage {
       this.showAnswer("Question 1", "You already answered!");
       this.num1=1;
     }else{
-      this.showAnswer("Question 1", "Wrong Answer!");
+      this.showAnswer("Question 1", "Wrong Answer! The right answer is RADIUS.");
       this.wrong = this.wrong+1;
       this.num1=1;
     }

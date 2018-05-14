@@ -239,7 +239,7 @@ public cpntX:number;
 public cpntY:number;
   drawParabola(h:number, k:number, c:number, fo:string, ax:boolean, or:boolean, op:boolean){
     let ctx = this.canvasElement.getContext('2d');
-   // this.formula = fo;
+  
     if ((ax==true)&&(or==true)&&(op==true)){//vertex origin, opening upward
       this.spntX = -(Math.sqrt(4*c*10)*10) + this.totwidth/2;
       this.spntY = this.totheight/2 - 100;
@@ -250,7 +250,6 @@ public cpntY:number;
       ctx.lineWidth = 2;
       ctx.strokeStyle = "#ffffff";
       ctx.beginPath();
-      //console.log(this.spntX+'  '+this.spntY+'  '+this.cpntX+'  '+this.cpntY+'  '+this.epntX+'  '+this.epntY);
       ctx.moveTo(this.spntX, this.spntY);
       ctx.quadraticCurveTo(this.cpntX, this.cpntY, this.epntX, this.epntY);
       ctx.stroke();
@@ -297,10 +296,6 @@ public cpntY:number;
       ctx.lineWidth = 2;
       ctx.strokeStyle = "#ffffff";
       ctx.beginPath();
-      //console.log(this.spntX+'  '+this.spntY+'  '+this.cpntX+'  '+this.cpntY+'  '+this.epntX+'  '+this.epntY);
-      //console.log(-Math.sqrt(4*c*(15 - k)));
-      //console.log(this.totheight/2+'  '+this.totwidth/2+'  '+Math.sqrt(4*c*(15-k))+'  '+(Math.sqrt(4*c*(15 - k))+h)+'  '+((Math.sqrt(4*c*(15 - k))+h)*10)+'  '+(10*(15+k)));
-      //console.log(h+'  '+k+'  '+c+'  '+this.cpntY+'  '+this.epntX+'  '+this.epntY);
       ctx.moveTo(this.spntX, this.spntY);
       ctx.quadraticCurveTo(this.cpntX, this.cpntY, this.epntX, this.epntY);
       ctx.stroke();
@@ -384,8 +379,6 @@ public cpntY:number;
       ctx.lineWidth = 2;
       ctx.strokeStyle = "#ffffff";
       ctx.beginPath();
-      //console.log(this.spntX+'  '+this.spntY+'  '+this.cpntX+'  '+this.cpntY+'  '+this.epntX+'  '+this.epntY);
-      //console.log((Math.sqrt(4*c*(15-h))+k)+'   '+(Math.sqrt(4*c*(15-h)))+'   '+4*c*(15-h));
       ctx.moveTo(this.spntX, this.spntY);
       ctx.quadraticCurveTo(this.cpntX, this.cpntY, this.epntX, this.epntY);
       ctx.stroke();
@@ -406,8 +399,6 @@ public cpntY:number;
       ctx.lineWidth = 2;
       ctx.strokeStyle = "#ffffff";
       ctx.beginPath();
-      //console.log(this.spntX+'  '+this.spntY+'  '+this.cpntX+'  '+this.cpntY+'  '+this.epntX+'  '+this.epntY);
-      //console.log((Math.sqrt(4*c*(15-h))+k)+'   '+(Math.sqrt(4*c*(15-h)))+'   '+4*c*(15-h));
       ctx.moveTo(this.spntX, this.spntY);
       ctx.quadraticCurveTo(this.cpntX, this.cpntY, this.epntX, this.epntY);
       ctx.stroke();
@@ -464,12 +455,10 @@ public cpntY:number;
       ctx.moveTo(this.totwidth/2+((h+a)*10), this.canvalY);//-a
       //ctx.moveTo(150,250);
       ctx.bezierCurveTo(plrx,plry,nlrx,plry,this.totwidth/2+((h-a)*10), this.canvalY);//end point is +a
-      //ctx.bezierCurveTo(150,150,250,150,250,250);
+     
       ctx.stroke();
       
       //below curve
-      //ctx.moveTo(150,250);
-      //ctx.bezierCurveTo(150,350,250,350,250,250);
       ctx.moveTo(this.totwidth/2+((h+a)*10), this.canvalY);
       ctx.bezierCurveTo(plrx,nlry,nlrx,nlry,this.totwidth/2+((h-a)*10), this.canvalY);
       ctx.stroke();
@@ -496,14 +485,13 @@ public cpntY:number;
       //left curve
       ctx.beginPath();
       ctx.moveTo(this.canvalX, this.totheight/2-((k+a)*10));//-a
-      //ctx.moveTo(150,250);
+  
       ctx.bezierCurveTo(nlrx,plry,nlrx,nlry,this.canvalX, this.totheight/2-((k-a)*10));//end point is +a
-      //ctx.bezierCurveTo(150,150,250,150,250,250);
+      
       ctx.stroke();
       
       //right curve
-      //ctx.moveTo(150,250);
-      //ctx.bezierCurveTo(150,350,250,350,250,250);
+   
       ctx.moveTo(this.canvalX, this.totheight/2-((k+a)*10));
       ctx.bezierCurveTo(plrx,plry,plrx,nlry,this.canvalX, this.totheight/2-((k-a)*10));
       ctx.stroke();
